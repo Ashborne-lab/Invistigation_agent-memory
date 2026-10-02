@@ -1,0 +1,34 @@
+{
+  "version": "lane-a-status-v1",
+  "date": "2026-10-01",
+  "work_packages": {
+    "A1": {"status": "done", "tests_default_seeds": 388, "artifacts": ["memory-prototype/memory_core", "memory-prototype/tests"]},
+    "A2": {"status": "done", "artifacts": ["memory-prototype/benchmark/realmodel"]},
+    "A3": {"status": "done_baseline_no_thresholds", "model_responses": 496, "cost_usd": 14.08, "holdout_scenarios": 12, "artifacts": ["memory-real-model-baseline-v1.md", "memory-real-model-baseline-tables.md", "memory-prototype/benchmark/results/realmodel"]},
+    "A4": {"status": "design_done_substance_incomplete", "entries": 92, "blocked_missing_repo": 7, "artifacts": ["memory-lifecycle-registry-v1.md", "memory-lifecycle-registry-v1.json", "memory-prototype/tools/registry_build.py"]},
+    "A5": {"status": "done_workspace_repos", "stores": 35, "artifacts": ["memory-legacy-erasure-census-v1.md"]},
+    "A6": {"status": "done", "attributes": 20, "artifacts": ["memory-predicate-ownership-v1.md"]},
+    "A7": {"status": "design_done_untested_on_pg", "artifacts": ["memory-postgres-design-v1.md"]},
+    "A8": {"status": "done_in_model", "restore_seeds": 2000, "artifacts": ["memory-restore-protocol-v1.md", "memory-prototype/memory_core/runtime/restore.py"]},
+    "A9": {"status": "done_with_models_and_probe", "catalog_tests": 48, "rules_probe_exposures": "14/15", "artifacts": ["memory-prototype/tests/adversarial", "memory-prototype/security_probe"]}
+  },
+  "lane_a_findings": ["LA-1 recorded-outcome replay", "LA-2 clause-level future markers", "LA-3 path merge ids", "LA-4 own-derivation idempotency", "LA-5 synchronous WORM for identity events", "LA-6 erasure dominates undo", "LA-7 seal re-verification on recovery", "LA-8 time-bounded replayable commands", "LA-9 retraction records", "LA-10 replay watermark", "LA-11 per-evidence claims", "LA-12 merge guards", "LA-13 anchors in pending turn", "LA-14 normaliser fallback to unverified", "LA-15 restatements in protocol", "LA-16 drop replacement retractions", "LA-17 time grammar gap (open)", "LA-18 canonical values", "LA-19 null valid_from = observed", "LA-20 clause split + same-message transition"],
+  "gates": {
+    "G-SEC": {"passed": false, "evidence": "security_probe 14/15 exposures on current rules file"},
+    "G-ERASE": {"passed": false, "evidence": "model-only; 7 registry entries blocked on missing repos"},
+    "G-CORE": {"passed": true, "evidence": "scripted benchmark reviewed config: no failures; blocking metrics pass; L1-real baseline recorded"},
+    "G-DR": {"passed": false, "evidence": "model-only; staging drills are Lane C"}
+  },
+  "dag": [
+    {"wp": "B0", "lane": "B", "ready": true, "depends_on": ["D1 (S0-1 only)"]},
+    {"wp": "B1", "lane": "B", "ready": "semantics_ready_ship_after_S0-1_S0-2_S0-5", "depends_on": ["B0", "A1"]},
+    {"wp": "B2", "lane": "B", "ready": "semantics_ready", "depends_on": ["B1", "C2", "D1"]},
+    {"wp": "B3", "lane": "B", "ready": "partial_in_workspace_stores", "depends_on": ["A4", "A5", "B0", "D4"]},
+    {"wp": "B4", "lane": "B", "ready": true, "depends_on": []},
+    {"wp": "B5", "lane": "B", "ready": true, "depends_on": ["B1", "A6"]},
+    {"wp": "C1", "lane": "C", "ready": "needs_infra_owner_and_rpo_rto", "depends_on": ["A7"]},
+    {"wp": "C2", "lane": "C", "ready": false, "depends_on": ["A1", "A3", "C1"]}
+  ],
+  "missing_repositories": ["olbrain-noesis-os", "olbrain-voice-gateway", "olbrain-llm", "billing-service", "olbrain-cloud-functions", "olbrain-analytics-service", "olbrain-agent-directives", "webhook-service", "pii-token-vault"],
+  "ready_for_lane_b": {"answer": "partial", "ready": ["B0", "B4", "B5", "B3 (workspace stores)", "B1/B2 build behind flags"], "not_ready": ["any production memory write/read/migration (incl. shadow)"]}
+}

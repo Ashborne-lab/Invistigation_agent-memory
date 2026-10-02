@@ -1,0 +1,12 @@
+{"resource":"agent read (org member)","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent update non-tenancy field (org editor)","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent subcollection write (org editor)","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent_messages read","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent_sessions read","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent_sessions/*/messages read","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent_users read","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"org members read","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"org subcollection write (departments)","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"agent analytics read","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"ticket read (org member)","uid":"mate_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}
+{"resource":"org doc update (admin)","uid":"admin_uid","allowed_before_revocation":true,"allowed_after_revocation":true,"inv_s13_holds":false}

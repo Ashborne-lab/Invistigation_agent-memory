@@ -1,0 +1,15 @@
+{"id":"E1-read","finding":"E1 agent_messages cross-tenant","op":"read victim message","allowed_for_other_org_user":true}
+{"id":"E1-write","finding":"E1 agent_messages cross-tenant","op":"overwrite victim message (forge evidence)","allowed_for_other_org_user":true}
+{"id":"E1-create","finding":"E1 agent_messages cross-tenant","op":"create message in victim session","allowed_for_other_org_user":true}
+{"id":"S-read","finding":"agent_sessions cross-tenant","op":"read victim session (phone, summary)","allowed_for_other_org_user":true}
+{"id":"S-write","finding":"agent_sessions cross-tenant","op":"rewrite victim session summary","allowed_for_other_org_user":true}
+{"id":"K1-forge","finding":"K1 tenancy root","op":"create an agent claiming the victim org","allowed_for_other_org_user":true}
+{"id":"K1-takeover","finding":"K1 tenancy root","op":"update the victim's agent","allowed_for_other_org_user":true}
+{"id":"N3-members","finding":"N3 org members","op":"read victim org member (email)","allowed_for_other_org_user":true}
+{"id":"N6-versions","finding":"N6 agent versions","op":"write victim agent version (brain)","allowed_for_other_org_user":true}
+{"id":"N5-tickets","finding":"N5 tickets","op":"read victim ticket (customer PII)","allowed_for_other_org_user":true}
+{"id":"M1-read","finding":"agent_user_memory","op":"read victim memory","allowed_for_other_org_user":false}
+{"id":"AU-read","finding":"agent_users","op":"read victim end-user identifiers","allowed_for_other_org_user":true}
+{"id":"V2-bindings","finding":"S0-5 new memory collections","op":"write memory_bindings (identity root)","allowed_for_other_org_user":true}
+{"id":"V2-identity-events","finding":"S0-5 new memory collections","op":"write identity_events","allowed_for_other_org_user":true}
+{"id":"V2-dedup","finding":"S0-5 new memory collections","op":"write inbound_dedup","allowed_for_other_org_user":true}

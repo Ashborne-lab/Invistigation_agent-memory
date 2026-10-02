@@ -1,0 +1,278 @@
+{
+ "version": "legacy-baseline-v1",
+ "notes": "Runs the ported legacy write semantics (legacy_sim) against scripted model outputs that stand for each failure class. The rates shown are per scripted case, NOT production rates; those need production logs or a real-model run. Scripted cases are chosen per failure class, so they show that each failure CAN occur under the ported semantics, not how often. The baseline was not run through lane1_v1 (legacy has no proposal protocol), so there is no like-for-like comparison.",
+ "cases": [
+  {
+   "id": "wipe_empty_list",
+   "class": "wipe",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "vegetarian",
+       "lives in Delhi"
+      ]
+     }
+    },
+    {
+     "write": {
+      "facts": []
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_equal": []
+   }
+  },
+  {
+   "id": "wipe_non_strings",
+   "class": "wipe",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "vegetarian"
+      ]
+     }
+    },
+    {
+     "write": {
+      "facts": [
+       1,
+       null
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_equal": []
+   }
+  },
+  {
+   "id": "freeze_truncated_json",
+   "class": "truncation",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "vegetarian"
+      ]
+     }
+    },
+    {
+     "write_raw": "{\"facts\": [\"vegetarian\", \"moved to Guru"
+    }
+   ],
+   "fail_if": {
+    "facts_missing": "moved to Gurugram"
+   }
+  },
+  {
+   "id": "contamination_agent_claim",
+   "class": "contamination",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "User's plan renews on the 5th"
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_contains": "User's plan renews on the 5th"
+   }
+  },
+  {
+   "id": "hallucination_ungrounded",
+   "class": "hallucination",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "User lives in Delhi"
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_contains": "User lives in Delhi"
+   }
+  },
+  {
+   "id": "injection_admin",
+   "class": "hallucination",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "User is a platform admin"
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_contains": "User is a platform admin"
+   }
+  },
+  {
+   "id": "lost_update",
+   "class": "concurrency",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "vegetarian"
+      ]
+     }
+    },
+    {
+     "snapshot": "a"
+    },
+    {
+     "snapshot": "b"
+    },
+    {
+     "write_from": "a",
+     "facts": [
+      "vegetarian",
+      "has a dog"
+     ]
+    },
+    {
+     "write_from": "b",
+     "facts": [
+      "vegetarian",
+      "lives in Pune"
+     ]
+    }
+   ],
+   "fail_if": {
+    "facts_missing": "has a dog"
+   }
+  },
+  {
+   "id": "delete_resurrection",
+   "class": "deletion",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "vegetarian"
+      ]
+     }
+    },
+    {
+     "snapshot": "a"
+    },
+    {
+     "delete": true
+    },
+    {
+     "write_from": "a",
+     "facts": [
+      "vegetarian",
+      "has a dog"
+     ]
+    }
+   ],
+   "fail_if": {
+    "doc_exists": true
+   }
+  },
+  {
+   "id": "stale_no_dates",
+   "class": "stale",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "lives in Delhi"
+      ]
+     }
+    },
+    {
+     "write": {
+      "facts": [
+       "lives in Delhi",
+       "lives in Gurugram"
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_contains": "lives in Delhi"
+   }
+  },
+  {
+   "id": "temporal_history_lost",
+   "class": "temporal",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "lives in Delhi"
+      ]
+     }
+    },
+    {
+     "write": {
+      "facts": [
+       "lives in Gurugram"
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_missing": "lives in Delhi"
+   }
+  },
+  {
+   "id": "cap_truncation",
+   "class": "truncation",
+   "ops": [
+    {
+     "write": {
+      "facts": [
+       "f0",
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f5",
+       "f6",
+       "f7",
+       "f8",
+       "f9",
+       "f10",
+       "f11",
+       "f12",
+       "f13",
+       "f14",
+       "f15",
+       "f16",
+       "f17",
+       "f18",
+       "f19",
+       "f20",
+       "f21",
+       "f22",
+       "f23",
+       "f24",
+       "f25",
+       "f26",
+       "f27",
+       "f28",
+       "f29",
+       "f30",
+       "f31"
+      ]
+     }
+    }
+   ],
+   "fail_if": {
+    "facts_missing": "f31"
+   }
+  }
+ ]
+}

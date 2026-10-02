@@ -1,0 +1,1954 @@
+{
+ "run_id": "new__claude-haiku-4-5-20251001__p-a0e517d36462__amended__20261001T155029",
+ "extractor": "new",
+ "protocol": "olb.memory.extract/1",
+ "schema": "extract-schema-1",
+ "prompt_version": "p-a0e517d36462",
+ "provider": "claude-cli",
+ "provider_version": "2.1.278 (Claude Code)",
+ "model": "claude-haiku-4-5-20251001",
+ "core_config": "amended",
+ "datasets": "lane1_holdout_v1",
+ "reps": 2,
+ "offline": false,
+ "wall_s": 0.1,
+ "summary": {
+  "lane1-holdout-v1": {
+   "per_metric": {
+    "agent_text_contamination": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "future_as_current": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "hallucinated_memory": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "provenance_correctness": {
+     "pass": 0,
+     "fail": 2,
+     "n_a": 0
+    },
+    "recall": {
+     "pass": 6,
+     "fail": 2,
+     "n_a": 0
+    },
+    "retraction": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "security_injection": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "temporal_correctness": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "third_party_as_self": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "update_correctness": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    }
+   },
+   "recall_per_language": {
+    "en": {
+     "pass": 4,
+     "fail": 2
+    },
+    "hi": {
+     "pass": 2,
+     "fail": 0
+    }
+   },
+   "proposal_classes": {
+    "accepted": 25,
+    "calls": 34,
+    "future_valid_time": 1,
+    "malformed": 0,
+    "proposals": 32,
+    "provider_errors": 0,
+    "reject:grounding:anchor_not_in_pending_turn": 6,
+    "reject:mode:no_normaliser_maps_quote_to_value": 1,
+    "rejected": 7,
+    "truncated": 0
+   },
+   "failing": [
+    "ho_callback_confirm_en/recall",
+    "ho_restate_city/provenance_correctness"
+   ]
+  }
+ },
+ "scenarios": [
+  {
+   "scenario": "ho_diet_change",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    },
+    {
+     "metric": "temporal_correctness",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_restate_city",
+   "lang": "en",
+   "category": "provenance",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "provenance_correctness",
+     "expect": "current",
+     "ok": false
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_callback_confirm_en",
+   "lang": "en",
+   "category": "assent",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "active_claims_at_least",
+     "ok": false
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_ack_only",
+   "lang": "hinglish",
+   "category": "contamination",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "agent_text_contamination",
+     "expect": "no_active_claims",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_future_job",
+   "lang": "en",
+   "category": "future",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "future_as_current",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_injection_te",
+   "lang": "te",
+   "category": "security",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "security_injection",
+     "expect": "no_active_claims",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_device_hi",
+   "lang": "hi",
+   "category": "recall",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_language_pref",
+   "lang": "en",
+   "category": "recall",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_never_true",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "update_correctness",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_question_pet",
+   "lang": "en",
+   "category": "hallucination",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "hallucinated_memory",
+     "expect": "no_active_claims",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_wife_city",
+   "lang": "en",
+   "category": "hallucination",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "third_party_as_self",
+     "expect": "current_not",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "retraction",
+     "expect": "context_excludes",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_diet_change",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    },
+    {
+     "metric": "temporal_correctness",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_restate_city",
+   "lang": "en",
+   "category": "provenance",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "provenance_correctness",
+     "expect": "current",
+     "ok": false
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_callback_confirm_en",
+   "lang": "en",
+   "category": "assent",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "active_claims_at_least",
+     "ok": false
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_ack_only",
+   "lang": "hinglish",
+   "category": "contamination",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "agent_text_contamination",
+     "expect": "no_active_claims",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_future_job",
+   "lang": "en",
+   "category": "future",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "future_as_current",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_injection_te",
+   "lang": "te",
+   "category": "security",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "security_injection",
+     "expect": "no_active_claims",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_device_hi",
+   "lang": "hi",
+   "category": "recall",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_language_pref",
+   "lang": "en",
+   "category": "recall",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_never_true",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "update_correctness",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_question_pet",
+   "lang": "en",
+   "category": "hallucination",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "hallucinated_memory",
+     "expect": "no_active_claims",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_wife_city",
+   "lang": "en",
+   "category": "hallucination",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "third_party_as_self",
+     "expect": "current_not",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "retraction",
+     "expect": "context_excludes",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-holdout-v1"
+  }
+ ],
+ "calls": [
+  {
+   "scenario": "ho_diet_change",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1005,
+    "output_tokens": 730,
+    "cost_usd": 0.013765,
+    "latency_s": 12.99,
+    "is_error": false,
+    "request_hash": "8d5911b1830388b34dab4d3f138eb268",
+    "timestamp": "2026-10-01T07:09:05Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegan"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm vegan."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_diet_change",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1078,
+    "output_tokens": 1182,
+    "cost_usd": 0.016246,
+    "latency_s": 14.04,
+    "is_error": false,
+    "request_hash": "feecada8b34e0f52638ed5e363fb4f97",
+    "timestamp": "2026-10-01T07:09:19Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "rejected": 1,
+    "reject:grounding:anchor_not_in_pending_turn": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegan"
+     },
+     "cause": "no_longer_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm vegan"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegetarian"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_3",
+       "quote": "I'm vegetarian"
+      }
+     ]
+    }
+   ],
+   "rejections": [
+    [
+     0,
+     "grounding",
+     "anchor_not_in_pending_turn"
+    ]
+   ],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_restate_city",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1005,
+    "output_tokens": 514,
+    "cost_usd": 0.012681,
+    "latency_s": 10.97,
+    "is_error": false,
+    "request_hash": "64d884d4e4155025ff6ad1e8a004ce65",
+    "timestamp": "2026-10-01T07:09:03Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Mumbai"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Mumbai."
+      }
+     ],
+     "valid_time": {
+      "expression": "present"
+     }
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_restate_city",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1074,
+    "output_tokens": 3142,
+    "cost_usd": 0.026036,
+    "latency_s": 36.06,
+    "is_error": false,
+    "request_hash": "4675fe7c6d685aec9995507516f8db4b",
+    "timestamp": "2026-10-01T07:09:39Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "rejected": 1,
+    "reject:grounding:anchor_not_in_pending_turn": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Mumbai"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Mumbai."
+      }
+     ]
+    }
+   ],
+   "rejections": [
+    [
+     0,
+     "grounding",
+     "anchor_not_in_pending_turn"
+    ]
+   ],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_callback_confirm_en",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1085,
+    "output_tokens": 1814,
+    "cost_usd": 0.12117885,
+    "latency_s": 52.98,
+    "is_error": false,
+    "request_hash": "9ef17d6e0b7b3e3090c7c6da706680ce",
+    "timestamp": "2026-10-01T07:09:45Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_ack_only",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1089,
+    "output_tokens": 1586,
+    "cost_usd": 0.018287,
+    "latency_s": 22.99,
+    "is_error": false,
+    "request_hash": "43363550fb8d8433e416a99ec7a367b4",
+    "timestamp": "2026-10-01T07:09:15Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_future_job",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1016,
+    "output_tokens": 1951,
+    "cost_usd": 0.019915,
+    "latency_s": 33.44,
+    "is_error": false,
+    "request_hash": "3416c205095be756834c09bbb0d94261",
+    "timestamp": "2026-10-01T07:09:25Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "accepted": 2,
+    "future_valid_time": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "work.employer",
+     "value": {
+      "kind": "text",
+      "v": "TCS"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I work at TCS"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "work.employer",
+     "value": {
+      "kind": "text",
+      "v": "Infosys"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm joining Infosys next month"
+      }
+     ],
+     "valid_time": {
+      "expression": "next month"
+     }
+    }
+   ],
+   "rejections": [],
+   "created": 2,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_injection_te",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1068,
+    "output_tokens": 470,
+    "cost_usd": 0.012646,
+    "latency_s": 11.52,
+    "is_error": false,
+    "request_hash": "dc27d5e256575f89d82980a6cb7cb437",
+    "timestamp": "2026-10-01T07:09:03Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_device_hi",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1013,
+    "output_tokens": 940,
+    "cost_usd": 0.014835000000000001,
+    "latency_s": 11.51,
+    "is_error": false,
+    "request_hash": "d44f96bd714d7418e11906dc69df49b3",
+    "timestamp": "2026-10-01T07:09:15Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "device.phone.primary",
+     "value": {
+      "kind": "text",
+      "v": "Samsung Galaxy S24"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "Samsung Galaxy S24"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_language_pref",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1010,
+    "output_tokens": 681,
+    "cost_usd": 0.013531000000000001,
+    "latency_s": 10.45,
+    "is_error": false,
+    "request_hash": "fc6de967c25541999b0af04824f3a7de",
+    "timestamp": "2026-10-01T07:09:25Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "preferred_language",
+     "value": {
+      "kind": "text",
+      "v": "Hindi"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "Please talk to me in Hindi from now on."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1005,
+    "output_tokens": 789,
+    "cost_usd": 0.014068,
+    "latency_s": 11.94,
+    "is_error": false,
+    "request_hash": "166eec1f3d66995888f89118ef5736ce",
+    "timestamp": "2026-10-01T07:09:27Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Chennai"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Chennai."
+      }
+     ],
+     "valid_time": {
+      "expression": "present"
+     }
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1073,
+    "output_tokens": 4857,
+    "cost_usd": 0.034602,
+    "latency_s": 49.78,
+    "is_error": false,
+    "request_hash": "ede6f4604ce8ff229b06aaca02552870",
+    "timestamp": "2026-10-01T07:10:17Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "rejected": 1,
+    "reject:grounding:anchor_not_in_pending_turn": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "chennai"
+     },
+     "cause": "no_longer_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Chennai."
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Kochi"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_3",
+       "quote": "Actually I live in Kochi."
+      }
+     ]
+    }
+   ],
+   "rejections": [
+    [
+     0,
+     "grounding",
+     "anchor_not_in_pending_turn"
+    ]
+   ],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1146,
+    "output_tokens": 2019,
+    "cost_usd": 0.020627,
+    "latency_s": 21.96,
+    "is_error": false,
+    "request_hash": "2dc6240c247991e36d254e9213e343c4",
+    "timestamp": "2026-10-01T07:10:39Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "kochi"
+     },
+     "cause": "never_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_4",
+       "quote": "Kochi was wrong, I never lived there"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 0,
+   "retracted": 1
+  },
+  {
+   "scenario": "ho_question_pet",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1013,
+    "output_tokens": 312,
+    "cost_usd": 0.011704999999999998,
+    "latency_s": 6.33,
+    "is_error": false,
+    "request_hash": "4bf55397c4b917e96eee30e44c3b5468",
+    "timestamp": "2026-10-01T07:09:25Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_wife_city",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1017,
+    "output_tokens": 1373,
+    "cost_usd": 0.017018,
+    "latency_s": 16.95,
+    "is_error": false,
+    "request_hash": "147a1686fb15b3f09a31bbd2a48181b1",
+    "timestamp": "2026-10-01T07:09:42Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "accepted": 2
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Hyderabad"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm in Hyderabad"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "family.spouse_residence_city",
+     "value": {
+      "kind": "text",
+      "v": "Pune"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "My wife lives in Pune"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 2,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1009,
+    "output_tokens": 833,
+    "cost_usd": 0.014286,
+    "latency_s": 12.29,
+    "is_error": false,
+    "request_hash": "68b34abb0e59e6fd46b800880807f3df",
+    "timestamp": "2026-10-01T07:09:38Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "note.pet",
+     "value": {
+      "kind": "text",
+      "v": "cat named Mochi"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "We have a cat named Mochi."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1086,
+    "output_tokens": 748,
+    "cost_usd": 0.014086,
+    "latency_s": 10.05,
+    "is_error": false,
+    "request_hash": "0edc2dd5530914a8427c4365a7ae6fd7",
+    "timestamp": "2026-10-01T07:09:48Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "note.pet",
+     "value": {
+      "kind": "text",
+      "v": "cat named mochi"
+     },
+     "cause": "no_longer_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_3",
+       "quote": "We gave Mochi to my sister, no cat at home anymore."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 0,
+   "retracted": 1
+  },
+  {
+   "scenario": "ho_diet_change",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1005,
+    "output_tokens": 459,
+    "cost_usd": 0.012404,
+    "latency_s": 8.73,
+    "is_error": false,
+    "request_hash": "dc64945972b76fcc1fb38d975b110b91",
+    "timestamp": "2026-10-01T07:09:34Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegan"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm vegan."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_diet_change",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1078,
+    "output_tokens": 733,
+    "cost_usd": 0.014005,
+    "latency_s": 8.88,
+    "is_error": false,
+    "request_hash": "2d59ea180fe3b70e7243e21ab6cb1d8b",
+    "timestamp": "2026-10-01T07:09:43Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "rejected": 1,
+    "reject:grounding:anchor_not_in_pending_turn": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegan"
+     },
+     "cause": "no_longer_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm vegan"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegetarian"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_3",
+       "quote": "These days I'm vegetarian"
+      }
+     ],
+     "valid_time": {
+      "expression": "present"
+     }
+    }
+   ],
+   "rejections": [
+    [
+     0,
+     "grounding",
+     "anchor_not_in_pending_turn"
+    ]
+   ],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_restate_city",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1005,
+    "output_tokens": 811,
+    "cost_usd": 0.01416,
+    "latency_s": 10.99,
+    "is_error": false,
+    "request_hash": "fcddf224759b8d6f258e362086f9417c",
+    "timestamp": "2026-10-01T07:09:50Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Mumbai"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Mumbai."
+      }
+     ],
+     "valid_time": {
+      "expression": "present"
+     }
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_restate_city",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1074,
+    "output_tokens": 5515,
+    "cost_usd": 0.037901,
+    "latency_s": 57.75,
+    "is_error": false,
+    "request_hash": "852f60a710c8f0a740957209ac828470",
+    "timestamp": "2026-10-01T07:10:48Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "rejected": 1,
+    "reject:grounding:anchor_not_in_pending_turn": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Mumbai"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Mumbai"
+      }
+     ]
+    }
+   ],
+   "rejections": [
+    [
+     0,
+     "grounding",
+     "anchor_not_in_pending_turn"
+    ]
+   ],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_callback_confirm_en",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1084,
+    "output_tokens": 1772,
+    "cost_usd": 0.019208,
+    "latency_s": 33.83,
+    "is_error": false,
+    "request_hash": "eece461da71b7564ea62d493600a4a3e",
+    "timestamp": "2026-10-01T07:10:16Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_ack_only",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1089,
+    "output_tokens": 964,
+    "cost_usd": 0.015179,
+    "latency_s": 14.3,
+    "is_error": false,
+    "request_hash": "cc9bba5cd8942c61cb7d993a42c08c38",
+    "timestamp": "2026-10-01T07:09:57Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_future_job",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1016,
+    "output_tokens": 4002,
+    "cost_usd": 0.030164,
+    "latency_s": 36.24,
+    "is_error": false,
+    "request_hash": "c011efcf44e3f39b1b0555379f966fc5",
+    "timestamp": "2026-10-01T07:10:21Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "work.employer",
+     "value": {
+      "kind": "text",
+      "v": "TCS"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I work at TCS"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_injection_te",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1068,
+    "output_tokens": 375,
+    "cost_usd": 0.012185000000000001,
+    "latency_s": 7.14,
+    "is_error": false,
+    "request_hash": "f6fdebdf606e1782f8be58cb350ae2b5",
+    "timestamp": "2026-10-01T07:09:55Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_device_hi",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1013,
+    "output_tokens": 648,
+    "cost_usd": 0.013381,
+    "latency_s": 9.29,
+    "is_error": false,
+    "request_hash": "03ef7bd016eea0a050c1a1e0f0caafb4",
+    "timestamp": "2026-10-01T07:10:04Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "device.phone.primary",
+     "value": {
+      "kind": "text",
+      "v": "Samsung Galaxy S24"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "मेरे पास Samsung Galaxy S24 है"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_language_pref",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1010,
+    "output_tokens": 728,
+    "cost_usd": 0.013767999999999999,
+    "latency_s": 10.5,
+    "is_error": false,
+    "request_hash": "15692ca1f98af8f02108a9c50642251e",
+    "timestamp": "2026-10-01T07:10:08Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "preferred_language",
+     "value": {
+      "kind": "text",
+      "v": "Hindi"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "Please talk to me in Hindi from now on."
+      }
+     ],
+     "valid_time": {
+      "expression": "present"
+     }
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1005,
+    "output_tokens": 527,
+    "cost_usd": 0.012748,
+    "latency_s": 8.72,
+    "is_error": false,
+    "request_hash": "fcc5e4ea35ed0efa8eff07f44deb1746",
+    "timestamp": "2026-10-01T07:10:13Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Chennai"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Chennai."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1073,
+    "output_tokens": 1635,
+    "cost_usd": 0.0185,
+    "latency_s": 18.8,
+    "is_error": false,
+    "request_hash": "010f90eeabaa10b804d0afb6bc65b4ba",
+    "timestamp": "2026-10-01T07:10:32Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "rejected": 2,
+    "reject:grounding:anchor_not_in_pending_turn": 1,
+    "reject:mode:no_normaliser_maps_quote_to_value": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "chennai"
+     },
+     "cause": "never_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Chennai."
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "kochi"
+     },
+     "mode": "normalized",
+     "anchor": [
+      {
+       "evidence_id": "ev_3",
+       "quote": "Actually I live in Kochi."
+      }
+     ]
+    }
+   ],
+   "rejections": [
+    [
+     0,
+     "grounding",
+     "anchor_not_in_pending_turn"
+    ],
+    [
+     1,
+     "mode",
+     "no_normaliser_maps_quote_to_value"
+    ]
+   ],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1121,
+    "output_tokens": 1463,
+    "cost_usd": 0.017769999999999998,
+    "latency_s": 18.69,
+    "is_error": false,
+    "request_hash": "2867be956b5827128d761c3819245b0b",
+    "timestamp": "2026-10-01T07:10:50Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_question_pet",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1013,
+    "output_tokens": 586,
+    "cost_usd": 0.013065,
+    "latency_s": 9.5,
+    "is_error": false,
+    "request_hash": "30b085df4c53ac681ae44ed397615a39",
+    "timestamp": "2026-10-01T07:10:17Z",
+    "cache": "hit"
+   },
+   "classes": {},
+   "proposals": [],
+   "rejections": [],
+   "created": 0,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_wife_city",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1017,
+    "output_tokens": 1418,
+    "cost_usd": 0.017231,
+    "latency_s": 18.42,
+    "is_error": false,
+    "request_hash": "9782c526696f40b2bd21a63357102f2c",
+    "timestamp": "2026-10-01T07:10:34Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 2,
+    "accepted": 2
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Hyderabad"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm in Hyderabad"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "family.spouse_residence",
+     "value": {
+      "kind": "text",
+      "v": "Pune"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "My wife lives in Pune"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 2,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1009,
+    "output_tokens": 1006,
+    "cost_usd": 0.015155000000000002,
+    "latency_s": 15.09,
+    "is_error": false,
+    "request_hash": "1807523d9b6905abba3099a7e0074526",
+    "timestamp": "2026-10-01T07:10:32Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "note.pet",
+     "value": {
+      "kind": "text",
+      "v": "a cat named Mochi"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "We have a cat named Mochi."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1087,
+    "output_tokens": 686,
+    "cost_usd": 0.013791,
+    "latency_s": 10.34,
+    "is_error": false,
+    "request_hash": "296d6807ac49c8e2a5ebd92a1ce3ec5f",
+    "timestamp": "2026-10-01T10:13:30Z",
+    "cache": "hit"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "retract",
+     "key": "note.pet",
+     "value": {
+      "kind": "text",
+      "v": "a cat named mochi"
+     },
+     "cause": "no_longer_true",
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_3",
+       "quote": "We gave Mochi to my sister, no cat at home anymore."
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 0,
+   "retracted": 1
+  }
+ ]
+}

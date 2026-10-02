@@ -1,0 +1,219 @@
+{
+ "run_id": "new__claude-haiku-4-5-20251001__p-a0e517d36462__amended__20261001T115321",
+ "extractor": "new",
+ "protocol": "olb.memory.extract/1",
+ "schema": "extract-schema-1",
+ "prompt_version": "p-a0e517d36462",
+ "provider": "claude-cli",
+ "provider_version": "2.1.278 (Claude Code)",
+ "model": "claude-haiku-4-5-20251001",
+ "core_config": "amended",
+ "datasets": "lane1_rt_v1",
+ "reps": 1,
+ "offline": false,
+ "wall_s": 23.7,
+ "summary": {
+  "lane1-rt-v1": {
+   "per_metric": {
+    "agent_text_contamination": {
+     "pass": 2,
+     "fail": 0,
+     "n_a": 0
+    },
+    "recall": {
+     "pass": 4,
+     "fail": 0,
+     "n_a": 0
+    }
+   },
+   "recall_per_language": {
+    "en": {
+     "pass": 4,
+     "fail": 0
+    }
+   },
+   "proposal_classes": {
+    "accepted": 4,
+    "calls": 2,
+    "malformed": 0,
+    "proposals": 4,
+    "provider_errors": 0,
+    "truncated": 0
+   },
+   "failing": []
+  }
+ },
+ "scenarios": [
+  {
+   "scenario": "rt_assistant_contamination",
+   "lang": "en",
+   "category": "contamination",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    },
+    {
+     "metric": "agent_text_contamination",
+     "expect": "context_excludes",
+     "ok": true
+    },
+    {
+     "metric": "agent_text_contamination",
+     "expect": "context_excludes",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-rt-v1"
+  },
+  {
+   "scenario": "rt_multi_fact",
+   "lang": "en",
+   "category": "recall",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    },
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    },
+    {
+     "metric": "recall",
+     "expect": "current",
+     "ok": true
+    }
+   ],
+   "dataset": "lane1-rt-v1"
+  }
+ ],
+ "calls": [
+  {
+   "scenario": "rt_assistant_contamination",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1097,
+    "output_tokens": 1854,
+    "cost_usd": 0.019659,
+    "latency_s": 23.65,
+    "is_error": false,
+    "request_hash": "629c9f57d25af3d4248508f91b0ce821",
+    "timestamp": "2026-10-01T06:23:21Z",
+    "cache": "miss"
+   },
+   "classes": {
+    "proposals": 1,
+    "accepted": 1
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Delhi"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_4",
+       "quote": "I'm in Delhi actually"
+      }
+     ],
+     "valid_time": {
+      "expression": "present"
+     }
+    }
+   ],
+   "rejections": [],
+   "created": 1,
+   "retracted": 0
+  },
+  {
+   "scenario": "rt_multi_fact",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 1024,
+    "output_tokens": 1017,
+    "cost_usd": 0.015257,
+    "latency_s": 11.3,
+    "is_error": false,
+    "request_hash": "9420bee0b6b0977c3d3cc2adc9a73122",
+    "timestamp": "2026-10-01T06:23:08Z",
+    "cache": "miss"
+   },
+   "classes": {
+    "proposals": 3,
+    "accepted": 3
+   },
+   "proposals": [
+    {
+     "op": "assert",
+     "key": "diet.pattern",
+     "value": {
+      "kind": "text",
+      "v": "vegetarian"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I'm vegetarian"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "residence.city",
+     "value": {
+      "kind": "text",
+      "v": "Bengaluru"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I live in Bengaluru"
+      }
+     ]
+    },
+    {
+     "op": "assert",
+     "key": "device.phone.primary",
+     "value": {
+      "kind": "text",
+      "v": "iPhone 15"
+     },
+     "mode": "stated",
+     "anchor": [
+      {
+       "evidence_id": "ev_1",
+       "quote": "I use an iPhone 15"
+      }
+     ]
+    }
+   ],
+   "rejections": [],
+   "created": 3,
+   "retracted": 0
+  }
+ ]
+}

@@ -1,0 +1,229 @@
+{
+  "dataset": "lane1-v1.1",
+  "configs": {
+    "spec": {
+      "per_metric": {
+        "agent_text_contamination": {
+          "pass": 1,
+          "fail": 0
+        },
+        "contradiction_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "cross_org_leakage": {
+          "pass": 1,
+          "fail": 0
+        },
+        "cross_person_leakage": {
+          "pass": 2,
+          "fail": 0
+        },
+        "deletion_resurrection": {
+          "pass": 9,
+          "fail": 0
+        },
+        "hallucinated_memory": {
+          "pass": 5,
+          "fail": 1
+        },
+        "merge_undo_attribution": {
+          "pass": 4,
+          "fail": 0
+        },
+        "provenance_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "recall": {
+          "pass": 8,
+          "fail": 1
+        },
+        "recovery_correctness": {
+          "pass": 0,
+          "fail": 1
+        },
+        "stale_use": {
+          "pass": 4,
+          "fail": 0
+        },
+        "temporal_correctness": {
+          "pass": 6,
+          "fail": 0
+        },
+        "update_correctness": {
+          "pass": 5,
+          "fail": 0
+        }
+      },
+      "recall_per_language": {
+        "en": 1.0,
+        "hi": 1.0,
+        "hinglish": 1.0,
+        "te": 0.667
+      },
+      "failures": [
+        "residence_te_unverified/recall",
+        "inference_paraphrase_same_script/hallucinated_memory",
+        "q17_recovery_same_subject/recovery_correctness"
+      ],
+      "blocking_metrics_pass": false
+    },
+    "f_only": {
+      "per_metric": {
+        "agent_text_contamination": {
+          "pass": 1,
+          "fail": 0
+        },
+        "contradiction_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "cross_org_leakage": {
+          "pass": 1,
+          "fail": 0
+        },
+        "cross_person_leakage": {
+          "pass": 2,
+          "fail": 0
+        },
+        "deletion_resurrection": {
+          "pass": 9,
+          "fail": 0
+        },
+        "hallucinated_memory": {
+          "pass": 6,
+          "fail": 0
+        },
+        "merge_undo_attribution": {
+          "pass": 4,
+          "fail": 0
+        },
+        "provenance_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "recall": {
+          "pass": 8,
+          "fail": 1
+        },
+        "recovery_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "stale_use": {
+          "pass": 4,
+          "fail": 0
+        },
+        "temporal_correctness": {
+          "pass": 6,
+          "fail": 0
+        },
+        "update_correctness": {
+          "pass": 5,
+          "fail": 0
+        }
+      },
+      "recall_per_language": {
+        "en": 1.0,
+        "hi": 1.0,
+        "hinglish": 1.0,
+        "te": 0.667
+      },
+      "failures": [
+        "residence_te_unverified/recall"
+      ],
+      "blocking_metrics_pass": true
+    },
+    "reviewed": {
+      "per_metric": {
+        "agent_text_contamination": {
+          "pass": 1,
+          "fail": 0
+        },
+        "contradiction_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "cross_org_leakage": {
+          "pass": 1,
+          "fail": 0
+        },
+        "cross_person_leakage": {
+          "pass": 2,
+          "fail": 0
+        },
+        "deletion_resurrection": {
+          "pass": 9,
+          "fail": 0
+        },
+        "hallucinated_memory": {
+          "pass": 6,
+          "fail": 0
+        },
+        "merge_undo_attribution": {
+          "pass": 4,
+          "fail": 0
+        },
+        "provenance_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "recall": {
+          "pass": 9,
+          "fail": 0
+        },
+        "recovery_correctness": {
+          "pass": 1,
+          "fail": 0
+        },
+        "stale_use": {
+          "pass": 4,
+          "fail": 0
+        },
+        "temporal_correctness": {
+          "pass": 6,
+          "fail": 0
+        },
+        "update_correctness": {
+          "pass": 5,
+          "fail": 0
+        }
+      },
+      "recall_per_language": {
+        "en": 1.0,
+        "hi": 1.0,
+        "hinglish": 1.0,
+        "te": 1.0
+      },
+      "failures": [],
+      "blocking_metrics_pass": true
+    }
+  },
+  "legacy_baseline": {
+    "dataset": "legacy-baseline-v1",
+    "failed_cases": [
+      "wipe_empty_list",
+      "wipe_non_strings",
+      "freeze_truncated_json",
+      "contamination_agent_claim",
+      "hallucination_ungrounded",
+      "injection_admin",
+      "lost_update",
+      "delete_resurrection",
+      "stale_no_dates",
+      "temporal_history_lost",
+      "cap_truncation"
+    ],
+    "per_class_fail": {
+      "concurrency": "1/1",
+      "contamination": "1/1",
+      "deletion": "1/1",
+      "hallucination": "2/2",
+      "stale": "1/1",
+      "temporal": "1/1",
+      "truncation": "2/2",
+      "wipe": "2/2"
+    }
+  }
+}

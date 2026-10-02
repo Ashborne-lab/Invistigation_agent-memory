@@ -1,0 +1,181 @@
+{
+ "run_id": "legacy__claude-haiku-4-5-20251001__legacy-daee3f9__amended__20261001T115343",
+ "extractor": "legacy",
+ "protocol": "legacy-facts",
+ "schema": "legacy-facts-json",
+ "prompt_version": "legacy@daee3f9",
+ "provider": "claude-cli",
+ "provider_version": "2.1.278 (Claude Code)",
+ "model": "claude-haiku-4-5-20251001",
+ "core_config": "amended",
+ "datasets": "lane1_rt_v1",
+ "reps": 1,
+ "offline": false,
+ "wall_s": 13.8,
+ "summary": {
+  "lane1-rt-v1": {
+   "per_metric": {
+    "false_memory": {
+     "pass": 1,
+     "fail": 1,
+     "n_a": 0
+    },
+    "recall": {
+     "pass": 4,
+     "fail": 0,
+     "n_a": 0
+    }
+   },
+   "recall_per_language": {
+    "en": {
+     "pass": 4,
+     "fail": 0
+    }
+   },
+   "proposal_classes": {
+    "calls": 3,
+    "malformed": 0,
+    "provider_errors": 0,
+    "truncated": 0
+   },
+   "failing": [
+    "rt_assistant_contamination/false_memory"
+   ]
+  }
+ },
+ "scenarios": [
+  {
+   "scenario": "rt_assistant_contamination",
+   "lang": "en",
+   "category": "contamination",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    },
+    {
+     "metric": "false_memory",
+     "ok": true
+    },
+    {
+     "metric": "false_memory",
+     "ok": false
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User lives in Delhi",
+     "User prefers Gujarati language",
+     "User has an order"
+    ]
+   },
+   "dataset": "lane1-rt-v1"
+  },
+  {
+   "scenario": "rt_multi_fact",
+   "lang": "en",
+   "category": "recall",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    },
+    {
+     "metric": "recall",
+     "ok": true
+    },
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User is vegetarian",
+     "User lives in Bengaluru",
+     "User uses an iPhone 15"
+    ]
+   },
+   "dataset": "lane1-rt-v1"
+  }
+ ],
+ "calls": [
+  {
+   "scenario": "rt_assistant_contamination",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4850,
+    "output_tokens": 601,
+    "cost_usd": 0.007855000000000001,
+    "latency_s": 8.87,
+    "is_error": false,
+    "request_hash": "c788460bcefc586073bcac5f35fe29e9",
+    "timestamp": "2026-10-01T06:23:38Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Mumbai",
+    "User prefers Gujarati language",
+    "User has an order"
+   ]
+  },
+  {
+   "scenario": "rt_assistant_contamination",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4859,
+    "output_tokens": 261,
+    "cost_usd": 0.006163999999999999,
+    "latency_s": 4.89,
+    "is_error": false,
+    "request_hash": "61fd31d53b023e897dc51b8337a3cca5",
+    "timestamp": "2026-10-01T06:23:43Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Delhi",
+    "User prefers Gujarati language",
+    "User has an order"
+   ]
+  },
+  {
+   "scenario": "rt_multi_fact",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4844,
+    "output_tokens": 360,
+    "cost_usd": 0.006644000000000001,
+    "latency_s": 6.28,
+    "is_error": false,
+    "request_hash": "4c1521bfa07bb278ee997525cbe7714f",
+    "timestamp": "2026-10-01T06:23:36Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User is vegetarian",
+    "User lives in Bengaluru",
+    "User uses an iPhone 15"
+   ]
+  }
+ ]
+}

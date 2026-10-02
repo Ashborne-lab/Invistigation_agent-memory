@@ -1,0 +1,980 @@
+F.F.FFFFFFF.FFFFFFF.FFFFFF.FF.FFF.FFFF.F.FF.FFF.FFFFFFFFFFFFFF.FFFFFFFFF [ 97%]
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_____________ test_B0_12_firebase_user_from_A_cannot_access_org_B _____________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_12_firebase_user_from_A_cannot_access_org_B(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:9: Failed
+________________ test_B0_12_api_key_for_A_cannot_access_org_B _________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_12_api_key_for_A_cannot_access_org_B(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:18: Failed
+______ test_B0_12_caller_supplied_org_never_overrides_server_derived_org ______
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_12_caller_supplied_org_never_overrides_server_derived_org(impl, w):
+        # Alice names her own org in the body while targeting org B's agent: the server must use the agent's org.
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:28: Failed
+__________ test_B0_12_unauthenticated_or_unknown_principal_is_denied __________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_12_unauthenticated_or_unknown_principal_is_denied(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:33: Failed
+___________ test_B0_13_cannot_create_agent_in_another_orgs_project ____________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_13_cannot_create_agent_in_another_orgs_project(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:39: Failed
+__________ test_B0_13_cannot_create_agent_by_naming_own_org_in_body ___________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_13_cannot_create_agent_by_naming_own_org_in_body(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:45: Failed
+__________________ test_B0_13_cannot_fork_another_orgs_agent __________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_13_cannot_fork_another_orgs_agent(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:50: Failed
+________ test_B0_13_cannot_fork_into_victim_org_and_inherit_knowledge _________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_13_cannot_fork_into_victim_org_and_inherit_knowledge(impl, w):
+        try:
+            impl.fork_agent(w, ALICE, "agent_B1", target_project="proj_B")
+        except Denied:
+            pass
+>       assert w.knowledge["kb_B"] == {"agent_B1"}          # no attacker-owned agent gained knowledge access
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert {'agent_B1', 'fork_3'} == {'agent_B1'}
+E         
+E         Extra items in the left set:
+E         'fork_3'
+E         Use -v to get more diff
+
+test_b0_12_to_14_org_access.py:59: AssertionError
+________ test_B0_13_cannot_list_forks_or_preflight_another_orgs_agent _________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_13_cannot_list_forks_or_preflight_another_orgs_agent(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:64: Failed
+___________ test_B0_14_get_agent_cross_org_denied_for_user_and_key ____________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_get_agent_cross_org_denied_for_user_and_key(impl, w):
+        for p in (ALICE, KEY_A):
+>           with pytest.raises(Denied):
+E           Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:80: Failed
+_________________ test_B0_14_list_by_project_cannot_cross_org _________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_list_by_project_cannot_cross_org(impl, w):
+        for p in (ALICE, KEY_A):
+>           with pytest.raises(Denied):
+E           Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:86: Failed
+________________ test_B0_14_active_agents_requires_membership _________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_active_agents_requires_membership(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:91: Failed
+_______ test_B0_14_agent_users_read_write_delete_enforce_agent_and_org ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_agent_users_read_write_delete_enforce_agent_and_org(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:97: Failed
+______________ test_B0_14_agent_users_viewer_can_read_not_write _______________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_agent_users_viewer_can_read_not_write(impl, w):
+        assert impl.agent_user_read(w, VIEWER_A, "agent_A1", "eu_A1")["agent"] == "agent_A1"
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:110: Failed
+_______ test_B0_14_blueprint_install_cannot_target_unauthorized_project _______
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_blueprint_install_cannot_target_unauthorized_project(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:115: Failed
+___________ test_B0_14_store_admin_approval_requires_verified_admin ___________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_14_store_admin_approval_requires_verified_admin(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_12_to_14_org_access.py:121: Failed
+________ test_B0_15_share_key_cannot_touch_org_wide_leads[leads.list] _________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+route = 'leads.list'
+
+    @pytest.mark.parametrize("route", ["leads.list", "leads.export", "leads.import", "leads.erase"])
+    def test_B0_15_share_key_cannot_touch_org_wide_leads(impl, w, route):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:10: Failed
+_______ test_B0_15_share_key_cannot_touch_org_wide_leads[leads.export] ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+route = 'leads.export'
+
+    @pytest.mark.parametrize("route", ["leads.list", "leads.export", "leads.import", "leads.erase"])
+    def test_B0_15_share_key_cannot_touch_org_wide_leads(impl, w, route):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:10: Failed
+_______ test_B0_15_share_key_cannot_touch_org_wide_leads[leads.import] ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+route = 'leads.import'
+
+    @pytest.mark.parametrize("route", ["leads.list", "leads.export", "leads.import", "leads.erase"])
+    def test_B0_15_share_key_cannot_touch_org_wide_leads(impl, w, route):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:10: Failed
+________ test_B0_15_share_key_cannot_touch_org_wide_leads[leads.erase] ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+route = 'leads.erase'
+
+    @pytest.mark.parametrize("route", ["leads.list", "leads.export", "leads.import", "leads.erase"])
+    def test_B0_15_share_key_cannot_touch_org_wide_leads(impl, w, route):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:10: Failed
+___ test_B0_15_share_key_cannot_read_or_delete_end_user_memory[memory.read] ___
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+route = 'memory.read'
+
+    @pytest.mark.parametrize("route", ["memory.read", "memory.delete"])
+    def test_B0_15_share_key_cannot_read_or_delete_end_user_memory(impl, w, route):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:16: Failed
+__ test_B0_15_share_key_cannot_read_or_delete_end_user_memory[memory.delete] __
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+route = 'memory.delete'
+
+    @pytest.mark.parametrize("route", ["memory.read", "memory.delete"])
+    def test_B0_15_share_key_cannot_read_or_delete_end_user_memory(impl, w, route):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:16: Failed
+_______ test_B0_15_scope_is_enforced_by_server_not_inferred_from_caller _______
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_15_scope_is_enforced_by_server_not_inferred_from_caller(impl, w):
+        # a key WITHOUT leads scope (an ordinary key with only agents:invoke) is refused even inside its own org
+        from world import Principal
+        k = Principal("api_key", uid="uid_alice", org="org_A", key_id="key_invoke", perms=("agents:invoke",))
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:28: Failed
+_________ test_B0_15_memory_route_path_agent_must_match_header_agent __________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_15_memory_route_path_agent_must_match_header_agent(impl, w):
+        w.agents["agent_A2"] = {"org": "org_A", "owner": "uid_alice", "project": "proj_A"}
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:34: Failed
+_ test_B0_16_caller_cannot_select_another_customers_memory_by_asserting_their_id _
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_16_caller_cannot_select_another_customers_memory_by_asserting_their_id(impl, w):
+        impl.store_verified_memory(w, "agent_A1", "whatsapp", VICTIM_PHONE, "SECRET victim memory")
+        for caller in (KEY_A, SHARE_A1):
+>           assert impl.webhook_memory_lookup(w, caller, "agent_A1", VICTIM_PHONE) is None
+E           AssertionError: assert 'SECRET victim memory' is None
+E            +  where 'SECRET victim memory' = <function webhook_memory_lookup at 0x000002280282FCE0>(World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret'), Principal(kind='api_key', uid='uid_alice', email=None, email_verified=False, provider=None, hd=None, admin_claim=False...'projects:read', 'leads:read', 'leads:write'), scoped_agent=None, share_token=None, service_email=None, key_id='key_A'), 'agent_A1', '+919800000001')
+E            +    where <function webhook_memory_lookup at 0x000002280282FCE0> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.webhook_memory_lookup
+
+test_b0_15_to_17_subject_selection.py:51: AssertionError
+___________ test_B0_16_channel_and_assurance_are_part_of_the_lookup ___________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_16_channel_and_assurance_are_part_of_the_lookup(impl, w):
+>       assert impl.memory_key("agent_A1", "whatsapp", "channel_verified", VICTIM_PHONE) != \
+            impl.memory_key("agent_A1", "api:key_A", "asserted", VICTIM_PHONE)
+E       AssertionError: assert 'agent_A1__0c76edd658031c38cb4e51a604c0bbe5' != 'agent_A1__0c76edd658031c38cb4e51a604c0bbe5'
+E        +  where 'agent_A1__0c76edd658031c38cb4e51a604c0bbe5' = <function memory_key at 0x000002280282FC40>('agent_A1', 'whatsapp', 'channel_verified', '+919800000001')
+E        +    where <function memory_key at 0x000002280282FC40> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.memory_key
+E        +  and   'agent_A1__0c76edd658031c38cb4e51a604c0bbe5' = <function memory_key at 0x000002280282FC40>('agent_A1', 'api:key_A', 'asserted', '+919800000001')
+E        +    where <function memory_key at 0x000002280282FC40> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.memory_key
+
+test_b0_15_to_17_subject_selection.py:55: AssertionError
+_ test_B0_16_asserted_identity_cannot_read_verified_memory_even_with_identical_id _
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_16_asserted_identity_cannot_read_verified_memory_even_with_identical_id(impl, w):
+        impl.store_verified_memory(w, "agent_A1", "email", "victim@x.example", "SECRET")
+>       assert impl.webhook_memory_lookup(w, KEY_A, "agent_A1", "victim@x.example") is None
+E       AssertionError: assert 'SECRET' is None
+E        +  where 'SECRET' = <function webhook_memory_lookup at 0x000002280282FCE0>(World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret'), Principal(kind='api_key', uid='uid_alice', email=None, email_verified=False, provider=None, hd=None, admin_claim=False...'projects:read', 'leads:read', 'leads:write'), scoped_agent=None, share_token=None, service_email=None, key_id='key_A'), 'agent_A1', 'victim@x.example')
+E        +    where <function webhook_memory_lookup at 0x000002280282FCE0> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.webhook_memory_lookup
+
+test_b0_15_to_17_subject_selection.py:63: AssertionError
+_________________ test_B0_17_missing_authentication_is_denied _________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_17_missing_authentication_is_denied(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:80: Failed
+_________________ test_B0_17_invalid_authentication_is_denied _________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_17_invalid_authentication_is_denied(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_15_to_17_subject_selection.py:85: Failed
+__________ test_B0_17_spf_or_dkim_failure_takes_the_unverified_path ___________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_17_spf_or_dkim_failure_takes_the_unverified_path(impl, w):
+        r = impl.email_webhook(w, _form(SPF="fail"), w.email_parse_secret)
+>       assert r["verified"] is False and r["subject_key"] is None
+E       assert (True is False)
+
+test_b0_15_to_17_subject_selection.py:91: AssertionError
+____ test_B0_17_spoofed_sender_with_attacker_cc_receives_no_victim_memory _____
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_17_spoofed_sender_with_attacker_cc_receives_no_victim_memory(impl, w):
+        impl.store_verified_memory(w, "agent_A1", "email", "victim@x.example", "SECRET victim memory")
+        r = impl.email_webhook(w, _form(SPF="fail", dkim="none"), w.email_parse_secret)
+>       assert r["memory"] is None and r["memory_in_reply"] is False
+E       AssertionError: assert ('SECRET victim memory' is None)
+
+test_b0_15_to_17_subject_selection.py:99: AssertionError
+_____________ test_B0_18_unverified_olbrain_address_gets_no_admin _____________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+
+    def test_B0_18_unverified_olbrain_address_gets_no_admin(impl):
+>       assert impl.is_platform_admin(STAFF_UNVERIFIED) is False
+E       AssertionError: assert True is False
+E        +  where True = <function is_platform_admin at 0x000002280282FF60>(Principal(kind='firebase', uid='uid_fake', email='intern@olbrain.com', email_verified=False, provider='password', hd=None, admin_claim=False, org=None, perms=(), scoped_agent=None, share_token=None, service_email=None, key_id=None))
+E        +    where <function is_platform_admin at 0x000002280282FF60> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.is_platform_admin
+
+test_b0_18_to_24_services.py:22: AssertionError
+________ test_B0_18_password_account_with_olbrain_address_is_not_admin ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+
+    def test_B0_18_password_account_with_olbrain_address_is_not_admin(impl):
+>       assert impl.is_platform_admin(STAFF_PASSWORD_VERIFIED) is False
+E       AssertionError: assert True is False
+E        +  where True = <function is_platform_admin at 0x000002280282FF60>(Principal(kind='firebase', uid='uid_pw', email='pw@olbrain.com', email_verified=True, provider='password', hd=None, admin_claim=False, org=None, perms=(), scoped_agent=None, share_token=None, service_email=None, key_id=None))
+E        +    where <function is_platform_admin at 0x000002280282FF60> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.is_platform_admin
+
+test_b0_18_to_24_services.py:30: AssertionError
+_______________ test_B0_18_explicit_backend_admin_claim_allowed _______________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+
+    def test_B0_18_explicit_backend_admin_claim_allowed(impl):
+>       assert impl.is_platform_admin(CLAIM_ADMIN) is True
+E       AssertionError: assert False is True
+E        +  where False = <function is_platform_admin at 0x000002280282FF60>(Principal(kind='firebase', uid='uid_claim', email='ops@contractor.example', email_verified=True, provider=None, hd=None, admin_claim=True, org=None, perms=(), scoped_agent=None, share_token=None, service_email=None, key_id=None))
+E        +    where <function is_platform_admin at 0x000002280282FF60> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.is_platform_admin
+
+test_b0_18_to_24_services.py:34: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  sb.middleware.auth:auth.py:489 Admin access denied for user uid_claim (ops@contractor.example)
+_____ test_B0_18_current_engine_and_research_gates_also_accept_unverified _____
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+
+    @pytest.mark.skipif(__import__("os").environ.get("B0_TARGET", "reference") != "current",
+                        reason="documents the other two CURRENT gates (engine, research) with REAL code")
+    def test_B0_18_current_engine_and_research_gates_also_accept_unverified(impl):
+>       assert impl.engine_admin(STAFF_UNVERIFIED) is False, "engine require_olbrain_user accepts unverified"
+E       AssertionError: engine require_olbrain_user accepts unverified
+E       assert True is False
+E        +  where True = <function engine_admin at 0x000002280285C040>(Principal(kind='firebase', uid='uid_fake', email='intern@olbrain.com', email_verified=False, provider='password', hd=None, admin_claim=False, org=None, perms=(), scoped_agent=None, share_token=None, service_email=None, key_id=None))
+E        +    where <function engine_admin at 0x000002280285C040> = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>.engine_admin
+
+test_b0_18_to_24_services.py:44: AssertionError
+__________________ test_B0_19_unauthenticated_caller_denied ___________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ...t_A1', 'eu_A1', 'promo')], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_19_unauthenticated_caller_denied(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:53: Failed
+________________ test_B0_19_invalid_service_credential_denied _________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ...t_A1', 'eu_A1', 'promo')], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_19_invalid_service_credential_denied(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:59: Failed
+__________ test_B0_19_caller_cannot_target_arbitrary_victim_identity __________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ...t_A1', 'eu_B1', 'promo')], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_19_caller_cannot_target_arbitrary_victim_identity(impl, w):
+>       with pytest.raises(Denied):                       # an end user of ANOTHER agent/org
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:68: Failed
+________________ test_B0_20_default_configuration_fails_closed ________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_default_configuration_fails_closed(impl, w):
+>       with pytest.raises(Denied):                       # MCP_REQUIRE_AUTH unset, no caller identity
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:79: Failed
+___ test_B0_20_missing_agent_is_rejected_and_never_uses_default_credentials ___
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_missing_agent_is_rejected_and_never_uses_default_credentials(impl, w):
+        try:
+            r = impl.mcp_tools_call(w, {"MCP_REQUIRE_AUTH": "true"}, RUNTIME_SA, "shopify")
+        except Denied:
+            return
+>       assert r["credential"] != "cred-DEFAULT", "empty agent_id fell through to default credentials"
+E       AssertionError: empty agent_id fell through to default credentials
+E       assert 'cred-DEFAULT' != 'cred-DEFAULT'
+
+test_b0_18_to_24_services.py:88: AssertionError
+_________ test_B0_20_body_or_query_agent_does_not_establish_authority _________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_body_or_query_agent_does_not_establish_authority(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:93: Failed
+___ test_B0_20_spoofed_agent_with_valid_binding_for_another_agent_rejected ____
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_spoofed_agent_with_valid_binding_for_another_agent_rejected(impl, w):
+        b = impl.mint_binding(w, "agent_A1", "shopify")
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:101: Failed
+_________ test_B0_20_wrong_tenant_expired_or_forged_binding_rejected __________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_wrong_tenant_expired_or_forged_binding_rejected(impl, w):
+        env = {"MCP_REQUIRE_AUTH": "true"}
+        for bad in (impl.mint_binding(w, "agent_A1", "shopify", org="org_B"),
+                    impl.mint_binding(w, "agent_A1", "shopify", exp_delta=-1),
+                    impl.mint_binding(w, "agent_A1", "notion"),
+                    "forged.0000"):
+>           with pytest.raises(Denied):
+E           Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:111: Failed
+___ test_B0_20_valid_binding_allowed_and_resolves_only_its_own_credentials ____
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_valid_binding_allowed_and_resolves_only_its_own_credentials(impl, w):
+        r = impl.mcp_tools_call(w, {"MCP_REQUIRE_AUTH": "true"}, RUNTIME_SA, "shopify",
+                                binding=impl.mint_binding(w, "agent_A1", "shopify"))
+>       assert r == {"agent": "agent_A1", "credential": "cred-A1"}
+E       AssertionError: assert {'agent': '',...cred-DEFAULT'} == {'agent': 'ag...l': 'cred-A1'}
+E         
+E         Differing items:
+E         {'credential': 'cred-DEFAULT'} != {'credential': 'cred-A1'}
+E         {'agent': ''} != {'agent': 'agent_A1'}
+E         Use -v to get more diff
+
+test_b0_18_to_24_services.py:118: AssertionError
+___ test_B0_20_agent_without_tenant_credentials_never_falls_back_to_default ___
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_agent_without_tenant_credentials_never_falls_back_to_default(impl, w):
+        w.agents["agent_A3"] = {"org": "org_A", "owner": "uid_alice", "project": "proj_A"}
+        try:
+            r = impl.mcp_tools_call(w, {"MCP_REQUIRE_AUTH": "true"}, RUNTIME_SA, "shopify", body_agent="agent_A3",
+                                    binding=impl.mint_binding(w, "agent_A3", "shopify"))
+        except Denied:
+            return
+>       assert r["credential"] != "cred-DEFAULT"
+E       AssertionError: assert 'cred-DEFAULT' != 'cred-DEFAULT'
+
+test_b0_18_to_24_services.py:128: AssertionError
+_ test_B0_20_credential_management_requires_studio_backend_and_user_edit_right _
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_20_credential_management_requires_studio_backend_and_user_edit_right(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:132: Failed
+________ test_B0_21_adversarial_sql_cannot_widen_tenant_scope[comment] ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+name = 'comment'
+
+    @pytest.mark.parametrize("name", sorted(ATTACKS))
+    def test_B0_21_adversarial_sql_cannot_widen_tenant_scope(impl, w, name):
+        try:
+            out = impl.lumen_query(w, "mine", ATTACKS[name], ROWS)
+        except Denied:
+            return
+>       assert not any("victim" in r for r in out), "tenant scope widened by " + name
+E       AssertionError: tenant scope widened by comment
+E       assert not True
+E        +  where True = any(<generator object test_B0_21_adversarial_sql_cannot_widen_tenant_scope.<locals>.<genexpr> at 0x0000022802813440>)
+
+test_b0_18_to_24_services.py:157: AssertionError
+__________ test_B0_21_adversarial_sql_cannot_widen_tenant_scope[or] ___________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+name = 'or'
+
+    @pytest.mark.parametrize("name", sorted(ATTACKS))
+    def test_B0_21_adversarial_sql_cannot_widen_tenant_scope(impl, w, name):
+        try:
+            out = impl.lumen_query(w, "mine", ATTACKS[name], ROWS)
+        except Denied:
+            return
+>       assert not any("victim" in r for r in out), "tenant scope widened by " + name
+E       AssertionError: tenant scope widened by or
+E       assert not True
+E        +  where True = any(<generator object test_B0_21_adversarial_sql_cannot_widen_tenant_scope.<locals>.<genexpr> at 0x000002280276CEE0>)
+
+test_b0_18_to_24_services.py:157: AssertionError
+________ test_B0_21_adversarial_sql_cannot_widen_tenant_scope[string] _________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+name = 'string'
+
+    @pytest.mark.parametrize("name", sorted(ATTACKS))
+    def test_B0_21_adversarial_sql_cannot_widen_tenant_scope(impl, w, name):
+        try:
+            out = impl.lumen_query(w, "mine", ATTACKS[name], ROWS)
+        except Denied:
+            return
+>       assert not any("victim" in r for r in out), "tenant scope widened by " + name
+E       AssertionError: tenant scope widened by string
+E       assert not True
+E        +  where True = any(<generator object test_B0_21_adversarial_sql_cannot_widen_tenant_scope.<locals>.<genexpr> at 0x00000228028118A0>)
+
+test_b0_18_to_24_services.py:157: AssertionError
+_______ test_B0_21_adversarial_sql_cannot_widen_tenant_scope[subquery] ________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+name = 'subquery'
+
+    @pytest.mark.parametrize("name", sorted(ATTACKS))
+    def test_B0_21_adversarial_sql_cannot_widen_tenant_scope(impl, w, name):
+        try:
+            out = impl.lumen_query(w, "mine", ATTACKS[name], ROWS)
+        except Denied:
+            return
+>       assert not any("victim" in r for r in out), "tenant scope widened by " + name
+E       AssertionError: tenant scope widened by subquery
+E       assert not True
+E        +  where True = any(<generator object test_B0_21_adversarial_sql_cannot_widen_tenant_scope.<locals>.<genexpr> at 0x00000228007F41E0>)
+
+test_b0_18_to_24_services.py:157: AssertionError
+_________ test_B0_21_adversarial_sql_cannot_widen_tenant_scope[union] _________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+name = 'union'
+
+    @pytest.mark.parametrize("name", sorted(ATTACKS))
+    def test_B0_21_adversarial_sql_cannot_widen_tenant_scope(impl, w, name):
+        try:
+            out = impl.lumen_query(w, "mine", ATTACKS[name], ROWS)
+        except Denied:
+            return
+>       assert not any("victim" in r for r in out), "tenant scope widened by " + name
+E       AssertionError: tenant scope widened by union
+E       assert not True
+E        +  where True = any(<generator object test_B0_21_adversarial_sql_cannot_widen_tenant_scope.<locals>.<genexpr> at 0x0000022801FFB030>)
+
+test_b0_18_to_24_services.py:157: AssertionError
+___________ test_B0_22_caller_cannot_log_activity_into_another_org ____________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_22_caller_cannot_log_activity_into_another_org(impl, w):
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:166: Failed
+______________ test_B0_22_firebase_supplied_actor_id_is_ignored _______________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_22_firebase_supplied_actor_id_is_ignored(impl, w):
+        impl.activity_log(w, ALICE, "org_A", actor_id="uid_bob")
+>       assert w.activities[-1]["actor"] == "uid_alice"
+E       AssertionError: assert 'uid_bob' == 'uid_alice'
+E         
+E         - uid_alice
+E         + uid_bob
+
+test_b0_18_to_24_services.py:173: AssertionError
+_____________ test_B0_22_cross_org_list_denied_and_same_org_works _____________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_22_cross_org_list_denied_and_same_org_works(impl, w):
+        impl.activity_log(w, BOB, "org_B")
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:178: Failed
+___________ test_B0_23_validation_never_returns_the_stored_live_key ___________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_23_validation_never_returns_the_stored_live_key(impl, w):
+        r = impl.share_validate(w, "tok_A1", "sess_1")
+>       assert r["credential"] != w.share_tokens["tok_A1"]["stored_api_key"]
+E       AssertionError: assert 'ak_live_org_A_scoped_A1' != 'ak_live_org_A_scoped_A1'
+
+test_b0_18_to_24_services.py:187: AssertionError
+_______________ test_B0_23_exchanged_credential_is_short_lived ________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_23_exchanged_credential_is_short_lived(impl, w):
+        r = impl.share_validate(w, "tok_A1", "sess_1")
+>       assert r["expires_at"] is not None and r["expires_at"] - w.now <= 3600
+E       assert (None is not None)
+
+test_b0_18_to_24_services.py:192: AssertionError
+______________ test_B0_23_credential_bound_to_agent_and_session _______________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_23_credential_bound_to_agent_and_session(impl, w):
+        c = impl.share_validate(w, "tok_A1", "sess_1")["credential"]
+        w.agents["agent_A2"] = {"org": "org_A", "owner": "uid_alice", "project": "proj_A"}
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:198: Failed
+___________________ test_B0_23_expired_credential_rejected ____________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ...red-DEFAULT'}, sent=[], now=1001000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_23_expired_credential_rejected(impl, w):
+        c = impl.share_validate(w, "tok_A1", "sess_1")["credential"]
+        w.now += 10 ** 6
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:208: Failed
+______ test_B0_23_credential_cannot_be_replayed_outside_its_route_scope _______
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_23_credential_cannot_be_replayed_outside_its_route_scope(impl, w):
+        c = impl.share_validate(w, "tok_A1", "sess_1")["credential"]
+>       with pytest.raises(Denied):
+E       Failed: DID NOT RAISE <class 'world.Denied'>
+
+test_b0_18_to_24_services.py:214: Failed
+_____________________ test_B0_24_valid_permission_passes ______________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_24_valid_permission_passes(impl, w):
+>       _run(impl.engine_require_permission(w, "uid_alice", "org_A", "agents:write"))
+
+test_b0_18_to_24_services.py:224: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_b0_18_to_24_services.py:220: in _run
+    return asyncio.run(coro)
+           ^^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:687: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+current.py:306: in engine_require_permission
+    await _ENG.require_permission(None, user_id, organization_id, permission)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+db = None, user_id = 'uid_alice', organization_id = 'org_A'
+permission = 'agents:write'
+
+    async def require_permission(
+        db: firestore.Client,
+        user_id: str,
+        organization_id: str,
+        permission: str
+    ) -> None:
+        """
+        Require that a user has a specific permission.
+        Raises HTTPException if not.
+    
+        Args:
+            db: Firestore client
+            user_id: Firebase user ID
+            organization_id: Organization ID
+            permission: Required permission
+    
+        Raises:
+            HTTPException: If user doesn't have permission
+        """
+>       has_permission = await check_permission(db, user_id, organization_id, permission)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: check_permission() takes 3 positional arguments but 4 were given
+
+C:\Users\kumar\AppData\Local\Temp\olbrain_b0_extract\alchemist\utils\auth.py:133: TypeError
+______ test_B0_24_unauthorized_access_denied_explicitly_not_by_accident _______
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_24_unauthorized_access_denied_explicitly_not_by_accident(impl, w):
+        try:
+>           _run(impl.engine_require_permission(w, "uid_alice", "org_B", "agents:read"))
+
+test_b0_18_to_24_services.py:229: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_b0_18_to_24_services.py:220: in _run
+    return asyncio.run(coro)
+           ^^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:687: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+current.py:306: in engine_require_permission
+    await _ENG.require_permission(None, user_id, organization_id, permission)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+db = None, user_id = 'uid_alice', organization_id = 'org_B'
+permission = 'agents:read'
+
+    async def require_permission(
+        db: firestore.Client,
+        user_id: str,
+        organization_id: str,
+        permission: str
+    ) -> None:
+        """
+        Require that a user has a specific permission.
+        Raises HTTPException if not.
+    
+        Args:
+            db: Firestore client
+            user_id: Firebase user ID
+            organization_id: Organization ID
+            permission: Required permission
+    
+        Raises:
+            HTTPException: If user doesn't have permission
+        """
+>       has_permission = await check_permission(db, user_id, organization_id, permission)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: check_permission() takes 3 positional arguments but 4 were given
+
+C:\Users\kumar\AppData\Local\Temp\olbrain_b0_extract\alchemist\utils\auth.py:133: TypeError
+
+During handling of the above exception, another exception occurred:
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_24_unauthorized_access_denied_explicitly_not_by_accident(impl, w):
+        try:
+            _run(impl.engine_require_permission(w, "uid_alice", "org_B", "agents:read"))
+        except HTTPException as e:
+            assert e.status_code == 403
+            return
+        except TypeError as e:
+>           pytest.fail("denial was an accidental TypeError, not an authorization decision: %s" % e)
+E           Failed: denial was an accidental TypeError, not an authorization decision: check_permission() takes 3 positional arguments but 4 were given
+
+test_b0_18_to_24_services.py:234: Failed
+_______________________ test_B0_24_viewer_cannot_write ________________________
+
+impl = <module 'current' from 'E:\\OLBrain-Architecture-Research\\investigation\\lane-b\\acceptance\\current.py'>
+w = World(index={('uid_alice', 'org_A'), ('uid_bob', 'org_B'), ('uid_viewer_A', 'org_A')}, roles={('uid_alice', 'org_A'): ... 'cred-DEFAULT'}, sent=[], now=1000.0, secret=b'synthetic-binding-secret', email_parse_secret='synthetic-parse-secret')
+
+    def test_B0_24_viewer_cannot_write(impl, w):
+        with pytest.raises(HTTPException) as e:
+>           _run(impl.engine_require_permission(w, "uid_viewer_A", "org_A", "agents:write"))
+
+test_b0_18_to_24_services.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_b0_18_to_24_services.py:220: in _run
+    return asyncio.run(coro)
+           ^^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kumar\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:687: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+current.py:306: in engine_require_permission
+    await _ENG.require_permission(None, user_id, organization_id, permission)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+db = None, user_id = 'uid_viewer_A', organization_id = 'org_A'
+permission = 'agents:write'
+
+    async def require_permission(
+        db: firestore.Client,
+        user_id: str,
+        organization_id: str,
+        permission: str
+    ) -> None:
+        """
+        Require that a user has a specific permission.
+        Raises HTTPException if not.
+    
+        Args:
+            db: Firestore client
+            user_id: Firebase user ID
+            organization_id: Organization ID
+            permission: Required permission
+    
+        Raises:
+            HTTPException: If user doesn't have permission
+        """
+>       has_permission = await check_permission(db, user_id, organization_id, permission)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: check_permission() takes 3 positional arguments but 4 were given
+
+C:\Users\kumar\AppData\Local\Temp\olbrain_b0_extract\alchemist\utils\auth.py:133: TypeError
+=================================== PASSES ====================================
+_________________ test_B0_18_ordinary_external_account_denied _________________
+------------------------------ Captured log call ------------------------------
+WARNING  sb.middleware.auth:auth.py:489 Admin access denied for user uid_alice (alice@a.example)
+=========================== short test summary info ===========================
+PASSED test_b0_12_to_14_org_access.py::test_B0_12_firebase_member_of_A_can_access_org_A
+PASSED test_b0_12_to_14_org_access.py::test_B0_12_api_key_for_A_can_access_org_A
+PASSED test_b0_12_to_14_org_access.py::test_B0_13_legitimate_same_org_create_and_fork_still_work
+PASSED test_b0_12_to_14_org_access.py::test_B0_14_legitimate_same_org_reads_still_work
+PASSED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_still_reaches_its_agent_webhook
+PASSED test_b0_15_to_17_subject_selection.py::test_B0_15_full_key_keeps_legitimate_lead_access_in_own_org
+PASSED test_b0_15_to_17_subject_selection.py::test_B0_16_legitimate_channel_verified_lookup_still_works
+PASSED test_b0_15_to_17_subject_selection.py::test_B0_17_legitimate_authenticated_mail_still_processes
+PASSED test_b0_18_to_24_services.py::test_B0_18_verified_google_hosted_domain_admin_allowed
+PASSED test_b0_18_to_24_services.py::test_B0_18_ordinary_external_account_denied
+PASSED test_b0_18_to_24_services.py::test_B0_19_valid_internal_caller_allowed
+PASSED test_b0_18_to_24_services.py::test_B0_21_authorized_query_returns_only_own_rows
+FAILED test_b0_12_to_14_org_access.py::test_B0_12_firebase_user_from_A_cannot_access_org_B
+FAILED test_b0_12_to_14_org_access.py::test_B0_12_api_key_for_A_cannot_access_org_B
+FAILED test_b0_12_to_14_org_access.py::test_B0_12_caller_supplied_org_never_overrides_server_derived_org
+FAILED test_b0_12_to_14_org_access.py::test_B0_12_unauthenticated_or_unknown_principal_is_denied
+FAILED test_b0_12_to_14_org_access.py::test_B0_13_cannot_create_agent_in_another_orgs_project
+FAILED test_b0_12_to_14_org_access.py::test_B0_13_cannot_create_agent_by_naming_own_org_in_body
+FAILED test_b0_12_to_14_org_access.py::test_B0_13_cannot_fork_another_orgs_agent
+FAILED test_b0_12_to_14_org_access.py::test_B0_13_cannot_fork_into_victim_org_and_inherit_knowledge
+FAILED test_b0_12_to_14_org_access.py::test_B0_13_cannot_list_forks_or_preflight_another_orgs_agent
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_get_agent_cross_org_denied_for_user_and_key
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_list_by_project_cannot_cross_org
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_active_agents_requires_membership
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_agent_users_read_write_delete_enforce_agent_and_org
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_agent_users_viewer_can_read_not_write
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_blueprint_install_cannot_target_unauthorized_project
+FAILED test_b0_12_to_14_org_access.py::test_B0_14_store_admin_approval_requires_verified_admin
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_cannot_touch_org_wide_leads[leads.list]
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_cannot_touch_org_wide_leads[leads.export]
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_cannot_touch_org_wide_leads[leads.import]
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_cannot_touch_org_wide_leads[leads.erase]
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_cannot_read_or_delete_end_user_memory[memory.read]
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_share_key_cannot_read_or_delete_end_user_memory[memory.delete]
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_scope_is_enforced_by_server_not_inferred_from_caller
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_15_memory_route_path_agent_must_match_header_agent
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_16_caller_cannot_select_another_customers_memory_by_asserting_their_id
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_16_channel_and_assurance_are_part_of_the_lookup
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_16_asserted_identity_cannot_read_verified_memory_even_with_identical_id
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_17_missing_authentication_is_denied
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_17_invalid_authentication_is_denied
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_17_spf_or_dkim_failure_takes_the_unverified_path
+FAILED test_b0_15_to_17_subject_selection.py::test_B0_17_spoofed_sender_with_attacker_cc_receives_no_victim_memory
+FAILED test_b0_18_to_24_services.py::test_B0_18_unverified_olbrain_address_gets_no_admin
+FAILED test_b0_18_to_24_services.py::test_B0_18_password_account_with_olbrain_address_is_not_admin
+FAILED test_b0_18_to_24_services.py::test_B0_18_explicit_backend_admin_claim_allowed
+FAILED test_b0_18_to_24_services.py::test_B0_18_current_engine_and_research_gates_also_accept_unverified
+FAILED test_b0_18_to_24_services.py::test_B0_19_unauthenticated_caller_denied
+FAILED test_b0_18_to_24_services.py::test_B0_19_invalid_service_credential_denied
+FAILED test_b0_18_to_24_services.py::test_B0_19_caller_cannot_target_arbitrary_victim_identity
+FAILED test_b0_18_to_24_services.py::test_B0_20_default_configuration_fails_closed
+FAILED test_b0_18_to_24_services.py::test_B0_20_missing_agent_is_rejected_and_never_uses_default_credentials
+FAILED test_b0_18_to_24_services.py::test_B0_20_body_or_query_agent_does_not_establish_authority
+FAILED test_b0_18_to_24_services.py::test_B0_20_spoofed_agent_with_valid_binding_for_another_agent_rejected
+FAILED test_b0_18_to_24_services.py::test_B0_20_wrong_tenant_expired_or_forged_binding_rejected
+FAILED test_b0_18_to_24_services.py::test_B0_20_valid_binding_allowed_and_resolves_only_its_own_credentials
+FAILED test_b0_18_to_24_services.py::test_B0_20_agent_without_tenant_credentials_never_falls_back_to_default
+FAILED test_b0_18_to_24_services.py::test_B0_20_credential_management_requires_studio_backend_and_user_edit_right
+FAILED test_b0_18_to_24_services.py::test_B0_21_adversarial_sql_cannot_widen_tenant_scope[comment]
+FAILED test_b0_18_to_24_services.py::test_B0_21_adversarial_sql_cannot_widen_tenant_scope[or]
+FAILED test_b0_18_to_24_services.py::test_B0_21_adversarial_sql_cannot_widen_tenant_scope[string]
+FAILED test_b0_18_to_24_services.py::test_B0_21_adversarial_sql_cannot_widen_tenant_scope[subquery]
+FAILED test_b0_18_to_24_services.py::test_B0_21_adversarial_sql_cannot_widen_tenant_scope[union]
+FAILED test_b0_18_to_24_services.py::test_B0_22_caller_cannot_log_activity_into_another_org
+FAILED test_b0_18_to_24_services.py::test_B0_22_firebase_supplied_actor_id_is_ignored
+FAILED test_b0_18_to_24_services.py::test_B0_22_cross_org_list_denied_and_same_org_works
+FAILED test_b0_18_to_24_services.py::test_B0_23_validation_never_returns_the_stored_live_key
+FAILED test_b0_18_to_24_services.py::test_B0_23_exchanged_credential_is_short_lived
+FAILED test_b0_18_to_24_services.py::test_B0_23_credential_bound_to_agent_and_session
+FAILED test_b0_18_to_24_services.py::test_B0_23_expired_credential_rejected
+FAILED test_b0_18_to_24_services.py::test_B0_23_credential_cannot_be_replayed_outside_its_route_scope
+FAILED test_b0_18_to_24_services.py::test_B0_24_valid_permission_passes - Typ...
+FAILED test_b0_18_to_24_services.py::test_B0_24_unauthorized_access_denied_explicitly_not_by_accident
+FAILED test_b0_18_to_24_services.py::test_B0_24_viewer_cannot_write - TypeErr...
+62 failed, 12 passed in 2.76s

@@ -1,0 +1,739 @@
+{
+ "run_id": "legacy__claude-haiku-4-5-20251001__legacy-daee3f9__amended__20261001T154730",
+ "extractor": "legacy",
+ "protocol": "legacy-facts",
+ "schema": "legacy-facts-json",
+ "prompt_version": "legacy@daee3f9",
+ "provider": "claude-cli",
+ "provider_version": "2.1.278 (Claude Code)",
+ "model": "claude-haiku-4-5-20251001",
+ "core_config": "amended",
+ "datasets": "lane1_holdout_v1",
+ "reps": 2,
+ "offline": false,
+ "wall_s": 42.6,
+ "summary": {
+  "lane1-holdout-v1": {
+   "per_metric": {
+    "false_memory": {
+     "pass": 0,
+     "fail": 2,
+     "n_a": 0
+    },
+    "recall": {
+     "pass": 10,
+     "fail": 2,
+     "n_a": 0
+    }
+   },
+   "recall_per_language": {
+    "en": {
+     "pass": 8,
+     "fail": 2
+    },
+    "hi": {
+     "pass": 2,
+     "fail": 0
+    }
+   },
+   "proposal_classes": {
+    "calls": 20,
+    "malformed": 0,
+    "provider_errors": 0,
+    "truncated": 0
+   },
+   "failing": [
+    "ho_diet_change/recall",
+    "ho_pet_gone/false_memory"
+   ]
+  }
+ },
+ "scenarios": [
+  {
+   "scenario": "ho_diet_change",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    },
+    {
+     "metric": "recall",
+     "ok": false
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User is vegetarian and eats dairy."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_future_job",
+   "lang": "en",
+   "category": "future",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "Works at TCS; joining Infosys in November 2026"
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_device_hi",
+   "lang": "hi",
+   "category": "recall",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User has a Samsung Galaxy S24"
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_language_pref",
+   "lang": "en",
+   "category": "recall",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User prefers communication in Hindi."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_never_true",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User lives in Chennai."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 0,
+   "expectations": [
+    {
+     "metric": "false_memory",
+     "ok": false
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User no longer has a cat at home; gave Mochi to sister."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_diet_change",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    },
+    {
+     "metric": "recall",
+     "ok": false
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User is vegetarian and eats dairy."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_future_job",
+   "lang": "en",
+   "category": "future",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "Joining Infosys next month (November 2026), currently at TCS."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_device_hi",
+   "lang": "hi",
+   "category": "recall",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User has a Samsung Galaxy S24 smartphone"
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_language_pref",
+   "lang": "en",
+   "category": "recall",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User prefers communication in Hindi."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_never_true",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "recall",
+     "ok": true
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User lives in Chennai."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "lang": "en",
+   "category": "lifecycle",
+   "rep": 1,
+   "expectations": [
+    {
+     "metric": "false_memory",
+     "ok": false
+    }
+   ],
+   "final_facts": {
+    "u1": [
+     "User gave their cat Mochi to their sister."
+    ]
+   },
+   "dataset": "lane1-holdout-v1"
+  }
+ ],
+ "calls": [
+  {
+   "scenario": "ho_diet_change",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4807,
+    "output_tokens": 383,
+    "cost_usd": 0.0067220000000000005,
+    "latency_s": 8.35,
+    "is_error": false,
+    "request_hash": "92862159cec0a6e9fdd58493035a9c1b",
+    "timestamp": "2026-10-01T10:16:55Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User is vegan."
+   ]
+  },
+  {
+   "scenario": "ho_diet_change",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4836,
+    "output_tokens": 339,
+    "cost_usd": 0.0065309999999999995,
+    "latency_s": 6.47,
+    "is_error": false,
+    "request_hash": "f35167a116df3ceae28273228cc831d6",
+    "timestamp": "2026-10-01T10:17:02Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User is vegetarian and eats dairy."
+   ]
+  },
+  {
+   "scenario": "ho_future_job",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4832,
+    "output_tokens": 378,
+    "cost_usd": 0.006722,
+    "latency_s": 7.14,
+    "is_error": false,
+    "request_hash": "67dd83d42d90308b04f6a307cbb06a35",
+    "timestamp": "2026-10-01T10:16:54Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "Works at TCS; joining Infosys in November 2026"
+   ]
+  },
+  {
+   "scenario": "ho_device_hi",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4818,
+    "output_tokens": 508,
+    "cost_usd": 0.007357999999999999,
+    "latency_s": 9.17,
+    "is_error": false,
+    "request_hash": "a838c6f95a3abca880a2adfa53cf8dc6",
+    "timestamp": "2026-10-01T10:16:56Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User has a Samsung Galaxy S24"
+   ]
+  },
+  {
+   "scenario": "ho_language_pref",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4816,
+    "output_tokens": 1247,
+    "cost_usd": 0.011051,
+    "latency_s": 15.92,
+    "is_error": false,
+    "request_hash": "4489929f35b47c97e94d77c72db46807",
+    "timestamp": "2026-10-01T10:17:03Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User prefers communication in Hindi."
+   ]
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4807,
+    "output_tokens": 254,
+    "cost_usd": 0.006077,
+    "latency_s": 5.32,
+    "is_error": false,
+    "request_hash": "01c881920bf4a69a5cb7e40aa75c7899",
+    "timestamp": "2026-10-01T10:16:59Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Chennai."
+   ]
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4824,
+    "output_tokens": 264,
+    "cost_usd": 0.006144,
+    "latency_s": 5.84,
+    "is_error": false,
+    "request_hash": "fd09604c04f7ea43f1787d3386b3fa94",
+    "timestamp": "2026-10-01T10:17:05Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Kochi."
+   ]
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4841,
+    "output_tokens": 274,
+    "cost_usd": 0.006211,
+    "latency_s": 5.43,
+    "is_error": false,
+    "request_hash": "e5b58a133cb993d5416a0d6bc5f872f6",
+    "timestamp": "2026-10-01T10:17:11Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Chennai."
+   ]
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4815,
+    "output_tokens": 294,
+    "cost_usd": 0.006285,
+    "latency_s": 5.83,
+    "is_error": false,
+    "request_hash": "d3d364f70a214521a72f03f229639343",
+    "timestamp": "2026-10-01T10:17:02Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User has a cat named Mochi."
+   ]
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 0,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4845,
+    "output_tokens": 744,
+    "cost_usd": 0.008565,
+    "latency_s": 10.69,
+    "is_error": false,
+    "request_hash": "4f9ebecafec8cf7ad7feb1f7ee8f0c4b",
+    "timestamp": "2026-10-01T10:17:13Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User no longer has a cat at home; gave Mochi to sister."
+   ]
+  },
+  {
+   "scenario": "ho_diet_change",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4802,
+    "output_tokens": 287,
+    "cost_usd": 0.0062369999999999995,
+    "latency_s": 6.69,
+    "is_error": false,
+    "request_hash": "fc0f073df2f6f707a8773ef89b1b8cff",
+    "timestamp": "2026-10-01T10:17:08Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User is vegan."
+   ]
+  },
+  {
+   "scenario": "ho_diet_change",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4837,
+    "output_tokens": 233,
+    "cost_usd": 0.006002,
+    "latency_s": 4.69,
+    "is_error": false,
+    "request_hash": "652d76f59544e3780916622f29dd6edb",
+    "timestamp": "2026-10-01T10:17:13Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User is vegetarian and eats dairy."
+   ]
+  },
+  {
+   "scenario": "ho_future_job",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4826,
+    "output_tokens": 590,
+    "cost_usd": 0.007776,
+    "latency_s": 9.33,
+    "is_error": false,
+    "request_hash": "be874a7f955c6c4ef2990d010fa59893",
+    "timestamp": "2026-10-01T10:17:12Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "Joining Infosys next month (November 2026), currently at TCS."
+   ]
+  },
+  {
+   "scenario": "ho_device_hi",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4824,
+    "output_tokens": 321,
+    "cost_usd": 0.006429,
+    "latency_s": 5.9,
+    "is_error": false,
+    "request_hash": "d91f790d444024c4945915998c42e5d0",
+    "timestamp": "2026-10-01T10:17:17Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User has a Samsung Galaxy S24 smartphone"
+   ]
+  },
+  {
+   "scenario": "ho_language_pref",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4815,
+    "output_tokens": 383,
+    "cost_usd": 0.00673,
+    "latency_s": 6.42,
+    "is_error": false,
+    "request_hash": "3b558592d927e189d0b27ebe83cf262b",
+    "timestamp": "2026-10-01T10:17:19Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User prefers communication in Hindi."
+   ]
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4806,
+    "output_tokens": 301,
+    "cost_usd": 0.006311,
+    "latency_s": 6.71,
+    "is_error": false,
+    "request_hash": "648ad4d6512e6707c0a1fc527d8ec4d4",
+    "timestamp": "2026-10-01T10:17:19Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Chennai."
+   ]
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4822,
+    "output_tokens": 246,
+    "cost_usd": 0.006052,
+    "latency_s": 5.19,
+    "is_error": false,
+    "request_hash": "833a33b53b76561fc792d9949ce7115d",
+    "timestamp": "2026-10-01T10:17:24Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Kochi."
+   ]
+  },
+  {
+   "scenario": "ho_never_true",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4847,
+    "output_tokens": 276,
+    "cost_usd": 0.006227,
+    "latency_s": 5.01,
+    "is_error": false,
+    "request_hash": "b633b794d1f9eef7a25fb626ce237918",
+    "timestamp": "2026-10-01T10:17:30Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User lives in Chennai."
+   ]
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4814,
+    "output_tokens": 342,
+    "cost_usd": 0.006524,
+    "latency_s": 6.68,
+    "is_error": false,
+    "request_hash": "989899e8c9fb7aaf7300be5a6c7bf5c5",
+    "timestamp": "2026-10-01T10:17:20Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User has a cat named Mochi."
+   ]
+  },
+  {
+   "scenario": "ho_pet_gone",
+   "rep": 1,
+   "parse_error": "",
+   "meta": {
+    "provider": "claude-cli",
+    "provider_version": "2.1.278 (Claude Code)",
+    "model_requested": "claude-haiku-4-5-20251001",
+    "model_reported": "claude-haiku-4-5",
+    "stop_reason": "end_turn",
+    "input_tokens": 4851,
+    "output_tokens": 447,
+    "cost_usd": 0.007086,
+    "latency_s": 7.57,
+    "is_error": false,
+    "request_hash": "27075447d4ed9f252531bde2c33ff6fc",
+    "timestamp": "2026-10-01T10:17:27Z",
+    "cache": "miss"
+   },
+   "facts": [
+    "User gave their cat Mochi to their sister."
+   ]
+  }
+ ]
+}

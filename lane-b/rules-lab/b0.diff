@@ -1,0 +1,181 @@
+22a23,46
+>     // [B0-K1] agents/{agentId} is the tenancy root of trust (API-key org match, canUseAgent, DCI/KV placement).
+>     // Before B0 the top-level catch-all ORed over this block: any signed-in user could create an agent claiming
+>     // any org and take over any agent. Now: agents is excluded from both catch-alls; clients never create or
+>     // delete agents (studio uses POST /api/agents); owner, org members, project members and team members may
+>     // read; the owner or an org editor may update ONLY non-tenancy fields.
+>     function agentReadable(d) {
+>       return d.get('userId', '') == request.auth.uid
+>         || d.get('owner_id', '') == request.auth.uid
+>         || (d.get('organization_id', '') is string && d.get('organization_id', '') != ''
+>             && isOrgMember(d.get('organization_id', '')))
+>         || (d.get('project_id', '') is string && d.get('project_id', '') != ''
+>             && exists(/databases/$(database)/documents/projects/$(d.get('project_id', ''))/members/$(request.auth.uid)))
+>         || request.auth.uid in d.get('team_access', {}).get('team_member_ids', []);
+>     }
+>     function isOrgEditor(orgId) {
+>       return orgId is string && orgId != '' && exists(orgIndexPath(orgId))
+>         && orgRoles(orgId).hasAny(['owner', 'super_admin', 'admin', 'editor']);
+>     }
+>     function canEditAgent(agentId) {
+>       return exists(agentPath(agentId)) && (
+>         agentDoc(agentId).data.get('userId', '') == request.auth.uid
+>         || agentDoc(agentId).data.get('owner_id', '') == request.auth.uid
+>         || isOrgEditor(agentOrg(agentId)));
+>     }
+24,30c48,56
+<       allow read, write: if isAuthenticated() &&
+<         (resource == null
+<           || resource.data.userId == request.auth.uid
+<           || resource.data.owner_id == request.auth.uid) &&
+<         (request.resource == null
+<           || request.resource.data.userId == request.auth.uid
+<           || request.resource.data.owner_id == request.auth.uid);
+---
+>       allow read: if isAuthenticated() && agentReadable(resource.data);
+>       allow create, delete: if false;
+>       allow update: if isAuthenticated()
+>         && (resource.data.get('userId', '') == request.auth.uid
+>             || resource.data.get('owner_id', '') == request.auth.uid
+>             || isOrgEditor(resource.data.get('organization_id', '')))
+>         && !request.resource.data.diff(resource.data).affectedKeys()
+>               .hasAny(['organization_id', 'owner_id', 'userId', 'project_id', 'runtime', 'billing_config',
+>                        'lifecycle_state', 'team_access', 'api_keys']);
+425c451,453
+<         && (!writesAgentBudgets() || isOrgAdmin(orgId) || isOrgOwner(orgId));
+---
+>         && (!writesAgentBudgets() || isOrgAdmin(orgId) || isOrgOwner(orgId))
+>         // [B0-ORG] any update (runtime.firebase_web_config, auto_recharge) requires an admin/owner of THIS org
+>         && (isOrgAdmin(orgId) || isOrgOwner(orgId));
+816a845,918
+> 
+>     // [B0-E1] Evidence and sessions. Clients never write them (studio inventory: reads only); the runtime's
+>     // Admin SDK is the only writer. Read: org member of the row's organization, OR may use the row's agent
+>     // (covers legacy rows without organization_id; queries must constrain organization_id or agent_id).
+>     function evidenceReadable(d) {
+>       return (d.get('organization_id', '') is string && d.get('organization_id', '') != ''
+>               && isOrgMember(d.get('organization_id', '')))
+>         || (d.get('agent_id', '') is string && d.get('agent_id', '') != '' && canUseAgent(d.get('agent_id', '')));
+>     }
+>     match /agent_messages/{messageId} {
+>       allow read: if isAuthenticated() && evidenceReadable(resource.data);
+>       allow write: if false;
+>     }
+>     match /agent_sessions/{sessionId} {
+>       allow read: if isAuthenticated() && evidenceReadable(resource.data);
+>       allow write: if false;
+>       match /messages/{messageId} {
+>         allow read: if isAuthenticated()
+>           && evidenceReadable(get(/databases/$(database)/documents/agent_sessions/$(sessionId)).data);
+>         allow write: if false;
+>       }
+>     }
+>     // [B0-AU] End-user identifiers: read for people who may use the agent; server-only writes.
+>     match /agent_users/{userId} {
+>       allow read: if isAuthenticated() && evidenceReadable(resource.data);
+>       allow write: if false;
+>     }
+>     // [B0-N5] Support tickets hold customer PII: the filer reads their own tickets and may set CSAT only;
+>     // org members of the ticket's org may read. The engine (Admin SDK) creates and updates everything else.
+>     match /tickets/{ticketId} {
+>       allow read: if isAuthenticated() && (resource.data.get('user_id', '') == request.auth.uid
+>         || (resource.data.get('organization_id', '') is string && resource.data.get('organization_id', '') != ''
+>             && isOrgMember(resource.data.get('organization_id', ''))));
+>       allow update: if isAuthenticated() && resource.data.get('user_id', '') == request.auth.uid
+>         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['csat', 'csat_at']);
+>       allow create, delete: if false;
+>     }
+>     // [B0-AN] Analytics / billing rollup trees. Before B0 every tree was readable by every signed-in user (the
+>     // 4-segment catch-all for doc reads, the generic {path=**}/months|days|hours rules for group queries).
+>     // Path reads are scoped to the tree's owner; writes are server-only (analytics-service, billing functions).
+>     match /agent_analytics/{agentId}/{rest=**} {
+>       allow read: if isAuthenticated() && canUseAgent(agentId);
+>       allow write: if false;
+>     }
+>     match /organization_analytics/{orgId}/{rest=**} {
+>       allow read: if isAuthenticated() && isOrgMember(orgId);
+>       allow write: if false;
+>     }
+>     match /project_analytics/{projectId}/{rest=**} {
+>       allow read: if isAuthenticated()
+>         && (exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid))
+>             || isOrgMember(get(/databases/$(database)/documents/projects/$(projectId)).data.get('organization_id', '')));
+>       allow write: if false;
+>     }
+>     match /workflow_analytics/{workflowId}/{rest=**} {
+>       allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+>       allow write: if false;
+>     }
+>     match /billing_aggregates/{a}/orgs/{orgId}/{rest=**} {
+>       allow read: if isAuthenticated() && isOrgMember(orgId);
+>       allow write: if false;
+>     }
+>     match /billing_aggregates/{rest=**} {
+>       allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+>       allow write: if false;
+>     }
+>     // [B0-S0-5] Memory Gateway / identity-authority collections (Lane A R-1, C-1a). Server-only, always:
+>     // a client-writable binding would let any user re-point a customer's identity.
+>     match /memory_bindings/{id=**} { allow read, write: if false; }
+>     match /identity_events/{id=**} { allow read, write: if false; }
+>     match /inbound_dedup/{id=**} { allow read, write: if false; }
+>     match /evidence_meta/{id=**} { allow read, write: if false; }
+>     match /memory_control/{id=**} { allow read, write: if false; }
+> 
+890a993
+>           'agents', 'agent_messages', 'agent_sessions', 'agent_users', 'tickets', 'agent_analytics', 'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates', 'memory_bindings', 'identity_events', 'inbound_dedup', 'evidence_meta', 'memory_control', 'departments', // [B0] explicit blocks above are now the only grants
+916a1020
+>           'agents', 'agent_messages', 'agent_sessions', 'agent_users', 'tickets', 'agent_analytics', 'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates', 'memory_bindings', 'identity_events', 'inbound_dedup', 'evidence_meta', 'memory_control', 'departments', // [B0] explicit blocks above are now the only grants
+1222c1326,1328
+<         && !(collection in ['organizations', 'agents', 'agent_datastores',
+---
+>         && !(collection in ['agent_sessions', 'agent_analytics', 'memory_bindings', 'identity_events', // [B0]
+>                             'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates',
+>                             'organizations', 'agents', 'agent_datastores',
+1249c1355,1357
+<         && !(collection in ['organizations', 'agents', 'research_chat_sessions',
+---
+>         && !(collection in ['agent_sessions', 'agent_analytics', 'memory_bindings', 'identity_events', // [B0]
+>                             'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates',
+>                             'organizations', 'agents', 'research_chat_sessions',
+1278a1387,1388
+>     // [B0-N6] Agent subcollections: read for people who may use the agent; writes only for the owner or an
+>     // org editor, and never for versions/owner_lessons/documents (server-written: publish, Dendrite, KV).
+1280,1281c1390,1393
+<       allow read: if isAuthenticated() && sub != 'mcp_configs' && sub != 'oauth_tokens';
+<       allow write: if isAuthenticated() && sub != 'owner_lessons' && sub != 'mcp_configs' && sub != 'oauth_tokens';
+---
+>       allow read: if isAuthenticated() && sub != 'mcp_configs' && sub != 'oauth_tokens' && canUseAgent(agentId);
+>       allow write: if isAuthenticated()
+>         && !(sub in ['owner_lessons', 'mcp_configs', 'oauth_tokens', 'versions', 'documents'])
+>         && canEditAgent(agentId);
+1334a1447,1448
+>     // [B0-N3] Member rows (names, emails) are visible to members of that org only, plus your OWN row in any org
+>     // (Studio onboarding's slow path checks it to discover a pending membership).
+1336c1450
+<       allow read: if isAuthenticated();
+---
+>       allow read: if isAuthenticated() && (isOrgMember(orgId) || memberId == request.auth.uid);
+1339a1454,1455
+>     // [B0-N4] Every other org subcollection (departments, private_mcp_servers, activities, ...) requires
+>     // membership of THAT org. Before B0 any signed-in user could read and write them across tenants.
+1341c1457
+<       allow read, write: if isAuthenticated()
+---
+>       allow read, write: if isAuthenticated() && isOrgMember(orgId)
+1354a1471,1473
+>     // [B0-AN] Collection-group rollup reads (Studio usageService: 11 live call sites) stay possible but are
+>     // org-scoped: a group query must constrain organization_id == an org the caller belongs to. Assumes every
+>     // rollup doc carries organization_id (analytics writer is in a missing repository: [UNRESOLVED]).
+1356c1475
+<       allow read: if isAuthenticated();
+---
+>       allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+1359c1478
+<       allow read: if isAuthenticated();
+---
+>       allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+1362c1481
+<       allow read: if isAuthenticated();
+---
+>       allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));

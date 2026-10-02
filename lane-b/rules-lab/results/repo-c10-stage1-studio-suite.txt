@@ -1,0 +1,2127 @@
+PASS tests/firestore-rules/firestore.b0-probes.rules.test.js (14.286 s)
+  ● Console
+
+    console.warn
+      [2026-10-02T13:57:42.515Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba2590 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L879, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:42.984Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba2592 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L879, false for 'create' @ L1049, false for 'update' @ L879, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:43.500Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba2598 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L883, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:43.667Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba259a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L51, false for 'create' @ L1049, evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'create' @ L51, false for 'create' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:43.848Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba259c error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:44.009Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba259e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:44.156Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25a0 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:44.286Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25a2 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:44.575Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25a6 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L51, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:44.865Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25aa error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, evaluation error at L1492:29 for 'create' @ L1492, false for 'update' @ L1388, evaluation error at L1492:29 for 'update' @ L1492, false for 'create' @ L1388, false for 'create' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:45.166Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25ae error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1426, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:45.305Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25b0 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1426, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:47.259Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25ca error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L936, false for 'create' @ L1049, false for 'update' @ L936, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:47.375Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25cc error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L937, false for 'create' @ L1049, false for 'update' @ L937, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:47.515Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25ce error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L938, false for 'create' @ L1049, false for 'update' @ L938, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:47.628Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25d0 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L936, false for 'create' @ L1049, false for 'update' @ L936, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:48.112Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25d8 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L943, false for 'create' @ L1049, false for 'update' @ L943, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:48.378Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25dc error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L943, false for 'create' @ L1388, false for 'update' @ L943, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:48.966Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25e4 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:49.091Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25e6 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:49.463Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25ec error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L352:23 for 'create' @ L352, false for 'create' @ L1388, evaluation error at L1492:29 for 'create' @ L1492, evaluation error at L352:23 for 'update' @ L352, false for 'update' @ L1388, evaluation error at L1492:29 for 'update' @ L1492, false for 'create' @ L352, false for 'create' @ L1388, false for 'create' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:49.571Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba25ee error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L470:24 for 'update' @ L470, false for 'update' @ L1049, false for 'update' @ L470, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:50.736Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba2602 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L945, false for 'create' @ L1049, false for 'update' @ L945, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:50.848Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba2604 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L945, false for 'create' @ L1049, false for 'update' @ L945, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:51.086Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7cba2608 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L945, false for 'create' @ L1388, false for 'update' @ L945, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.b0-revocation.rules.test.js (5.531 s)
+  ● Console
+
+    console.warn
+      [2026-10-02T13:57:55.798Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde345 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:56.020Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde348 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, evaluation error at L1426:23 for 'create' @ L1426, false for 'update' @ L1388, evaluation error at L1426:23 for 'update' @ L1426, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:57.144Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde35a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, evaluation error at L1492:29 for 'create' @ L1492, false for 'update' @ L1388, evaluation error at L1492:29 for 'update' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:57.621Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde363 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L470:24 for 'update' @ L470, false for 'update' @ L1049, false for 'update' @ L470, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:59.388Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde383 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:59.540Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde387 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L52:24 for 'update' @ L52, false for 'update' @ L1049, false for 'update' @ L52, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:57:59.696Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x35cde38a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L470:24 for 'update' @ L470, false for 'update' @ L1049, false for 'update' @ L470, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.finance.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:01.673Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ff8 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L346, false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L346, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.705Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ff9 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.748Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ffa error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.784Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ffb error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.828Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ffc error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.870Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ffd error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.915Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976ffe error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.961Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71976fff error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:01.998Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977000 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.028Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977001 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.076Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977002 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.107Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977003 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.144Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977004 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.179Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977005 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.213Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977006 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.256Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977007 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:02.295Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x71977008 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.potion-preconditions.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:05.563Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b11 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L761, false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L761, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:05.600Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b12 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L761, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:05.739Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b15 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L752, false for 'create' @ L1049, false for 'update' @ L752, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:05.780Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b16 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L752, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:05.897Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b19 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L753, false for 'create' @ L1049, false for 'update' @ L753, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:05.939Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b1a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L753, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.082Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b1d error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L754, false for 'create' @ L1049, false for 'update' @ L754, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.127Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b1e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L754, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.264Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b21 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L384:24 for 'create' @ L384, false for 'create' @ L1388, false for 'create' @ L1426, evaluation error at L386:24 for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426, Property userId is undefined on object. for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.591Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b28 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L402:24 for 'update' @ L402, false for 'update' @ L1388, Property userId is undefined on object. for 'update' @ L402, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.765Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b2c error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L402:24 for 'update' @ L402, false for 'update' @ L1388, false for 'update' @ L402, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.814Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b2d error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L405, false for 'create' @ L1388, evaluation error at L402:24 for 'update' @ L402, false for 'update' @ L1388, false for 'create' @ L405, false for 'create' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:06.856Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b2e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L405, false for 'delete' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:07.096Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b33 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L402:24 for 'update' @ L402, false for 'update' @ L1388, Property userId is undefined on object. for 'update' @ L402, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:07.131Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b34 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L402:24 for 'update' @ L402, false for 'update' @ L1388, Property userId is undefined on object. for 'update' @ L402, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:07.185Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b35 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L402:24 for 'update' @ L402, false for 'update' @ L1388, false for 'update' @ L402, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:07.226Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b36 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:07.322Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b38 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:07.554Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x7ba88b3d error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L386:24 for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426, Property userId is undefined on object. for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.clix.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:09.349Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fda error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L322, false for 'create' @ L605, false for 'update' @ L322, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:09.414Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fdc error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L528, false for 'create' @ L605, false for 'update' @ L528, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:09.498Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fde error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L227, false for 'create' @ L605, false for 'update' @ L227, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:09.687Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fe2 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L394, false for 'create' @ L605, false for 'update' @ L394, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:09.734Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fe3 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L173:24 for 'update' @ L173, false for 'update' @ L605, false for 'update' @ L173, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:09.912Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fe7 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L144, false for 'create' @ L605, false for 'update' @ L144, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:10.011Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123fe9 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L282, false for 'create' @ L605, false for 'update' @ L282, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:10.363Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123ff0 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L481, false for 'create' @ L605, false for 'update' @ L481, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:10.526Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x1e123ff4 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L487, false for 'create' @ L605, false for 'update' @ L487, false for 'update' @ L605
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.cortex-sessions.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:12.636Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x81494475 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:12.686Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x81494476 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:12.735Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x81494477 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:12.767Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x81494478 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:12.796Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x81494479 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:12.835Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x8149447a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:13.173Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x81494482 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.synapse-sessions.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:15.626Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a3b error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L538, false for 'create' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.672Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a3c error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L538, false for 'create' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.715Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a3d error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L538, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.762Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a3e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.770Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a3f error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.779Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a40 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.830Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a41 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.882Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a42 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.938Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a43 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:15.986Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a44 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L528, false for 'create' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:16.047Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a45 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L525:24 for 'update' @ L525, false for 'update' @ L1049, false for 'update' @ L525, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:16.071Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a46 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L522:30 for 'delete' @ L522, false for 'delete' @ L1049, false for 'delete' @ L522, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:16.118Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5f0d7a47 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L525:24 for 'update' @ L525, false for 'update' @ L1049, false for 'update' @ L525, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.hosted-mcp-oauth.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:17.503Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717de error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:17.556Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717df error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:17.605Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717e0 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1426, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:17.675Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717e1 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1388, false for 'delete' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:17.844Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717e4 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:17.882Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717e5 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:17.922Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717e6 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:18.045Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717e9 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:18.097Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717ea error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:18.145Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717eb error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L384, false for 'create' @ L1388, false for 'create' @ L1426, evaluation error at L386:24 for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426, false for 'create' @ L384, false for 'create' @ L1388, false for 'create' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:18.181Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717ec error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L386:24 for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426, false for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:18.238Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717ed error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L386:24 for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426, false for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:18.282Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x540717ee error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L386:24 for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426, false for 'update' @ L386, false for 'update' @ L1388, false for 'update' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.report-sharing.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:19.697Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x525210e5 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:19.744Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x525210e6 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:19.983Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x525210ea error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.outreach.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:21.843Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14011 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:21.905Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14012 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:21.957Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14013 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:21.994Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14014 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.063Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14015 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.114Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14016 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.163Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14017 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L893, false for 'create' @ L1049, false for 'update' @ L893, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.223Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14018 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L893, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.263Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14019 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.304Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b1401a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L893, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.471Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b1401e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L419:29 for 'create' @ L419, false for 'create' @ L1388, evaluation error at L1426:23 for 'create' @ L1426, evaluation error at L419:29 for 'update' @ L419, false for 'update' @ L1388, evaluation error at L1426:23 for 'update' @ L1426, false for 'create' @ L419, false for 'create' @ L1388, false for 'create' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.607Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14021 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L422:29 for 'create' @ L422, false for 'create' @ L1388, evaluation error at L1426:23 for 'create' @ L1426, evaluation error at L422:29 for 'update' @ L422, false for 'update' @ L1388, evaluation error at L1426:23 for 'update' @ L1426, false for 'create' @ L422, false for 'create' @ L1388, false for 'create' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:22.735Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x24b14024 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L425:29 for 'create' @ L425, false for 'create' @ L1388, evaluation error at L1426:23 for 'create' @ L1426, evaluation error at L425:29 for 'update' @ L425, false for 'update' @ L1388, evaluation error at L1426:23 for 'update' @ L1426, false for 'create' @ L425, false for 'create' @ L1388, false for 'create' @ L1426
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.org-members.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:24.079Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x128ae532 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1486, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1486, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:24.178Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x128ae534 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1388, false for 'update' @ L1486, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:24.294Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x128ae536 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'create' @ L1486, false for 'create' @ L1492, false for 'update' @ L1388, false for 'update' @ L1486, false for 'update' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:24.301Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x128ae537 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1388, false for 'delete' @ L1486, false for 'delete' @ L1492
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:24.709Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x128ae540 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L483, false for 'create' @ L1049, false for 'update' @ L483, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:24.785Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x128ae542 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L483, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.potions.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:25.931Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x61f43c94 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L777, false for 'create' @ L780, false for 'create' @ L1049, false for 'update' @ L777, false for 'update' @ L780, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:25.969Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x61f43c95 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L777, false for 'create' @ L780, false for 'create' @ L1049, false for 'update' @ L777, false for 'update' @ L780, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:26.107Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x61f43c98 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L780, false for 'create' @ L1388, false for 'update' @ L780, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:26.147Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x61f43c99 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L780, false for 'delete' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.credentials.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:27.439Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463b8 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.477Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463b9 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.520Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463ba error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.551Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463bb error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.626Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463bd error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.656Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463be error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.693Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463bf error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:27.740Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x590463c0 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.research-plans.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:29.012Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db31 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.053Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db32 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.101Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db33 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.139Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db34 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.290Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db37 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L593:38 for 'update' @ L593, false for 'update' @ L1049, false for 'update' @ L593, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.332Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db38 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L593:38 for 'update' @ L593, false for 'update' @ L1049, false for 'update' @ L593, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.368Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db39 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      evaluation error at L593:38 for 'delete' @ L593, false for 'delete' @ L1049, false for 'delete' @ L593, false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:29.425Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x4931db3a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L598, false for 'create' @ L1049, false for 'update' @ L593, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.datastore.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:30.602Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x6ac55d00 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L736, false for 'create' @ L1049, false for 'update' @ L736, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:30.641Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x6ac55d01 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L736, false for 'create' @ L1388, false for 'update' @ L736, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:30.678Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x6ac55d02 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L736, false for 'create' @ L1388, false for 'update' @ L736, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:30.895Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x6ac55d07 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L736, false for 'delete' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.twilio-accounts.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:32.103Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x15d632b1 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:32.161Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x15d632b2 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:32.189Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x15d632b3 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:32.220Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x15d632b4 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:32.251Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x15d632b5 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.brd-shares.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:33.604Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x11cc4796 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:33.646Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x11cc4797 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:33.698Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x11cc4798 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.public-mcp-servers.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:34.826Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x49a78318 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1049, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:34.860Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x49a78319 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:34.905Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x49a7831a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:34.951Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x49a7831b error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'delete' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:34.998Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x49a7831c error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L1388, false for 'update' @ L1388
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+PASS tests/firestore-rules/firestore.golden-templates.rules.test.js
+  ● Console
+
+    console.warn
+      [2026-10-02T13:58:35.926Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x19f30a1e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L585, false for 'create' @ L1049, false for 'update' @ L585, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:35.969Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x19f30a1f error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'update' @ L585, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+    console.warn
+      [2026-10-02T13:58:36.011Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x19f30a20 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+      false for 'create' @ L585, false for 'create' @ L1049, false for 'update' @ L585, false for 'update' @ L1049
+
+      at Logger.defaultLogHandler [as _logHandler] (../../node_modules/@firebase/logger/src/logger.ts:115:57)
+      at Logger.warn (../../node_modules/@firebase/logger/src/logger.ts:206:10)
+      at logWarn (../../node_modules/@firebase/firestore/src/util/log.ts:69:15)
+      at ClientDuplexStreamImpl.<anonymous> (../../node_modules/@firebase/firestore/src/platform/node/grpc_connection.ts:310:9)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client.ts:705:18)
+      at Object.onReceiveStatus (../../node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)
+      at ../../node_modules/@grpc/grpc-js/src/resolving-call.ts:132:24
+
+
+Test Suites: 19 passed, 19 total
+Tests:       456 passed, 456 total
+Snapshots:   0 total
+Time:        56.402 s
+Ran all test suites.

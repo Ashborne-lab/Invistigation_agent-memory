@@ -1,0 +1,32 @@
+{"id":"E1-read","finding":"E1","op":"read another org's message","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"E1-write","finding":"E1","op":"overwrite another org's message","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"E1-create","finding":"E1","op":"create a message in another org's session","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"E1-list","finding":"E1","op":"list another org's messages by agent","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"S-read","finding":"E1","op":"read another org's session","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"S-write","finding":"E1","op":"rewrite another org's session","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"K1-forge","finding":"K1","op":"create an agent claiming another org","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"K1-editor-update","finding":"K1","op":"stranger edits another org's agent config","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"K1-editor-repoint","finding":"K1","op":"org editor moves the agent to another org","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"K1-takeover","finding":"K1","op":"take over another org's agent","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"K1-repoint","finding":"K1","op":"owner moves own agent into a foreign org","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"K1-read","finding":"K1","op":"read another org's agent config","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"K1-delete","finding":"K1","op":"delete another org's agent","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"N3-members","finding":"N3","op":"read another org's member","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"N4-departments","finding":"N4","op":"write another org's department","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"N4-dept-read","finding":"N4","op":"read another org's department","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"N6-versions","finding":"N6","op":"write another org's agent version","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"N6-documents","finding":"N6","op":"write another org's agent document","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"N5-tickets","finding":"N5","op":"read another org's ticket","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"AU-read","finding":"AU","op":"read another org's end-user identifiers","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"AN-read","finding":"AN","op":"read another org's agent analytics","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"RU-org-analytics","finding":"B0-AN","op":"read another org's organization_analytics","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"RU-project-analytics","finding":"B0-AN","op":"read another org's project_analytics","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"RU-billing-aggregates","finding":"B0-AN","op":"read another org's billing aggregate","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"RU-group-query","finding":"B0-AN","op":"collection-group months query for another org","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"RU-group-unscoped","finding":"B0-AN","op":"unscoped collection-group months query","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"ORG-doc-read","finding":"B0-25 (residual)","op":"read another org's organization doc (wallet)","attacker_allowed":true,"legitimate_allowed":true}
+{"id":"V2-bindings","finding":"S0-5","op":"write memory_bindings","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"V2-identity-events","finding":"S0-5","op":"write identity_events","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"V2-dedup","finding":"S0-5","op":"write inbound_dedup","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"V2-own-org-binding","finding":"S0-5","op":"member writes a binding even in its own org","attacker_allowed":true,"legitimate_allowed":null}
+{"id":"V2-new-collection","finding":"S0-5","op":"write an arbitrary new top-level collection","attacker_allowed":true,"legitimate_allowed":null}

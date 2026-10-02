@@ -1,0 +1,1491 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user owns the resource
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    // Users collection - users can only access their own profile
+    match /users/{userId} {
+      allow read, write: if isAuthenticated() && isOwner(userId);
+    }
+    
+    // Agents collection - users can only access their own agents.
+    // Supports both userId (legacy frontend-created) and owner_id
+    // (Cortex / agent-engine created) ownership fields.
+    // [B0-K1] agents/{agentId} is the tenancy root of trust (API-key org match, canUseAgent, DCI/KV placement).
+    // Before B0 the top-level catch-all ORed over this block: any signed-in user could create an agent claiming
+    // any org and take over any agent. Now: agents is excluded from both catch-alls; clients never create or
+    // delete agents (studio uses POST /api/agents); owner, org members, project members and team members may
+    // read; the owner or an org editor may update ONLY non-tenancy fields.
+    function agentReadable(d) {
+      return d.get('userId', '') == request.auth.uid
+        || d.get('owner_id', '') == request.auth.uid
+        || (d.get('organization_id', '') is string && d.get('organization_id', '') != ''
+            && isOrgMember(d.get('organization_id', '')))
+        || (d.get('project_id', '') is string && d.get('project_id', '') != ''
+            && exists(/databases/$(database)/documents/projects/$(d.get('project_id', ''))/members/$(request.auth.uid)))
+        || request.auth.uid in d.get('team_access', {}).get('team_member_ids', []);
+    }
+    function isOrgEditor(orgId) {
+      return orgId is string && orgId != '' && exists(orgIndexPath(orgId))
+        && orgRoles(orgId).hasAny(['owner', 'super_admin', 'admin', 'editor']);
+    }
+    function canEditAgent(agentId) {
+      return exists(agentPath(agentId)) && (
+        agentDoc(agentId).data.get('userId', '') == request.auth.uid
+        || agentDoc(agentId).data.get('owner_id', '') == request.auth.uid
+        || isOrgEditor(agentOrg(agentId)));
+    }
+    match /agents/{agentId} {
+      allow read: if isAuthenticated() && agentReadable(resource.data);
+      allow create, delete: if false;
+      allow update: if isAuthenticated()
+        && (resource.data.get('userId', '') == request.auth.uid
+            || resource.data.get('owner_id', '') == request.auth.uid
+            || isOrgEditor(resource.data.get('organization_id', '')))
+        && !request.resource.data.diff(resource.data).affectedKeys()
+              .hasAny(['organization_id', 'owner_id', 'userId', 'project_id', 'runtime', 'billing_config',
+                       'lifecycle_state', 'team_access', 'api_keys']);
+    }
+
+    // Agentify (Cortex) sessions — used by the BRD iteration panel's
+    // live listener to read active_brd_id. The session doc is written
+    // by the agent-engine, but the studio reads it client-side.
+    //
+    // Owner OR a member of the session's org: Studio and Noesis both open a
+    // teammate's session read-only, and their useActiveBrd hooks read the
+    // session doc and the active BRD straight from here. That matches the
+    // engine's own HTTP reads (routes.py: session owner or member of the
+    // session's organization_id). `.get(..., '')` because sessions written
+    // before organization_id existed lack the field, and isOrgMember('')
+    // is simply false. These blocks only mean something because
+    // agentify_sessions is excluded from BOTH catch-alls below (2026-09-23)
+    // — before that, every signed-in user in every org could read and write
+    // all of it. messages and brd_revisions have no block, so they are
+    // server-only; Studio reads messages over HTTP.
+    match /agentify_sessions/{sessionId} {
+      allow read: if isAuthenticated() &&
+        resource != null &&
+        (resource.data.user_id == request.auth.uid
+          || isOrgMember(resource.data.get('organization_id', '')));
+      // No client writes — only the agent-engine writes via admin SDK.
+
+      // Cortex recommendations live here (per-session subcollection). The
+      // Studio reads them live to drive the Cortex drawer; writes are
+      // admin-SDK only (Cortex tools + the handoff endpoint).
+      match /recommendations/{recId} {
+        allow read: if isAuthenticated() &&
+          resource != null &&
+          (resource.data.owner_id == request.auth.uid
+            || isOrgMember(resource.data.get('organization_id', '')));
+        // No client writes — only the agent-engine writes via admin SDK.
+      }
+    }
+    
+    // Simplified collections for debugging
+    match /conversations/{conversationId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    match /dev_conversations/{conversationId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    match /alchemist_conversations/{sessionId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    match /agent_billing_summary/{agentId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    match /whatsapp_integrations/{integrationId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    match /whatsapp_webhooks/{webhookId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    match /whatsapp_user_phones/{phoneId} {
+      allow read, write: if isAuthenticated();
+    }
+    
+    // Helper function to check if user owns the agent
+    // Supports both userId (current) and owner_id (legacy) fields
+    //
+    // agentPath/agentDoc are shared by ownsAgent and agentOrg so both read
+    // through the same helper instead of each inlining its own path/get() —
+    // Firestore's rules engine caches get()/exists() results by path within
+    // one evaluation, so this folds the agent lookup to a single underlying
+    // read rather than each helper constructing and fetching it separately.
+    function agentPath(agentId) {
+      return /databases/$(database)/documents/agents/$(agentId);
+    }
+
+    function agentDoc(agentId) {
+      return get(agentPath(agentId));
+    }
+
+    function ownsAgent(agentId) {
+      return exists(agentPath(agentId)) &&
+        (agentDoc(agentId).data.userId == request.auth.uid || agentDoc(agentId).data.owner_id == request.auth.uid);
+    }
+
+    // The organisation an agent belongs to, for org-scoped subcollection rules.
+    // Rules cannot query, so this is a get() on the agent document. An agent
+    // without organization_id resolves to '' and matches no membership — and
+    // so does one where Studio wrote organization_id explicitly null
+    // (personal-workspace agents: FirestoreDataAccess.js ~962/970).
+    // `.data.get(key, default)` only substitutes the default when the key is
+    // ABSENT, not when it is present-and-null, so a bare `.get('organization_id',
+    // '')` would hand a null through to isOrgMember() and error there — the
+    // `is string` check normalises that case too.
+    function agentOrg(agentId) {
+      let org = exists(agentPath(agentId)) ? agentDoc(agentId).data.get('organization_id', '') : '';
+      return org is string ? org : '';
+    }
+
+    function canUseAgent(agentId) {
+      return ownsAgent(agentId) || isOrgMember(agentOrg(agentId));
+    }
+
+    // Org membership, answered from memberships_index.
+    //
+    // These three used to read organizations.members / .admins / .owner —
+    // fields organization documents have never had. Every call therefore
+    // evaluated false, so each rule built on them granted nothing and the data
+    // they appear to guard was reachable only through the catch-all at the
+    // bottom of this file. Two of them denied more than intended: human_agents
+    // create/delete are excluded from the catch-all, so with isOrgAdmin always
+    // false nobody could add or remove a handoff agent at all.
+    //
+    // Rules cannot query a collection, only get()/exists() a path they can
+    // build from the request, and `memberships` uses auto-generated ids — so
+    // membership was genuinely unanswerable here until
+    // memberships_index/{uid}_{orgId} existed. It is maintained by
+    // studio-backend membership_service.sync_org_membership_index() and can be
+    // rebuilt with scripts/backfill_memberships_index.py.
+    //
+    // `roles` is the union of the pair's ACTIVE membership roles. Production
+    // currently holds owner, super_admin, admin, editor, member, viewer.
+    function orgIndexPath(orgId) {
+      return /databases/$(database)/documents/memberships_index/$(request.auth.uid + '_' + orgId);
+    }
+
+    function orgRoles(orgId) {
+      return get(orgIndexPath(orgId)).data.roles;
+    }
+
+    function isOrgMember(orgId) {
+      return exists(orgIndexPath(orgId));
+    }
+
+    function isOrgAdmin(orgId) {
+      return exists(orgIndexPath(orgId)) && orgRoles(orgId).hasAny(['admin']);
+    }
+
+    // Owner-EQUIVALENT, matching isOwnerLike() in the apps
+    // (membershipConfig.js): super_admin holds the same org powers as owner,
+    // and checking only 'owner' would strip access from every super_admin —
+    // nine of them in production today.
+    function isOrgOwner(orgId) {
+      return exists(orgIndexPath(orgId)) && orgRoles(orgId).hasAny(['owner', 'super_admin']);
+    }
+    
+    // Agent deployments - users can only access deployments for their agents
+    match /agent_deployments/{deploymentId} {
+      allow read, write: if isAuthenticated() &&
+        (resource == null ||
+         resource.data.user_id == request.auth.uid ||
+         ownsAgent(resource.data.agent_id)) &&
+        (request.resource == null ||
+         request.resource.data.user_id == request.auth.uid ||
+         ownsAgent(request.resource.data.agent_id));
+    }
+
+    // Agent webhook logs — written exclusively by the dispatcher Cloud Run
+    // service (olbrain-webhook-service) via Admin SDK. Clients can only read,
+    // and only for agents the user owns. Powers the studio "Agent Logs" tab.
+    match /agent_webhook_logs/{logId} {
+      allow read: if isAuthenticated() && ownsAgent(resource.data.agent_id);
+      allow write: if false;
+    }
+
+    // API key usage events — one tiny doc per successful ak_* authentication,
+    // written exclusively by olbrain-webhook-service (src/usage.ts) via Admin
+    // SDK. Powers the "Usage (24 h / 7 d / 30 d / 90 d)" column on the Studio
+    // Access Keys card; Studio runs Firestore count() aggregates against this
+    // collection. Org members can read entries for keys in their org.
+    match /api_key_usage_events/{eventId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.organization_id);
+      allow write: if false;
+    }
+
+    // Billing ledger — immutable, append-only record of every money-moving
+    // event (debits, credits, adjustments, period resets, suspend toggles).
+    // Sole source of truth for billing audits; organizations.{}.billing is
+    // a denormalized cache derived from this collection. Writes are
+    // restricted to backend Admin SDK callers (dispatcher debits, payment
+    // service credits, scheduled period resets). Org admins and owners can
+    // read their org's entries; regular members cannot (billing data is
+    // sensitive even within an org).
+    match /billing_ledger/{entryId} {
+      allow read: if isAuthenticated()
+        && (isOrgAdmin(resource.data.organization_id) || isOrgOwner(resource.data.organization_id));
+      allow create, update, delete: if false;
+    }
+
+    // Human Agents roster (human handoff) — org members read; admins/owners
+    // manage. Docs: {organization_id, uid, name, email, added_by, added_at}.
+    // The runtime's claim endpoint re-checks this roster server-side; these
+    // rules only govern the Noesis roster panel's direct reads/writes.
+    match /human_agents/{entryId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.organization_id);
+      allow create: if isAuthenticated()
+        && (isOrgAdmin(request.resource.data.organization_id) || isOrgOwner(request.resource.data.organization_id));
+      allow delete: if isAuthenticated()
+        && (isOrgAdmin(resource.data.organization_id) || isOrgOwner(resource.data.organization_id));
+      // No update: entries are add/remove only.
+      allow update: if false;
+    }
+
+    // memberships_index — AUTHORIZATION DATA. isOrgMember/isOrgAdmin/isOrgOwner
+    // resolve against this collection, so a client write here is a self-service
+    // owner grant on any organization: write
+    // memberships_index/{your_uid}_{any_org} with roles ['owner'] and every
+    // org-scoped rule in this file believes you.
+    //
+    // Rules' own get()/exists() are privileged and ignore these clauses, so
+    // denying clients outright costs nothing. It is written exclusively by
+    // studio-backend membership_service.sync_org_membership_index().
+    match /memberships_index/{entryId} {
+      allow read, write: if false;
+    }
+
+    // Wallet audit trails — every credit that ever entered an org wallet.
+    // wallet_grants records admin credit grants (studio-backend
+    // admin_service.grant_credits), wallet_recharges records paid Razorpay
+    // top-ups (billing-service wallet_service.add_recharge); both are also the
+    // idempotency ledger those paths check before crediting. A client write
+    // would forge a credit record; reads are org-scoped because a wallet's
+    // funding history is nobody else's business.
+    match /wallet_grants/{grantId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.organization_id);
+      allow write: if false;
+    }
+    match /wallet_recharges/{rechargeId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.organization_id);
+      allow write: if false;
+    }
+
+    // app_subscriptions carries the entitlement dates and the plan price for a
+    // connected store — both gates read it and the renewal sweep writes it. The
+    // catch-all below grants authenticated writes to every top-level
+    // collection, so without this a merchant could set current_period_end to
+    // 2099 or flip status to active and never pay. Reads stay open: the Shopify
+    // Billing tab's useAppSubscription listener needs them. Writes are
+    // Admin-SDK only (olbrain-billing-service).
+    match /app_subscriptions/{subId} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+
+    // agent_subscriptions is the same hazard, one scope down. It has always
+    // carried the per-agent INVOICING state (billing_status, billable_since),
+    // and it now also carries the nested `entitlement` map that decides whether
+    // a single agent may run at all — read by olbrain-billing-service's
+    // /preflight and by olbrain-agent-runtime's chat gate.
+    //
+    // Without this, the catch-all below grants an authenticated write, so
+    // anyone could set entitlement.current_period_end to 2099 on their own
+    // agent and run it free for ever, or backdate someone else's billable_since
+    // to inflate their invoice. Reads stay open: the Noesis agent Billing tab
+    // and AgentSubscriptionsCard read these documents. Writes are Admin-SDK
+    // only (olbrain-billing-service).
+    match /agent_subscriptions/{agentId} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+
+    // Organization secrets subcollection - BLOCKED from all client access
+    // Only backend service accounts can read/write secrets (API keys, etc.)
+    match /organizations/{orgId}/secrets/{document=**} {
+      allow read: if false;   // Never allow client reads
+      allow write: if false;  // Only backend service account can write
+    }
+
+    // Organization private MCP servers - members can read, admins/owners can write
+    match /organizations/{orgId}/private_mcp_servers/{serverId} {
+      allow read: if isAuthenticated() && isOrgMember(orgId);
+      allow write: if isAuthenticated() && (isOrgAdmin(orgId) || isOrgOwner(orgId));
+    }
+
+    // Agent MCP configurations — the binding that decides which MCP server a
+    // turn calls and under which credential reference. Studio and Noesis read
+    // and write these from the browser (toolConfigurationService.js,
+    // FirestoreDataAccess.js), and editors are not always the owner, so the
+    // grant is owner OR org member — never any authenticated user. `mcp_configs`
+    // is ALSO excluded from the /agents subcollection catch-all below; rules OR
+    // together and that catch-all granted every signed-in user read AND write
+    // on every agent's bindings across tenants (map G12, 2026-09-17).
+    //
+    // `tool_access` FIELD GUARD (2026-09-26, hosted-MCP OAuth — spec §4 Studio,
+    // §6: "Only agent-design can write tool_access"). For a `hosted_mcp` server
+    // (spec §10.4; ai_reason and chat list tools through the ACL-filtered
+    // /tools/list), `tool_access` is the effective allowlist the deployer's
+    // fail-closed ACL reads before every tool call — agent-design's
+    // `set_tool_access` (mcp_service.py:689) is the only place that rejects
+    // any mode but `allowlist` for these servers. Before this, any owner/org
+    // member with client-SDK write access to this doc (the grant above) could
+    // set `tool_access` directly — restoring a blocklist/`all` mode the
+    // backend would otherwise refuse, or silently re-enabling a tool the
+    // McpToolAccessPanel shows as off — bypassing that gate entirely. Split
+    // into create/update so the guard can name the field: create denies a doc
+    // that carries `tool_access` at all, update denies a diff that touches it
+    // (`affectedKeys()` collapses a dotted `tool_access.mode` update to the
+    // same top-level key, so a sub-field write is caught too). Every other
+    // field (`enabled`, `config`, ...) keeps the exact grant above — this does
+    // not narrow who may configure or enable a server, only who may set its
+    // tool allowlist.
+    match /agents/{agentId}/mcp_configs/{configId} {
+      allow read: if isAuthenticated() && canUseAgent(agentId);
+      allow create: if isAuthenticated() && canUseAgent(agentId)
+        && !('tool_access' in request.resource.data);
+      allow update: if isAuthenticated() && canUseAgent(agentId)
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['tool_access']);
+      allow delete: if isAuthenticated() && canUseAgent(agentId);
+    }
+
+    // Learned patterns — `intent_examples` holds VERBATIM end-user messages.
+    // Owner or org member may read, and may update only the fields Studio's
+    // learnedPatternsService.js actually writes: `status` (deactivatePattern/
+    // reactivatePattern), `deactivation_reason` + `deactivated_at` (set
+    // together by deactivatePattern), and `trusted_override`
+    // (setPatternTrusted). Any other field, create and delete are
+    // runtime-only (Admin SDK). Excluded from the generic subcollection
+    // catch-all below, which otherwise granted any signed-in user read and
+    // write here (map G12).
+    match /agent_learned_patterns/{agentId}/patterns/{patternId} {
+      allow read: if isAuthenticated() && canUseAgent(agentId);
+      allow update: if isAuthenticated() && canUseAgent(agentId)
+                     && request.resource.data.diff(resource.data).affectedKeys()
+                          .hasOnly(['status', 'deactivation_reason', 'deactivated_at', 'trusted_override']);
+      allow create, delete: if false;
+    }
+
+    // Outreach subcollections — templates (pre-approved message bodies),
+    // audiences (saved user lists), and the singleton outreach config doc.
+    // This explicit block scopes to the agent's owner, but
+    // `outreach_templates`/`outreach_audiences`/`outreach_configs` are NOT
+    // excluded from the /agents subcollection catch-all below, so rules OR
+    // together and any signed-in user can still write here today — Studio's
+    // Brain Builder writes these three directly from the browser and that
+    // tile is not retired yet. This is a recorded, deliberate gap (see
+    // firestore.outreach.rules.test.js, "still writable, until S7 retires
+    // Studio's tile"), NOT the same closed posture as mcp_configs above.
+    match /agents/{agentId}/outreach_templates/{templateId} {
+      allow read, write: if isAuthenticated() && ownsAgent(agentId);
+    }
+    match /agents/{agentId}/outreach_audiences/{audienceId} {
+      allow read, write: if isAuthenticated() && ownsAgent(agentId);
+    }
+    match /agents/{agentId}/outreach_configs/{configId} {
+      allow read, write: if isAuthenticated() && ownsAgent(agentId);
+    }
+
+    // Organization documents. The WALLET lives on this document —
+    // wallet.balance, wallet.total_recharged — alongside total_charged_inr and
+    // organization_status. An unrestricted client write here is a direct path
+    // to a merchant setting their own balance, or zeroing another org's, from
+    // the browser with no backend involved.
+    //
+    // The previous rule (`allow write: if isOrgOwner(orgId)`) never restricted
+    // anything, twice over: isOrgOwner reads organizations.owner, a field these
+    // documents do not have, so it is always false; and the top-level catch-all
+    // below granted the write anyway, because rules OR together. The catch-all
+    // now excludes this collection, so what follows is the only grant.
+    //
+    // Client writes are scoped to the two field groups the product actually
+    // writes from a browser:
+    //
+    //   auto_recharge — Noesis + Studio saveAutoRechargeSettings
+    //   runtime       — Studio DedicatedRuntimeConfigCard
+    //   agent_budgets — Noesis billing Budget tab (owner/admin only, below)
+    //
+    // Everything else on this document (wallet, billing_contact, status,
+    // membership) is written by backend service accounts, which bypass rules.
+    // Creation is backend-only too — POST /api/organizations; neither SPA calls
+    // addDoc/setDoc on this collection.
+    //
+    // Reads are deliberately UNCHANGED: still any authenticated user, as the
+    // catch-all already allowed. Scoping reads to membership needs a predicate
+    // that works, and there isn't one yet — membership lives in a separate
+    // collection with random document ids, which rules cannot query. That is a
+    // separate and larger change.
+    // agent_budgets is held to a HIGHER bar than the other two: a per-agent
+    // monthly cap decides whether an agent answers customers at all, so
+    // zeroing one is a denial-of-service on a live agent. Owner/admin only,
+    // matching the Billing page, which is already owner-gated in the UI —
+    // rules are what make that gate real for anyone calling Firestore direct.
+    function writesAgentBudgets() {
+      return request.resource.data.diff(resource.data).affectedKeys()
+        .hasAny(['agent_budgets', 'agent_budgets_updated_at']);
+    }
+
+    match /organizations/{orgId} {
+      allow read: if isAuthenticated();
+      allow create, delete: if false;
+      allow update: if isAuthenticated()
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['auto_recharge', 'runtime',
+                       'agent_budgets', 'agent_budgets_updated_at'])
+        && (!writesAgentBudgets() || isOrgAdmin(orgId) || isOrgOwner(orgId))
+        // [B0-ORG] any update (runtime.firebase_web_config, auto_recharge) requires an admin/owner of THIS org
+        && (isOrgAdmin(orgId) || isOrgOwner(orgId));
+    }
+
+    // Centralized memberships collection - users can only read their own memberships
+    // Only backend service accounts can write memberships
+    match /memberships/{membershipId} {
+      allow read: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+      allow write: if false; // Only backend can write
+    }
+
+    // Synapse sessions (2026-09-24). Until this change the blocks here were
+    // decorative: none of synapse_sessions, synapse_session_index or
+    // synapse_brain_sessions was in any catch-all exclusion list, and rules OR
+    // together, so every signed-in user in every org could list and read every
+    // Synapse transcript (with the token-bearing download URLs of uploaded
+    // BRDs), overwrite a session's user_id past the engine's ownership gate,
+    // and plant a compaction marker the engine replayed as a system block.
+    // All three are now excluded from all four catch-all lists below, so these
+    // blocks are the only grants.
+    //
+    // Writers: agent-engine's Admin SDK writes synapse_sessions/{id} (user_id
+    // on the first turn) and every message. Studio writes only the index
+    // (synapseService createSynapseSession / touchSession /
+    // renameSynapseSession / archiveSynapseSession) and reads only messages
+    // (subscribeToSynapseMessages). Noesis touches none of them. The session
+    // doc has no block: it is server-only. synapse_brain_sessions was migrated
+    // into synapse_sessions (agent-engine scripts/migrate_synapse_brain_sessions.py)
+    // and has no reader left, so it has no block either.
+    //
+    // Message reads need BOTH owners to agree. The index is client-created, so
+    // on its own it would let anyone create synapse_session_index/{a session
+    // they do not own} and read it; the engine-written user_id is the proof.
+    // A session the engine has not started yet has no doc and passes: Studio
+    // subscribes right after createSynapseSession, before the first turn. A
+    // session doc with no user_id proves no owner and is denied.
+    function synapseIndexOwner(sessionId) {
+      let idx = /databases/$(database)/documents/synapse_session_index/$(sessionId);
+      return exists(idx) && get(idx).data.user_id == request.auth.uid;
+    }
+
+    function synapseEngineOwner(sessionId) {
+      let ses = /databases/$(database)/documents/synapse_sessions/$(sessionId);
+      return !exists(ses) || get(ses).data.get('user_id', '') == request.auth.uid;
+    }
+
+    match /synapse_session_index/{sessionId} {
+      allow read, delete: if isAuthenticated()
+        && resource.data.user_id == request.auth.uid;
+      // user_id is what the message rule trusts, so it cannot be handed on.
+      allow update: if isAuthenticated()
+        && resource.data.user_id == request.auth.uid
+        && request.resource.data.user_id == resource.data.user_id;
+      allow create: if isAuthenticated()
+        && request.resource.data.user_id == request.auth.uid;
+    }
+
+    match /synapse_sessions/{sessionId}/messages/{messageId} {
+      allow read: if isAuthenticated()
+        && synapseIndexOwner(sessionId)
+        && synapseEngineOwner(sessionId);
+      // Only the engine writes messages. A client-written compaction marker
+      // was replayed into the owner's next turn as a system instruction.
+      allow write: if false;
+    }
+
+    // Per-user read state for the unified Activity feed (Notification v4).
+    // user_profiles/{uid}/activity_reads/{activityId} = {read_at: timestamp}.
+    // Backend never reads this — read state is a client-only convenience
+    // field. Documents the security contract; the catch-all below still
+    // grants authenticated access until that's tightened.
+    match /user_profiles/{uid}/activity_reads/{activityId} {
+      allow read, write: if isAuthenticated() && isOwner(uid);
+    }
+
+    // Per-user notification preferences singleton (Notification v4).
+    // user_profiles/{uid}/notification_preferences/_singleton =
+    // AttentionPreferences{enabled_types, muted_until}. Backend reads
+    // via service-account credentials which bypass rules — this rule
+    // documents the client-facing contract.
+    match /user_profiles/{uid}/notification_preferences/{docId} {
+      allow read, write: if isAuthenticated() && isOwner(uid);
+    }
+
+    // Capability types — palette skeleton synced from olbrain-agent-design
+    // on service startup. Authenticated reads only; writes are
+    // backend-only (Admin SDK via the sync routine).
+    match /capability_types/{toolId} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+
+    // Step types — palette skeleton synced from olbrain-workflow-design
+    // on service startup. Same posture as capability_types: authenticated
+    // reads, backend-only writes.
+    match /step_types/{stepId} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+
+    // Golden research templates — Olbrain's own published catalogue. Authored as
+    // JSON in olbrain-research-design and upserted by that repo's
+    // scripts/seed_golden_templates.py via the Admin SDK (which bypasses rules).
+    // Card copy + a GCS pointer only; no body, no org owns a row, no client ever
+    // writes one. Studio reads this list over GET /api/golden-templates, never
+    // with the client SDK. Same posture as capability_types / step_types above —
+    // but this one is ALSO in the catch-all write-exclusion list below, without
+    // which rules OR together and this `if false` restricts nothing (cf. 201e08c1).
+    match /research_golden_templates/{goldenId} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+
+    // Conversational chat sessions — owner-only access.
+    // Writes to the messages subcollection are runtime-only (Firebase Admin
+    // SDK bypasses rules, so `allow write: if false` correctly blocks
+    // frontend writes while allowing the conversational planner to append).
+    match /research_chat_sessions/{sessionId} {
+      allow read, update, delete: if request.auth != null
+        && resource.data.started_by == request.auth.uid
+        && resource.data.org_id == (request.auth.token.org_id != null
+                                    ? request.auth.token.org_id
+                                    : request.auth.token.tenant_id);
+      allow create: if request.auth != null
+        && request.resource.data.started_by == request.auth.uid;
+
+      match /messages/{messageId} {
+        function _parent() {
+          return get(/databases/$(database)/documents/research_chat_sessions/$(sessionId)).data;
+        }
+        allow read: if request.auth != null
+          && _parent().started_by == request.auth.uid
+          && _parent().org_id == (request.auth.token.org_id != null
+                                  ? request.auth.token.org_id
+                                  : request.auth.token.tenant_id);
+        // Only the runtime service writes messages (planner appends them).
+        allow write: if false;
+      }
+    }
+
+    // Both research_runs subcollections below carry the finished report, not
+    // just metadata, and noesis reads both directly from the client with
+    // nothing in between: subscribeReportVersions and subscribeRunSteps
+    // (src/services/research/runService.js). Without this check on BOTH,
+    // `private` is enforced on every research-design path and defeated by
+    // whichever client path it's missing from.
+    //
+    // `.get(key, default)`, not `.data.visibility` — a missing field raises
+    // an evaluation error, which fails the whole `allow` clause and denies
+    // even the setter rather than merely widening access. research-design (a
+    // sibling repo) owns this document's writes, so the rule has to tolerate
+    // a share row that hasn't landed a field yet, not just today's shape.
+    // Absent visibility defaults to 'organization', matching the documented
+    // behaviour for a run with no share document at all.
+    function _shareAllows(runId) {
+      let share = /databases/$(database)/documents/research_report_shares/$(runId);
+      return !exists(share)
+        || get(share).data.get('visibility', 'organization') != 'private'
+        || get(share).data.get('visibility_set_by', '') == request.auth.uid;
+    }
+
+    // Per-run step subcollection — readable by any org member who can see the
+    // parent run AND for whom _shareAllows() above permits it. Carries the
+    // finished report body, not just progress metadata: writer steps
+    // (document_writer.py, deck_writer.py, digest_writer.py) emit section
+    // markdown into `detail`, and useRunSections.js/LiveReportView.js
+    // reassemble the whole artifact from exactly these documents — a
+    // `private` report's full text would leak here if this block checked
+    // only org membership. Writes are runtime-only (Firebase Admin SDK
+    // bypasses rules).
+    match /research_runs/{runId}/steps/{stepId} {
+      function _parent() {
+        return get(/databases/$(database)/documents/research_runs/$(runId)).data;
+      }
+      // isOrgMember(), not a token claim — see the note on the four-segment
+      // catch-all's read exclusion (~line 991) for why.
+      allow read: if request.auth != null
+        && isOrgMember(_parent().org_id)
+        && _shareAllows(runId);
+      allow write: if false;
+    }
+
+    // Report version history — one document per (body, review) pair, written
+    // ONLY by the research runtime's Admin SDK. Same shape as the steps rule
+    // above and for the same reason: the subcollection carries no org_id of
+    // its own, so authorisation reads the parent run.
+    match /research_runs/{runId}/report_versions/{versionId} {
+      function _parent() {
+        return get(/databases/$(database)/documents/research_runs/$(runId)).data;
+      }
+      // isOrgMember(), not a token claim — see the note on the four-segment
+      // catch-all's read exclusion (~line 991) for why.
+      allow read: if request.auth != null
+        && isOrgMember(_parent().org_id)
+        && _shareAllows(runId);
+      allow write: if false;
+    }
+
+    // VCC vibe event stream — written ONLY by the backend Admin SDK.
+    // Clients may read only their own session's events (each event carries
+    // user_id); client writes are forbidden (prevents event injection /
+    // spoofed bubbles). The client query is already owner-scoped on user_id.
+    // Note: like the synapse rules above, the permissive catch-all below
+    // currently OR-grants authenticated access; this stricter rule documents
+    // the intended privacy model and fully takes effect once that catch-all
+    // is tightened. MUST precede the authenticated catch-all below.
+    match /context_logs/{scopeKey}/events/{eventId} {
+      allow read: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+      allow write: if false;
+    }
+
+    // Per-end-user agent memory (agent_user_memory) — durable facts plus the
+    // values for the agent's configured Brain Builder memory fields, both
+    // written ONLY by olbrain-agent-runtime's Admin SDK. Reads are scoped to
+    // members of the owning org because Noesis's Memory tab subscribes to
+    // this collection directly, the same posture as the handoff queue.
+    // Writes stay server-only: this is plaintext end-user PII and the
+    // runtime's extractor is its only legitimate author.
+    // Excluded from the top-level catch-all below (both lists) — without that,
+    // these grants would be ORed away.
+    // MUST precede the authenticated catch-all.
+    // Caller PII captured live by the voice runtime's `record_lead_detail`
+    // tool (olbrain-agent-runtime core/lead_capture_tool.py): names, phone
+    // numbers, email addresses, ages, incomes, spoken on sales calls.
+    //
+    // Server-only, same posture as `agent_user_memory` directly below. The
+    // runtime writes with the Admin SDK, which bypasses rules entirely, so
+    // denying every client here costs nothing today. It must be listed in
+    // BOTH catch-all exclusion arrays as well — rules OR together, so this
+    // block alone would be powerless against a catch-all granting the same
+    // path. It is; see above.
+    //
+    // If a reader is ever built (an operator view of captured leads), scope
+    // it to org members the way agent_user_memory is, and do NOT loosen this
+    // to `isAuthenticated()` — that would expose every org's callers to
+    // every signed-in user on the platform.
+    // Agent data store (agent_datastores/{agentId}/tables/{tableId}/entries/
+    // {entryId}) — the rows an agent records mid-conversation into a
+    // builder-declared table, plus the table header holding the column
+    // snapshot. Whatever the builder asked the agent to collect ends up here,
+    // which in practice is end-user PII: names, phone numbers, addresses,
+    // order references.
+    //
+    // Server-only, the same posture as `lead_profiles` above. The runtime
+    // writes with the Admin SDK, which bypasses rules entirely, and the
+    // operator's rows view reads through olbrain-agent-design's authenticated
+    // REST API (`/api/v1/datastore`), which applies its own org and permission
+    // checks. No client has ever needed direct Firestore access to this data.
+    //
+    // Both catch-alls must exclude `agent_datastores` as well, and they do —
+    // the top-level one for the `agent_datastores/{agentId}` document, the
+    // subcollection one for `tables` and `entries` beneath it. Rules OR
+    // together, so this block alone would have been powerless: the
+    // subcollection catch-all matched every entry document and granted
+    // authenticated read AND write on it, cross-tenant. That was live from the
+    // data store's first deploy until this rule landed; production held zero
+    // entries throughout, which is the only reason it cost nothing.
+    //
+    // If a client reader is ever built, scope it to org members the way
+    // `agent_user_memory` is — and do NOT loosen this to `isAuthenticated()`.
+    match /agent_datastores/{agentId}/{rest=**} {
+      allow read, write: if false;
+    }
+
+    match /lead_profiles/{profileId} {
+      allow read, write: if false;
+    }
+
+    match /agent_user_memory/{memoryId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.organization_id);
+      allow write: if false;
+    }
+
+    // Lead collections written by olbrain-agent-runtime's lead tools
+    // (core/lead_contacts.py, lead_activity.py, lead_export.py). Noesis reads
+    // them through the runtime's org-scoped REST API only, by design. Excluded
+    // from both top-level catch-all lists as well.
+    match /lead_contacts/{id} { allow read, write: if false; }
+    match /lead_activity/{id} { allow read, write: if false; }
+    match /lead_exports/{id}  { allow read, write: if false; }
+
+    // Connector credentials vault — KMS-wrapped auth_config, written and read
+    // by olbrain-studio-backend's Admin SDK (org_connectors_service.py). No
+    // client has ever read it; the org-subcollection catch-all below granted
+    // any signed-in user read AND write across tenants. Excluded there too.
+    match /organizations/{orgId}/connector_credentials/{credId} {
+      allow read, write: if false;
+    }
+
+    // Potions — the design-time source document of the potion program
+    // (Phase 2). Written and read only by olbrain-agent-design's Admin SDK
+    // (app/services/potion_store.py): pointer doc + versions subcollection.
+    // Excluded from all four catch-all lists below as well. One known
+    // carve-out is left open by design, not closed here: the three
+    // collection-group reads for `months`/`days`/`hours` near the end of this
+    // file (the analytics rollup matches) still grant any authenticated user
+    // read on a subcollection with those names anywhere in the tree,
+    // including hypothetically under potions/**. `potion_store.py` writes
+    // only a `versions` subcollection, so no `months`/`days`/`hours` path
+    // exists under `potions` today and nothing is reachable through it — but
+    // those rollup rules are deliberately NOT changed here.
+    match /potions/{agentId} {
+      allow read, write: if false;
+    }
+    match /potions/{agentId}/{rest=**} {
+      allow read, write: if false;
+    }
+
+    // agent_senders — every inbound address the platform owns: a WhatsApp
+    // number, a Gmail mailbox, an Instagram account, a Slack workspace, and now
+    // a website's embedded chat widget. `provider_config` on these documents
+    // holds the channel's ACCESS TOKENS and the Slack signing secret — 10 of the
+    // 17 documents in production carry a non-empty one — and
+    // `connected_agent_id` is the field that routes a stranger's message to an
+    // agent.
+    //
+    // Writes were reachable through the catch-all below by ANY authenticated
+    // user on the platform, against ANY org's sender. Three attacks, all
+    // cross-tenant: rebind `connected_agent_id` and inbound messages on someone
+    // else's phone number arrive at your agent; rewrite
+    // `channel_config.allowed_origins` and the victim's chat widget answers on
+    // your website, spending their budget under their brand; overwrite
+    // `provider_config` and the channel breaks or points at your credentials.
+    // The API these mutations are meant to go through (agent-bridge) carries no
+    // auth dependency of its own — it is reachable only via Cloud Run IAM — so
+    // the client SDK was the whole of the gap.
+    //
+    // DENIED OUTRIGHT, and it costs nothing, because every client-SDK write to
+    // this collection is dead code. All four were traced to zero reachable
+    // callers:
+    //
+    //   whatsappService.js:1367-1373  connectAgentToPhone     — no caller
+    //   whatsappService.js:1414-1420  disconnectAgentFromPhone — no caller
+    //   handoffService.js:319-332     updateSenderHandoffConfig — referenced only
+    //                                 by its own export list
+    //   whatsappWebhookService.js:701-705 updateAccountWebhookInfo — reachable
+    //                                 only via registerWebhook/updateWebhook,
+    //                                 whose sole caller is the orphaned
+    //                                 agent-editor WhatsAppIntegrationManager.js
+    //                                 (nothing imports it; the one live file in
+    //                                 that directory, WhatsAppWebhookConnector,
+    //                                 calls only getAgentWebhookUrl, a read)
+    //
+    // Every real mutation already goes through agent-bridge (Studio
+    // UnifiedSendersManager.js:543/564/584/797, Noesis :501/522/542/749), and the
+    // Admin SDK bypasses rules. An earlier draft of this block allowlisted five
+    // fields to keep those four paths working; that was unnecessary, and it was
+    // also wrong — whatsappWebhookService writes `webhook_status` and
+    // `webhook_registered_at`, which the allowlist did not contain, so the rule
+    // would have denied the very path it was written to permit.
+    //
+    // READS ARE NOT TIGHTENED, and the reason is mechanical rather than a
+    // judgement call. The right rule is
+    // `isOrgMember(resource.data.organization_id)`, the same predicate
+    // agent_user_memory uses directly above. But rules are not filters: for a
+    // collection query Firestore never inspects document data, it requires the
+    // rule to be provable from the query's own constraints.
+    //
+    // olbrain-studio holds 18 client-SDK queries against this collection across
+    // four service files, and exactly ONE of them filters on organization_id —
+    // sendersService.getOrganizationSenders (sendersService.js:57-62), which is
+    // the one Studio's live Senders page uses and which would therefore survive
+    // an org-scoped rule. The others filter on `connected_agent_id` or
+    // `project_id` and would be rejected outright, no snapshot ever delivered.
+    // agentMemoryService.js:65 in olbrain-noesis-os records this exact mistake
+    // shipping once already.
+    //
+    // The blocker is Brain Builder, not the Senders page. Three of the surviving
+    // unfiltered reads belong to it (sendersService.js:687 onSnapshot, :140-151
+    // getSendersByAgent, :28-40 getProjectSenders) and Brain Builder stays in
+    // Studio — Noesis has no equivalent canvas. Adding an org_id filter to them
+    // needs two composite indexes that exist nowhere today,
+    // (organization_id, connected_agent_id) and
+    // (organization_id, connected_agent_id, channel); add them to
+    // olbrain-agent-engine's index file, which is the deploying owner, because
+    // `firebase deploy` is subtractive.
+    //
+    // Sequence to close the read half: add the org_id filters and those indexes,
+    // deploy Studio, THEN move agent_senders out of the catch-all read list.
+    // Until that lands, any authenticated user on the platform can read every
+    // org's channel access tokens here. That is the live exposure; this change
+    // reduces it to read-only and does not close it.
+    //
+    // MUST also be listed in the catch-all write exclusion below. Rules OR
+    // together, so this block on its own would restrict nothing (cf. 201e08c1).
+    match /agent_senders/{senderId} {
+      // Reads deliberately fall through to the catch-all — see above.
+      // Create, update and delete are all Admin-SDK only: agent-bridge mints a
+      // sender once a provider onboarding completes, olbrain-studio-backend mints
+      // the chat-widget one, and no client SDK reachably writes any of them.
+      allow write: if false;
+    }
+
+
+    // [B0-E1] Evidence and sessions. Clients never write them (studio inventory: reads only); the runtime's
+    // Admin SDK is the only writer. Read: org member of the row's organization, OR may use the row's agent
+    // (covers legacy rows without organization_id; queries must constrain organization_id or agent_id).
+    function evidenceReadable(d) {
+      return (d.get('organization_id', '') is string && d.get('organization_id', '') != ''
+              && isOrgMember(d.get('organization_id', '')))
+        || (d.get('agent_id', '') is string && d.get('agent_id', '') != '' && canUseAgent(d.get('agent_id', '')));
+    }
+    match /agent_messages/{messageId} {
+      allow read: if isAuthenticated() && evidenceReadable(resource.data);
+      allow write: if false;
+    }
+    match /agent_sessions/{sessionId} {
+      allow read: if isAuthenticated() && evidenceReadable(resource.data);
+      allow write: if false;
+      match /messages/{messageId} {
+        allow read: if isAuthenticated()
+          && evidenceReadable(get(/databases/$(database)/documents/agent_sessions/$(sessionId)).data);
+        allow write: if false;
+      }
+    }
+    // [B0-AU] End-user identifiers: read for people who may use the agent; server-only writes.
+    match /agent_users/{userId} {
+      allow read: if isAuthenticated() && evidenceReadable(resource.data);
+      allow write: if false;
+    }
+    // [B0-N5] Support tickets hold customer PII: the filer reads their own tickets and may set CSAT only;
+    // org members of the ticket's org may read. The engine (Admin SDK) creates and updates everything else.
+    match /tickets/{ticketId} {
+      allow read: if isAuthenticated() && (resource.data.get('user_id', '') == request.auth.uid
+        || (resource.data.get('organization_id', '') is string && resource.data.get('organization_id', '') != ''
+            && isOrgMember(resource.data.get('organization_id', ''))));
+      allow update: if isAuthenticated() && resource.data.get('user_id', '') == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['csat', 'csat_at']);
+      allow create, delete: if false;
+    }
+    // [B0-AN] Analytics / billing rollup trees. Before B0 every tree was readable by every signed-in user (the
+    // 4-segment catch-all for doc reads, the generic {path=**}/months|days|hours rules for group queries).
+    // Path reads are scoped to the tree's owner; writes are server-only (analytics-service, billing functions).
+    match /agent_analytics/{agentId}/{rest=**} {
+      allow read: if isAuthenticated() && canUseAgent(agentId);
+      allow write: if false;
+    }
+    match /organization_analytics/{orgId}/{rest=**} {
+      allow read: if isAuthenticated() && isOrgMember(orgId);
+      allow write: if false;
+    }
+    match /project_analytics/{projectId}/{rest=**} {
+      allow read: if isAuthenticated()
+        && (exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid))
+            || isOrgMember(get(/databases/$(database)/documents/projects/$(projectId)).data.get('organization_id', '')));
+      allow write: if false;
+    }
+    match /workflow_analytics/{workflowId}/{rest=**} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+      allow write: if false;
+    }
+    match /billing_aggregates/{a}/orgs/{orgId}/{rest=**} {
+      allow read: if isAuthenticated() && isOrgMember(orgId);
+      allow write: if false;
+    }
+    match /billing_aggregates/{rest=**} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+      allow write: if false;
+    }
+    // [B0-S0-5] Memory Gateway / identity-authority collections (Lane A R-1, C-1a). Server-only, always:
+    // a client-writable binding would let any user re-point a customer's identity.
+    match /memory_bindings/{id=**} { allow read, write: if false; }
+    match /identity_events/{id=**} { allow read, write: if false; }
+    match /inbound_dedup/{id=**} { allow read, write: if false; }
+    match /evidence_meta/{id=**} { allow read, write: if false; }
+    match /memory_control/{id=**} { allow read, write: if false; }
+
+    // ---- Catch-alls ----
+    // Formerly a single `match /{document=**}` grant ("simplified for
+    // debugging"). Rules OR together, so that one grant silently defeated
+    // every stricter rule above it. Split into three so org-scoped
+    // server-only data can actually be excluded; every other path keeps
+    // the old authenticated-access behavior.
+
+    // Top-level documents — unchanged from the old catch-all, EXCEPT
+    // `human_agents` writes: the handoff roster gates who can take over
+    // live customer conversations (the runtime's claim endpoint trusts it),
+    // so a client-SDK write here would be an in-tenant/cross-tenant
+    // privilege-escalation path. The explicit human_agents match above
+    // (admin/owner create+delete) is the only write grant for it. ALSO EXCEPT
+    // `app_subscriptions` writes: the collection holds entitlement dates and
+    // plan prices — a merchant could otherwise set current_period_end to 2099
+    // or flip status to active and never pay. The explicit app_subscriptions
+    // match above allows reads (Billing tab listener) but blocks all writes.
+    // A stricter rule above only takes effect if this one stops granting the
+    // same path — rules OR together, they never intersect. Anything listed
+    // here is governed solely by its explicit match block.
+    //
+    // The last two entries, `research_plans` and `research_chat_sessions`,
+    // are one exclusion with one attack behind it: approving a research plan
+    // starts a run the org pays for, and the gate that authorises it reads
+    // exactly these two documents — the plan (verbatim, into the run subject)
+    // and the session (`started_by` and `org_id`). Forge either into another
+    // org and the victim executes and pays for research nobody asked for.
+    // Only the runtime's Admin SDK writes them, and the Admin SDK bypasses
+    // rules, so excluding client writes costs the product nothing.
+    //
+    // Note where each exclusion has to live, because rules match by SEGMENT
+    // COUNT and one list cannot cover two shapes. A session's `messages` are
+    // four segments, so they are excluded from the subcollection catch-all
+    // below; the session DOCUMENT and `research_plans` are two segments, so
+    // this is the only list that can reach them. Excluding the messages did
+    // NOT protect the document — that was the gap this closes.
+    //
+    // Nothing legitimate loses a write. Neither frontend writes a session or
+    // a plan through the client SDK: Noesis and Studio both use
+    // `research_chat_sessions/{id}` purely as a path root for the messages
+    // listener, and every session mutation (create, patch, delete) goes
+    // through the runtime's HTTP API. The explicit owner-scoped match block
+    // above stays the only grant on a session document.
+    //
+    // Read is deliberately NOT excluded for either, matching the documented
+    // decision for research chat below: this platform issues org claims under
+    // several names, so an org-scoped read rule would blank the Plan tab and
+    // live chat history for any user whose token uses a different one. That
+    // cross-org read gap is pre-existing and needs its own change, gated on a
+    // claims audit.
+    // knowledge_library is WRITE-denied above and still catch-all READABLE, and
+    // the asymmetry is deliberate.
+    //
+    // Writes: these rows are the agent's readable knowledge. A client that can
+    // mutate one can flip `status` to 'deleted' and remove another org's file
+    // (the hole olbrain-knowledge-vault's HTTP gate closes at the door), or
+    // forge a row whose agent_id is its own and whose storage_path points into
+    // another tenant, then pull the bytes back through the download route it is
+    // legitimately authorized for. Only the services write here.
+    //
+    // Reads: NOT tightened yet, on purpose. The right rule is the org-scoped
+    // one the dedicated-tenant ruleset already uses --
+    // `isOrgMember(resource.data.organization_id)` (firestore.clix.rules) --
+    // but these documents carry no `organization_id` field today, and that rule
+    // denies everyone when the field is absent. Scoping reads before the field
+    // exists would blank Noesis's Knowledge list and Studio's Brain Builder
+    // canvas. Sequence: stamp organization_id on new rows, backfill existing
+    // ones, THEN move knowledge_library out of this catch-all into its own
+    // org-scoped block. Until then an authenticated user can read another org's
+    // knowledge metadata here, which is the pre-existing exposure -- narrowed,
+    // not yet closed.
+    function b0KnownClientCollection(c) {
+      return c in ['users', 'user_profiles', 'projects', 'support_sessions', 'myelin_sessions', 'alchemist_sessions',
+                   'workflow_definitions', 'conversations', 'alchemist_conversations', 'public_mcp_servers',
+                   'mcp_tool_executions', 'research_templates', 'research_runs', 'workflows', 'workflow_runs',
+                   'workflow_items', 'agent_traces', 'usage_events', 'billing_records', 'notifications',
+                   'research_plans', 'research_chat_sessions', 'research_golden_templates'];
+    }
+    match /{collection}/{docId} {
+      allow read: if isAuthenticated() && b0KnownClientCollection(collection)
+        && !(collection in [
+          'agents', 'agent_messages', 'agent_sessions', 'agent_users', 'tickets', 'agent_analytics', 'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates', 'memory_bindings', 'identity_events', 'inbound_dedup', 'evidence_meta', 'memory_control', 'departments', // [B0] explicit blocks above are now the only grants
+          'research_report_shares', // holds the share tokens — a readable token is a leaked public link
+          'agentify_sessions',   // Cortex conversations + BRDs — owner or org member only, see the block at the top
+          'brd_shares',          // BRD link tokens + audience — a readable token is a leaked link (agent-engine brd_share_service.py)
+          'memberships_index',   // authorization data — see above
+          'billing_ledger',      // org admins/owners only
+          'wallet_grants',       // org members only
+          'wallet_recharges',    // org members only
+          'agent_user_memory',   // end-user PII — org members only, see the block above
+          'lead_profiles',       // caller PII captured live on voice calls
+          'twilio_accounts',     // PLAINTEXT Twilio account_sid + auth_token — see below
+          'agent_datastores',    // agent-collected PII — server-only, see the block below
+          'superagent_threads',  // maps a visitor's front-door session to the specialist sessions it opened — reading one hands you session ids for conversations you are not in, and get_conversation reads by id
+          'lead_contacts',       // caller PII — runtime REST only
+          'lead_activity',       // caller PII — runtime REST only
+          'lead_exports',        // export jobs over caller PII
+          'synapse_sessions',    // Synapse transcripts — owner-only messages, server-only session doc; see the Synapse block at the top
+          'synapse_session_index', // owner-only, see the Synapse block; an unfiltered listing was every session, agent and user id
+          'synapse_brain_sessions', // pre-unification Synapse transcripts — server-only
+          'agent_learned_patterns', // parent doc — the fenced block above covers the patterns subcollection; this stops a stranger creating/reading/listing the parent
+          'potions',              // potion pointer docs — agent-design Admin SDK only
+          'credentials',          // KMS-wrapped per-agent MCP server secrets — see the note below
+          'oauth_states',         // single-use PKCE handshake state — see the hosted-MCP OAuth note below
+          'oauth_clients'         // DCR-fallback client registration — see the hosted-MCP OAuth note below
+        ]);
+      allow write: if isAuthenticated() && b0KnownClientCollection(collection)
+        && !(collection in [
+          'agents', 'agent_messages', 'agent_sessions', 'agent_users', 'tickets', 'agent_analytics', 'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates', 'memory_bindings', 'identity_events', 'inbound_dedup', 'evidence_meta', 'memory_control', 'departments', // [B0] explicit blocks above are now the only grants
+          'research_runs',          // cancel_requested and the billing display mirror live here; written only by the research runtime's Admin SDK
+          'research_report_shares', // visibility IS the access decision — a client write would grant the writer access
+          'agentify_sessions',   // agent-engine's Admin SDK is the only writer; a client write could repoint owner_id or plant history Cortex replays
+          'brd_shares',          // the audience IS the access decision — a client write would publish anyone's BRD
+          'human_agents',        // roster gates who can take over live chats
+          'app_subscriptions',   // entitlement dates and plan price
+          'agent_subscriptions', // per-agent entitlement dates + invoicing state
+          'organization_subscriptions', // status + trial_end ARE the entitlement gate
+          'organizations',       // the wallet lives here
+          'memberships_index',   // a write here grants yourself any role
+          'memberships',         // the canonical membership store (studio-backend org_roles, agent-engine is_active_org_member's fallback): a client row is a self-grant of any role in any org; the explicit block's `allow write: if false` is otherwise ORed away by this catch-all
+          'billing_ledger',      // immutable audit trail
+          'wallet_grants',       // forging a credit record
+          'wallet_recharges',    // forging a credit record
+          'agent_user_memory',   // end-user PII — the runtime's Admin SDK is the only writer
+          'lead_profiles',       // caller PII — same posture, see the block below
+          'outreach_campaigns',  // campaign control — see the outreach note below
+          'agent_users',         // end-user PII — sibling of agent_user_memory above
+          'twilio_accounts',     // credentials — see the note below
+          'research_plans',      // a forged plan is a run the victim's org pays for
+          'superagent_definitions', // executed by superagent-runtime; a forged graph is a run the victim's org pays for
+          'superagent_runs',     // run state + final_output for a paid execution
+          'superagent_delegations', // the record of what a system actually did — forged rows would lie about which member ran, what it cost and whether it failed
+          'research_chat_sessions', // started_by/org_id ARE the approve gate
+          'knowledge_library',   // the agent ANSWERS from these rows -- see above
+          'research_golden_templates', // a forged pointer row aims instantiate at another org's body
+          'agent_senders',       // channel access tokens + the binding that routes inbound messages
+          'agent_datastores',    // agent-collected PII — server-only, see the block below
+          'superagent_threads',  // a forged mapping redirects a victim's next consult into a session the forger controls: they read the victim's questions and plant the specialist's answers
+          'lead_contacts',       // caller PII — runtime REST only
+          'lead_activity',       // caller PII — runtime REST only
+          'lead_exports',        // export jobs over caller PII
+          'synapse_sessions',    // the engine's Admin SDK is the only writer; a client write could clear user_id past the ownership gate
+          'synapse_session_index', // owner-only writes, see the Synapse block at the top
+          'synapse_brain_sessions', // pre-unification Synapse transcripts — server-only
+          'agent_learned_patterns', // parent doc — the fenced block above covers the patterns subcollection; this stops a stranger creating/overwriting the parent
+          'potions',              // potion pointer docs — agent-design Admin SDK only
+          'credentials',          // KMS-wrapped per-agent MCP server secrets — see the note below
+          'mcp_tool_executions',  // execution log rows — see the note below; read stays open, see the four-segment list
+          'public_mcp_servers',   // the MCP catalog (doc id = server id; service_url/pre_deployed_url) — write-only exclusion, reads stay open (Studio/Noesis list the catalog client-side); see the note below
+          'oauth_states',         // single-use PKCE handshake state — see the hosted-MCP OAuth note below
+          'oauth_clients'         // DCR-fallback client registration — see the hosted-MCP OAuth note below
+        ]);
+    }
+
+    // OUTREACH (2026-09-15). `outreach_campaigns` and `agent_users` are
+    // write-denied in BOTH catch-alls, and read-granted in neither's exclusion
+    // list — the same asymmetry knowledge_library documents above.
+    //
+    // What was open: every authenticated user, in any org, could write
+    // `outreach_campaigns/{anyAgent}/runs/{anyRun}`. `paused` and
+    // `cancel_requested` are read by olbrain-agent-directives' campaign runner
+    // as control flags, so a signed-in stranger could pause or cancel another
+    // tenant's live send. And `agent_users` holds end-user names and PHONE
+    // NUMBERS — it is the sibling of `agent_user_memory`, which is already
+    // excluded here as "end-user PII", and was simply missed.
+    //
+    // Nothing legitimate loses a write. Both collections are read from the
+    // browser by client-SDK listeners, but every MUTATION already goes over
+    // HTTP: campaignService's create/run/pause/resume/cancel/retry through
+    // `directivesApi`, and agentUserService's create/update/delete plus the
+    // directive CRUD through `agentDesignApi`. The runtime and
+    // agent-directives write with the Admin SDK, which bypasses rules.
+    //
+    // Reads are NOT excluded, deliberately, and the gap is real: an
+    // authenticated user can still read another org's campaign progress and
+    // end-user phone numbers. Closing it needs org-scoped reads, and these
+    // documents carry no `organization_id` — campaign_store.create_run writes
+    // none — so the rule that works elsewhere
+    // (`isOrgMember(resource.data.organization_id)`) denies everyone when the
+    // field is absent, exactly as the knowledge_library note above describes.
+    // Sequence is the same: stamp organization_id, backfill, then move these
+    // into their own org-scoped block. That is S7 of the Outreach migration.
+    //
+    // NOT closed here, on purpose: agents/{id}/outreach_templates,
+    // outreach_audiences and outreach_configs. Studio's Brain Builder still
+    // writes all three from the BROWSER through the client SDK
+    // (outreachTemplateService/outreachAudienceService/outreachConfigService
+    // use addDoc/updateDoc/deleteDoc/setDoc directly), so denying writes would
+    // break Outreach authoring in Studio while it is still the live surface.
+    // They close at S7, when the Studio tile is removed — by which point
+    // Noesis writes them exclusively through studio-backend's Admin SDK.
+    //
+    // TWILIO CREDENTIALS (2026-09-15). `twilio_accounts` was in NO match block
+    // at all, so it fell through to the catch-all above and was
+    // `allow read: if isAuthenticated()` — plaintext credentials readable by
+    // every signed-in user on the platform, in any org.
+    //
+    // The documents are keyed BY AGENT ID
+    // (olbrain-studio-backend services/whatsapp_service.py:534,
+    // `db.collection('twilio_accounts').document(request.agent_id)`) and hold
+    // `account_sid` and `auth_token` as bare strings — models/whatsapp_models.py
+    // :153-154, no SecretStr, no KMS. `agents` is not in the read exclusion
+    // list either, so the full attack is: list agents, take every id, read
+    // twilio_accounts/{id}. No org boundary is crossed because none is checked.
+    //
+    // This closes the CREDENTIAL, not the enumeration. The same writer also
+    // stamps `twilio_configured: true` and `twilio_phone_number` onto the
+    // AGENT document (whatsapp_service.py:537-543), and `agents` stays
+    // catch-all readable — so a stranger can still list agents, filter on
+    // twilio_configured, and harvest every org's provisioned Twilio number.
+    // Closing that means scoping `agents` reads, which is a much larger change
+    // (it would also activate the owner-only block at line 23 and cut
+    // non-owner org members); firestore.clix.rules:162 has the org-scoped
+    // variant to model it on.
+    //
+    // Write is excluded too: a forged row repoints an agent at an attacker's
+    // Twilio account, which is a credential-swap, not just a leak.
+    //
+    // Nothing legitimate loses access. The Twilio path is dead in production:
+    // zero calls to api.twilio.com and zero whatsapp_service invocations in a
+    // 30-day log window, and WhatsApp runs entirely on the Meta/WABA path now
+    // (agent-bridge + `agent_senders`). The only reader was ever
+    // studio-backend's Admin SDK, which bypasses rules.
+    //
+    // An earlier draft of this note also cited "zero hits to any
+    // /api/whatsapp/twilio* route". That evidence was UNSOUND and is removed:
+    // the writer is POST /api/whatsapp/accounts (routes/whatsapp_routes.py:32
+    // declares prefix /api/whatsapp, :175 the route), so no path begins
+    // /api/whatsapp/twilio and that query returned zero by construction,
+    // whatever the traffic. The api.twilio.com evidence above is independent
+    // and does stand.
+    //
+    // THE RULE DOES NOT UNDO PAST EXPOSURE. Any credentials still stored here
+    // were readable by every authenticated user for as long as this collection
+    // has existed, so they need ROTATING in Twilio, not just fencing. That is
+    // an ops step this file cannot perform; whether any documents exist has to
+    // be checked in the Firebase console.
+
+    // CREDENTIALS + MCP TOOL EXECUTIONS (2026-09-25, Notion connector
+    // prerequisite — 2026-09-25-notion-connector-design.md §5c).
+    //
+    // `credentials` was in NO match block, so it fell through to both
+    // catch-alls (this one and the four-segment one below) and was
+    // `allow read, write: if isAuthenticated()` for every signed-in user in
+    // any org. The documents hold KMS-wrapped per-agent MCP server secrets,
+    // keyed `{agentId}:{serverName}` (olbrain-mcp-deployer
+    // runtime/services/kms_credential_service.py) or `default:{serverName}`
+    // for the env-fallback tier every unconfigured agent tries
+    // (`_get_credentials_for_server` tier 3). A stranger could copy a
+    // victim's `encrypted_credentials` into their own agent's document, or
+    // into `default:{server}`, and have the shared KMS key decrypt it for
+    // them — no org boundary was ever checked, because ciphertext carried no
+    // additional authenticated data. AAD binding is the other half of that
+    // fix and lands in olbrain-mcp-deployer; this rule closes the platform
+    // side regardless of which half lands first, and read is excluded too —
+    // no client reads this collection. Both writers (kms_credential_service.py
+    // and src/firestore_sync.py, in that repo) use the Admin SDK.
+    //
+    // THIS RULE DOES NOT UNDO PAST EXPOSURE EITHER, and neither does AAD. The
+    // deployer still decrypts pre-AAD docs unbound (then re-encrypts them
+    // bound), and it cannot tell a genuine legacy doc from a victim's legacy
+    // ciphertext copied into an attacker's `{agentId}:{server}` or
+    // `default:{server}` doc while this collection was writable — the first
+    // read binds the copy to the attacker's doc for good. Before or right
+    // after this deploys, audit `credentials` READ-ONLY for: the same
+    // `credential_hash` under different doc ids; `default:*` docs that
+    // `mcp-deployer credentials sync` didn't write; and docs whose
+    // `agent_id`/`server_name` fields don't match the doc id — and ROTATE
+    // anything suspicious at the provider. An ops step this file cannot
+    // perform.
+    //
+    // `mcp_tool_executions` was in no match block either, so a forged row
+    // could plant a fake tool-call log in someone else's Execution Logs tab —
+    // hide a real failure, or fabricate a clean run. This one is WRITE-only:
+    // Studio's Execution Logs tab still reads the collection with the client
+    // SDK (src/services/analytics/executionLogs/executionLogsService.js),
+    // and the documents carry no `organization_id`, so an org-scoped read
+    // isn't possible yet. Read stays on this catch-all's blanket
+    // `isAuthenticated()` grant — the same gap `knowledge_library` and
+    // `research_plans` already document above, not closed here.
+
+    // PUBLIC MCP SERVERS / MCP CATALOG (2026-09-26).
+    //
+    // `public_mcp_servers` (doc id = server id, fields include `service_url` /
+    // `pre_deployed_url`) was in NO match block, so it fell through to this
+    // catch-all and was `allow read, write: if isAuthenticated()` for every
+    // signed-in user in any org. agent-design's configure-and-enable flow
+    // reads `service_url`/`pre_deployed_url` off a catalog doc and POSTs the
+    // user's PASTED MCP keys there (mcp_service.py:439-442, 1474-1530), and
+    // Studio's OAuth popups use `service_url` too — so a forged/repointed
+    // catalog doc exfiltrates other users' API keys and TRACES credentials to
+    // an attacker-controlled endpoint, no org boundary required.
+    //
+    // Write is excluded in both catch-alls (this one and the four-segment one
+    // below). The only legitimate writer is the deployer CI via the Admin
+    // SDK, which bypasses rules; no client code writes this collection.
+    //
+    // Read is deliberately left open, in both lists: Studio
+    // (src/services/_infra/data/FirestoreDataAccess.js:~1535 getDocs,
+    // src/services/api-integration/mcpDeployment/mcpDeploymentService.js:~91
+    // getDoc) and Noesis (FirestoreDataAccess.js:~1553 getDocs) both read the
+    // catalog client-side to list/resolve available MCP servers.
+    //
+    // THIS RULE DOES NOT UNDO PAST EXPOSURE. Until it was deployed any signed-in
+    // user could rewrite a catalog doc, and the deployer keeps an existing
+    // service_url when none is passed, so a forged value can outlive the rule.
+    // After deploying, audit every doc's service_url / pre_deployed_url /
+    // oauth_config hosts against the expected Cloud Run hosts (read-only) and
+    // rotate any key that may have been pasted while a doc pointed elsewhere.
+    // agent-design also pins outbound MCP URLs (fix/pin-mcp-service-urls).
+
+    // HOSTED-MCP OAUTH (2026-09-26, Notion first — spec §4 Studio, §5 Data
+    // model, §6 Security: docs/superpowers/specs/2026-09-26-hosted-mcp-connect-design.md
+    // in olbrain_lab).
+    //
+    // `oauth_states/{sha256(state)}` holds the single-use PKCE handshake:
+    // `code_verifier_ct` (KMS-encrypted), plus the `uid`/`agent_id`/`provider`
+    // the deployer's `complete` step checks in a transaction before it will
+    // exchange a code. Neither field was in any match block, so both fell
+    // through to this catch-all and were `allow read, write: if isAuthenticated()`
+    // for every signed-in user in any org — a stranger could read another
+    // user's in-flight state doc, or overwrite `uid`/`agent_id` on it to
+    // redirect where a stolen authorization code gets attached. The deployer's
+    // Admin SDK (hosted_oauth/flow.py) is the only reader/writer; no client
+    // code touches this collection.
+    //
+    // `oauth_clients/{provider}:{sha256(redirect_uri)[:16]}` is the
+    // DCR-fallback client registration record (created once per
+    // provider/env/redirect_uri when a provider rejects the CIMD URL — spec
+    // §10.1). A forged doc could substitute a different `client_id` for the
+    // fallback path. Same posture: Admin SDK only (hosted_oauth/registration.py),
+    // no client reads or writes.
+    //
+    // `agents/{agentId}/oauth_tokens/{provider}` — the encrypted access/refresh
+    // token pair per spec §5 — is a document under an /agents subcollection,
+    // not a top-level collection, so this two-segment catch-all never matched
+    // it; it is excluded down in the /agents subcollection catch-all below
+    // instead. See the note there.
+
+    // Subcollections outside /organizations and /agents.
+    //
+    // The {sub} segment is load-bearing. This was
+    // `match /{collection}/{docId}/{rest=**}`, and a ** wildcard matches ZERO
+    // or more segments — so it also matched top-level documents and OR-ed a
+    // blanket authenticated read+write over them, silently defeating every
+    // write exclusion in the catch-all above. app_subscriptions was wide open
+    // because of it: any signed-in user could flip status to 'active' or push
+    // current_period_end to 2099, which is exactly what that rule's comment
+    // says it prevents. human_agents create/delete were open the same way.
+    // organizations escaped only because it appears in the exclusion below.
+    //
+    // Requiring {sub} means this matches a document four segments deep or
+    // more — an actual subcollection — and nothing shallower.
+    //
+    // READ and WRITE are split because they need different exclusion lists.
+    //
+    // `research_chat_sessions` is write-excluded HERE for its `messages`
+    // subcollection only. The session DOCUMENT is excluded in the top-level
+    // catch-all above instead — two lists, because this match needs four
+    // segments and a session document has two, so neither list can stand in
+    // for the other.
+    //
+    // Its own match block above says `allow write: if false` on the messages
+    // subcollection, because only the planner's Admin SDK appends messages —
+    // but rules OR together, so this catch-all was granting every
+    // authenticated user write on every session's messages and that `if false`
+    // restricted nothing. Any signed-in user could append a forged
+    // `plan_proposal` message to any other org's session; `approve_plan` reads
+    // a proposal verbatim into a run subject, so the victim then executes and
+    // pays for research they never asked for.
+    //
+    // Read is deliberately NOT excluded here, in the same change. The explicit
+    // block's read rule requires the caller's token to carry `org_id` or
+    // `tenant_id` matching the parent session, and this platform issues org
+    // claims under several names — so removing the catch-all read would blank
+    // live chat history for any user whose token uses a different claim.
+    // That is a real confidentiality gap and it needs its own change, gated on
+    // an audit of which claims production tokens actually carry. Closing the
+    // write hole is what stops one tenant spending another tenant's money, and
+    // it carries no such risk: the frontend never writes messages.
+    //
+    // research_runs: the two explicit match blocks above
+    // (research_chat_sessions/{sessionId}/messages and
+    // research_runs/{runId}/steps and research_runs/{runId}/report_versions) say
+    // `allow write: if false`. Rules OR together, so this catch-all was
+    // granting every authenticated user write on steps and report_versions;
+    // any signed-in user could forge a step or report version into any org's
+    // run. Excluding it here makes those `if false` clauses real. Both
+    // collections are written exclusively by the research-runtime Admin SDK,
+    // and neither has a reachable client-SDK write in the frontends.
+    // `research_runs` (2026-09-22, report sharing) — READ, not just WRITE
+    // below. This catch-all was granting every authenticated user, in every
+    // org, read access to research_runs/{runId}/report_versions/{versionId}
+    // and .../steps/{stepId}, because `research_runs` was absent from this
+    // list while already present in the write list a few lines down. Rules OR
+    // together, so that blanket grant ran alongside the org- and share-scoped
+    // checks in the explicit match blocks above (~line 500, ~line 515) and
+    // made them decorative: a report's `private` visibility gated nothing,
+    // because any signed-in user in any org could still read it right here.
+    // Both explicit blocks gate on `isOrgMember(_parent().org_id)` — the
+    // memberships_index-backed check defined near the top of this file
+    // (~line 148), not a token-claim comparison — so excluding research_runs
+    // here does not depend on which of the platform's several org-claim
+    // names a caller's token happens to carry. (Both blocks compared
+    // `org_id || tenant_id` first, before switching to isOrgMember():
+    // studio-backend's invitation_service sets `primaryOrganization` on
+    // invited members and never writes `tenant_id` — see
+    // olbrain-research-design/app/middleware/auth.py:84-108 — so that
+    // comparison silently denied exactly the users it needed to admit.)
+    // research_plans and research_chat_sessions still rely on the catch-all's
+    // blanket authenticated read above precisely because they have no
+    // membership-backed rule to fall back on.
+    match /{collection}/{docId}/{sub}/{rest=**} {
+      allow read: if isAuthenticated()
+        && !(collection in ['agent_sessions', 'agent_analytics', 'memory_bindings', 'identity_events', // [B0]
+                            'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates',
+                            'organizations', 'agents', 'agent_datastores',
+                            'twilio_accounts', 'agent_learned_patterns',
+                            'lead_contacts', 'lead_activity', 'lead_exports',
+                            'research_runs', 'agentify_sessions', 'brd_shares',
+                            'synapse_sessions', 'synapse_session_index',
+                            'synapse_brain_sessions',
+                            'potions', // potions/{agentId}/versions/{n} — agent-design Admin SDK only
+                            'credentials']); // credentials/{agentId}:{server}/{sub} — no client reads this either; see the note above
+      // `outreach_campaigns`, `agent_users`, `twilio_accounts` and
+      // `credentials` appear in BOTH catch-alls, for the same reason spelled
+      // out above for research_chat_sessions: this match needs four segments
+      // and the parent documents have two, so neither list can stand in for
+      // the other. The writes that matter live down here —
+      // outreach_campaigns/{agentId}/runs/{runId} and its /targets, and
+      // agent_users/{uid}/directives.
+      //
+      // twilio_accounts was added to the two-segment lists first and MISSED
+      // here, under this very comment. Nothing nests under it today, but
+      // whatsapp_service.py:710 already writes `webhook_secret` onto the
+      // parent, so a rotations/ or secrets/ subcollection is a realistic next
+      // shape — and it would have inherited an authenticated read.
+      //
+      // `credentials` and `mcp_tool_executions` are added to both the
+      // two-segment AND four-segment lists in the same change this time, on
+      // purpose — see the note above, right where twilio_accounts's own
+      // "MISSED here" gap is called out.
+      allow write: if isAuthenticated()
+        && !(collection in ['agent_sessions', 'agent_analytics', 'memory_bindings', 'identity_events', // [B0]
+                            'organization_analytics', 'project_analytics', 'workflow_analytics', 'billing_aggregates',
+                            'organizations', 'agents', 'research_chat_sessions',
+                            'research_runs', 'agent_datastores', 'outreach_campaigns',
+                            'agent_users', 'twilio_accounts', 'agent_learned_patterns',
+                            'lead_contacts', 'lead_activity', 'lead_exports',
+                            'agentify_sessions', 'brd_shares',
+                            'synapse_sessions', 'synapse_session_index',
+                            'synapse_brain_sessions',
+                            'potions', // potions/{agentId}/versions/{n} — agent-design Admin SDK only
+                            'credentials', 'mcp_tool_executions',
+                            'public_mcp_servers']); // MCP catalog — write-only exclusion; no subcollections exist today, fenced for defence in depth (see the note above)
+    }
+
+    // Subcollections under /agents — open EXCEPT `owner_lessons` writes.
+    // Agent Trainer lesson docs are written exclusively by
+    // olbrain-agent-engine's Admin SDK (alchemist/trainer/lessons.py); their
+    // payloads feed deterministic brain applies, so a client-SDK write is an
+    // in-tenant privilege-escalation path (tamper a pending lesson between
+    // the proposal card and the owner's Confirm). Reads stay granted — the
+    // Noesis Train tab's useOwnerLessons listener needs them.
+    //
+    // `oauth_tokens` (2026-09-26, hosted-MCP OAuth — spec §5 Data model:
+    // "agents/{agent_id}/oauth_tokens/{provider}") is DENY-ALL, read and
+    // write, for every signed-in user — including the agent's own owner.
+    // `encrypted_token` is KMS(access_token + refresh_token) with AAD bound
+    // to `{agent_id}:oauth:{provider}`; only the deployer's single-writer
+    // refresh path (token_store.py) ever reads or writes it, so there is no
+    // legitimate client-SDK case here at all, unlike `mcp_configs` above.
+    // Before this it fell through to the catch-all's blanket authenticated
+    // grant, so any signed-in user in any org could read or overwrite
+    // another agent's Notion tokens.
+    // [B0-N6] Agent subcollections: read for people who may use the agent; writes only for the owner or an
+    // org editor, and never for versions/owner_lessons/documents (server-written: publish, Dendrite, KV).
+    match /agents/{agentId}/{sub}/{rest=**} {
+      allow read: if isAuthenticated() && sub != 'mcp_configs' && sub != 'oauth_tokens' && canUseAgent(agentId);
+      allow write: if isAuthenticated()
+        && !(sub in ['owner_lessons', 'mcp_configs', 'oauth_tokens', 'versions', 'documents'])
+        && canEditAgent(agentId);
+    }
+
+    // Subcollections under /organizations — open EXCEPT server-only data:
+    // `secrets` (backend credentials; the explicit block above is now real)
+    // and the Finance department collections, which are written and served
+    // exclusively by olbrain-finance-engine's Admin SDK behind org-role
+    // gates that client-SDK access would bypass. The Raw-Material set
+    // (finance_rm = register/actuals/commentary/agents-registry,
+    // pnl_rm_projections = projection runs, rm_proposals = the agents'
+    // pending proposals) is server-only for the same reason — a client SDK
+    // could otherwise forge a register, a run, or an approved proposal.
+    // The generic line-item set (finance_lines = per-line configs/registers/
+    // recipes/actuals, pnl_line_projections = per-line projection runs)
+    // extends the same engine-only contract to every other P&L line.
+    // The remaining engine-owned set (finance_model = the confirmed statement
+    // model, pnl_projections = assembled projection runs, pnl_inputs =
+    // uploaded quarterly input files, pnl_bridges = variance bridges,
+    // pnl_deck_templates / pnl_deck_runs = learned board-deck templates and
+    // generated decks) completes the closure: every collection the engine
+    // writes under an org is server-only, so a client SDK cannot read or
+    // forge client P&L data on any org.
+    // Client inventory (studio + noesis + admin dashboard, 2026-07-05,
+    // re-verified 2026-08-14 — zero client-SDK references to any excluded
+    // collection): members, activities, private_mcp_servers, metrics,
+    // workflow_usage are the only org subcollections used client-side —
+    // all still granted.
+    // Research client roster — engagement descriptions, start dates and
+    // deliverable deadlines. Excluded from the org catch-all above (which
+    // grants any authenticated user read AND write on every org
+    // subcollection it does not name) because this is one firm's commercial
+    // detail: which clients they have and what is due when.
+    //
+    // Reads are org-member only. Writes are Admin-SDK only — the roster is
+    // mutated through olbrain-agent-design's /api/org/research-clients,
+    // which gates every mutation on an org-admin membership. A client-side
+    // write would let any member rename or merge another firm's clients, and
+    // a merge is what decides which runs a client's reports resolve to.
+    match /organizations/{orgId}/research_clients/{clientKey} {
+      allow read: if isAuthenticated() && isOrgMember(orgId);
+      allow write: if false;
+    }
+
+    // Org membership docs — AUTHORIZATION DATA, one of the two membership
+    // stores (the other is top-level `memberships`, fenced in the top-level
+    // catch-all's write list). agent-engine is_active_org_member lets this
+    // doc decide when it exists (tenant_access_error: the Synapse and Cortex
+    // turn gates, billing); studio-backend org_roles reads it as its second
+    // source; and the claim-setter-member Cloud Function mints tenant_id /
+    // roles custom claims from any write here. So a client write was a
+    // self-grant of any role in any org, down to the token. studio-backend's
+    // Admin SDK is the only writer (invites, joins, role changes, removal);
+    // clients only read (Onboarding's slow path, the Settings member list),
+    // so reads keep the catch-all's old shape.
+    // [B0-N3] Member rows (names, emails) are visible to members of that org only, plus your OWN row in any org
+    // (Studio onboarding's slow path checks it to discover a pending membership).
+    match /organizations/{orgId}/members/{memberId} {
+      allow read: if isAuthenticated() && (isOrgMember(orgId) || memberId == request.auth.uid);
+      allow write: if false;
+    }
+
+    // [B0-N4] Every other org subcollection (departments, private_mcp_servers, activities, ...) requires
+    // membership of THAT org. Before B0 any signed-in user could read and write them across tenants.
+    match /organizations/{orgId}/{sub}/{rest=**} {
+      allow read, write: if isAuthenticated() && isOrgMember(orgId)
+        && !(sub in ['secrets', 'pnl_statements', 'pnl_drivers', 'finance_profile', 'pnl_exports', 'finance_policy', 'finance_rm', 'pnl_rm_projections', 'rm_proposals', 'finance_lines', 'pnl_line_projections', 'finance_model', 'pnl_projections', 'pnl_inputs', 'pnl_bridges', 'pnl_deck_templates', 'pnl_deck_runs', 'research_clients', 'connector_credentials',
+                    // Org-uploaded BRD PDFs, each with a download URL that works signed
+                    // out. Server-only: agent-engine writes and serves them over HTTP
+                    // (/api/agentify/orgs/{org}/brds) and no frontend reads the path.
+                    'brd_documents',
+                    // Authorization data: see the members block above.
+                    'members']);
+    }
+
+    // Collection-group reads for the analytics/billing rollup tiers
+    // (organization/project/agent/workflow_analytics + billing_aggregates).
+    // Group queries are only authorized by rules in this recursive form —
+    // the split catch-alls above do not cover them.
+    // [B0-AN] Collection-group rollup reads (Studio usageService: 11 live call sites) stay possible but are
+    // org-scoped: a group query must constrain organization_id == an org the caller belongs to. Assumes every
+    // rollup doc carries organization_id (analytics writer is in a missing repository: [UNRESOLVED]).
+    match /{path=**}/months/{docId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+    }
+    match /{path=**}/days/{docId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+    }
+    match /{path=**}/hours/{docId} {
+      allow read: if isAuthenticated() && isOrgMember(resource.data.get('organization_id', ''));
+    }
+  }
+}
