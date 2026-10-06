@@ -1,0 +1,28 @@
+{
+ "stamp_violations": 0,
+ "acknowledged_stamps_hold": "holds",
+ "acked": 245,
+ "acked_missing": 0,
+ "append_refusals_while_publishing": {
+  "STALE_POLICY_STAMP": 9
+ },
+ "publications": 30,
+ "publication_latency": {
+  "n": 30,
+  "p50_ms": 4.66,
+  "p95_ms": 6.76,
+  "p99_ms": 9.75,
+  "max_ms": 9.75
+ },
+ "versions_in_force_seen_by_acked_appends": [
+  1,
+  2,
+  3,
+  "...",
+  16,
+  17,
+  18
+ ],
+ "result": "PASS",
+ "wall_s": 14.2
+}

@@ -1,0 +1,49 @@
+{
+ "groups": [
+  {
+   "n": 1,
+   "after_mid_group_crash_durable": 0,
+   "append": "APPENDED",
+   "durable": 1,
+   "commit_s": 0.002
+  },
+  {
+   "n": 10,
+   "after_mid_group_crash_durable": 0,
+   "append": "APPENDED",
+   "durable": 10,
+   "commit_s": 0.003
+  },
+  {
+   "n": 100,
+   "after_mid_group_crash_durable": 0,
+   "append": "APPENDED",
+   "durable": 100,
+   "commit_s": 0.017
+  },
+  {
+   "n": 1000,
+   "after_mid_group_crash_durable": 0,
+   "append": "APPENDED",
+   "durable": 1000,
+   "commit_s": 0.135
+  },
+  {
+   "n": 10000,
+   "after_mid_group_crash_durable": 0,
+   "append": "APPENDED",
+   "durable": 10000,
+   "commit_s": 1.587
+  },
+  {
+   "n": 50000,
+   "after_mid_group_crash_durable": 0,
+   "append": "APPENDED",
+   "durable": 50000,
+   "commit_s": 6.754
+  }
+ ],
+ "largest_atomic_group_tested": 50000,
+ "result": "PASS",
+ "wall_s": 9.5
+}

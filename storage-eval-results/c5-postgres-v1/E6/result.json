@@ -1,0 +1,21 @@
+{
+ "replica_reads": 387,
+ "primary_reads": 130,
+ "contradicted": 0,
+ "contradictions": [],
+ "served_at_or_below_replica_frontier": "387/387",
+ "replica_lag_bytes": {
+  "max": 584,
+  "samples": 49,
+  "none": 1
+ },
+ "replica_read_latency": {
+  "n": 387,
+  "p50_ms": 7.4,
+  "p95_ms": 13.01,
+  "p99_ms": 22.59,
+  "max_ms": 23.78
+ },
+ "result": "PASS",
+ "wall_s": 76.9
+}

@@ -1,0 +1,20 @@
+{
+ "trials": [
+  {
+   "acked": 460,
+   "acked_missing": 10
+  },
+  {
+   "acked": 446,
+   "acked_missing": 3
+  },
+  {
+   "acked": 414,
+   "acked_missing": 3
+  }
+ ],
+ "acked_lost_total": 16,
+ "synchronous_commit_restored": "on",
+ "result": "CONTROL_LOSES",
+ "wall_s": 125.1
+}

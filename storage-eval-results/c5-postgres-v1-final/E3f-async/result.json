@@ -1,0 +1,18 @@
+{
+ "replication_state_before_crash": [
+  "async"
+ ],
+ "promoted": true,
+ "acked": 347,
+ "acked_missing_on_promoted": 0,
+ "served_reads_logged": 93,
+ "served_sets_contradicted_on_promoted": 0,
+ "max_served_r": 5.5746777057647705,
+ "late_append_at_max_served_r": "READ_CLOSED",
+ "promoted_frontier_vs_max_served": [
+  5.614249229431152,
+  5.5746777057647705
+ ],
+ "result": "PASS",
+ "wall_s": 216.2
+}

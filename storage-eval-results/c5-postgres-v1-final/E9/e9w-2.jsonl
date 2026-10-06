@@ -1,0 +1,105 @@
+{"ev": "outcome", "cmd": "e2-0", "status": "APPENDED", "at": 1.8540256023406982, "detail": "1.8540256023406982"}
+{"ev": "outcome", "cmd": "e2-1", "status": "APPENDED", "at": 1.937856674194336, "detail": "1.937856674194336"}
+{"ev": "outcome", "cmd": "e2-2", "status": "APPENDED", "at": 1.9723129272460938, "detail": "1.9723129272460938"}
+{"ev": "outcome", "cmd": "e2-3", "status": "APPENDED", "at": 2.008110523223877, "detail": "2.008110523223877"}
+{"ev": "outcome", "cmd": "e2-4", "status": "APPENDED", "at": 2.0648515224456787, "detail": "2.0648515224456787"}
+{"ev": "outcome", "cmd": "e2-5", "status": "APPENDED", "at": 2.0980563163757324, "detail": "2.0980563163757324"}
+{"ev": "outcome", "cmd": "e2-6", "status": "APPENDED", "at": 2.1457231044769287, "detail": "2.1457231044769287"}
+{"ev": "outcome", "cmd": "e2-7", "status": "APPENDED", "at": 2.2137715816497803, "detail": "2.2137715816497803"}
+{"ev": "outcome", "cmd": "e2-8", "status": "APPENDED", "at": 2.2475345134735107, "detail": "2.2475345134735107"}
+{"ev": "outcome", "cmd": "e2-9", "status": "APPENDED", "at": 2.2821900844573975, "detail": "2.2821900844573975"}
+{"ev": "outcome", "cmd": "e2-10", "status": "APPENDED", "at": 2.315647840499878, "detail": "2.315647840499878"}
+{"ev": "outcome", "cmd": "e2-11", "status": "APPENDED", "at": 2.335859775543213, "detail": "2.335859775543213"}
+{"ev": "outcome", "cmd": "e2-12", "status": "APPENDED", "at": 2.3514952659606934, "detail": "2.3514952659606934"}
+{"ev": "outcome", "cmd": "e2-13", "status": "APPENDED", "at": 2.383397102355957, "detail": "2.383397102355957"}
+{"ev": "outcome", "cmd": "e2-14", "status": "APPENDED", "at": 2.4085850715637207, "detail": "2.4085850715637207"}
+{"ev": "outcome", "cmd": "e2-15", "status": "APPENDED", "at": 2.442628860473633, "detail": "2.442628860473633"}
+{"ev": "outcome", "cmd": "e2-16", "status": "APPENDED", "at": 2.464857339859009, "detail": "2.464857339859009"}
+{"ev": "outcome", "cmd": "e2-17", "status": "APPENDED", "at": 2.4893500804901123, "detail": "2.4893500804901123"}
+{"ev": "outcome", "cmd": "e2-18", "status": "APPENDED", "at": 2.5335137844085693, "detail": "2.5335137844085693"}
+{"ev": "outcome", "cmd": "e2-19", "status": "APPENDED", "at": 2.5699245929718018, "detail": "2.5699245929718018"}
+{"ev": "outcome", "cmd": "e2-20", "status": "APPENDED", "at": 2.6009716987609863, "detail": "2.6009716987609863"}
+{"ev": "outcome", "cmd": "e2-21", "status": "APPENDED", "at": 2.6368043422698975, "detail": "2.6368043422698975"}
+{"ev": "outcome", "cmd": "e2-22", "status": "APPENDED", "at": 2.6724789142608643, "detail": "2.6724789142608643"}
+{"ev": "outcome", "cmd": "e2-23", "status": "APPENDED", "at": 2.7066237926483154, "detail": "2.7066237926483154"}
+{"ev": "outcome", "cmd": "e2-24", "status": "APPENDED", "at": 2.7407658100128174, "detail": "2.7407658100128174"}
+{"ev": "outcome", "cmd": "e2-25", "status": "APPENDED", "at": 2.7776615619659424, "detail": "2.7776615619659424"}
+{"ev": "outcome", "cmd": "e2-26", "status": "APPENDED", "at": 2.8091602325439453, "detail": "2.8091602325439453"}
+{"ev": "outcome", "cmd": "e2-27", "status": "APPENDED", "at": 2.8539986610412598, "detail": "2.8539986610412598"}
+{"ev": "outcome", "cmd": "e2-28", "status": "APPENDED", "at": 2.898041009902954, "detail": "2.898041009902954"}
+{"ev": "outcome", "cmd": "e2-29", "status": "APPENDED", "at": 2.9564387798309326, "detail": "2.9564387798309326"}
+{"ev": "outcome", "cmd": "e2-30", "status": "APPENDED", "at": 3.0123043060302734, "detail": "3.0123043060302734"}
+{"ev": "outcome", "cmd": "e2-31", "status": "APPENDED", "at": 3.0580649375915527, "detail": "3.0580649375915527"}
+{"ev": "outcome", "cmd": "e2-32", "status": "APPENDED", "at": 3.103395938873291, "detail": "3.103395938873291"}
+{"ev": "outcome", "cmd": "e2-33", "status": "APPENDED", "at": 3.138679027557373, "detail": "3.138679027557373"}
+{"ev": "outcome", "cmd": "e2-34", "status": "APPENDED", "at": 3.1841039657592773, "detail": "3.1841039657592773"}
+{"ev": "outcome", "cmd": "e2-35", "status": "APPENDED", "at": 3.2300429344177246, "detail": "3.2300429344177246"}
+{"ev": "outcome", "cmd": "e2-36", "status": "APPENDED", "at": 3.2755889892578125, "detail": "3.2755889892578125"}
+{"ev": "outcome", "cmd": "e2-37", "status": "APPENDED", "at": 3.3200671672821045, "detail": "3.3200671672821045"}
+{"ev": "outcome", "cmd": "e2-38", "status": "APPENDED", "at": 3.45474910736084, "detail": "3.45474910736084"}
+{"ev": "outcome", "cmd": "e2-39", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "3.5104920864105225"}
+{"ev": "outcome", "cmd": "e2-40", "status": "APPENDED", "at": 3.5877625942230225, "detail": "3.5877625942230225"}
+{"ev": "outcome", "cmd": "e2-41", "status": "APPENDED", "at": 3.634981393814087, "detail": "3.634981393814087"}
+{"ev": "outcome", "cmd": "e2-42", "status": "APPENDED", "at": 3.688077926635742, "detail": "3.688077926635742"}
+{"ev": "outcome", "cmd": "e2-43", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "3.7373206615448"}
+{"ev": "outcome", "cmd": "e2-44", "status": "APPENDED", "at": 3.806718349456787, "detail": "3.806718349456787"}
+{"ev": "outcome", "cmd": "e2-45", "status": "APPENDED", "at": 3.862924575805664, "detail": "3.862924575805664"}
+{"ev": "outcome", "cmd": "e2-46", "status": "APPENDED", "at": 3.920013427734375, "detail": "3.920013427734375"}
+{"ev": "outcome", "cmd": "e2-47", "status": "APPENDED", "at": 3.9546029567718506, "detail": "3.9546029567718506"}
+{"ev": "outcome", "cmd": "e2-48", "status": "APPENDED", "at": 4.032936334609985, "detail": "4.032936334609985"}
+{"ev": "outcome", "cmd": "e2-49", "status": "APPENDED", "at": 4.088691473007202, "detail": "4.088691473007202"}
+{"ev": "outcome", "cmd": "e2-50", "status": "APPENDED", "at": 4.1459338665008545, "detail": "4.1459338665008545"}
+{"ev": "outcome", "cmd": "e2-51", "status": "APPENDED", "at": 4.198655605316162, "detail": "4.198655605316162"}
+{"ev": "outcome", "cmd": "e2-52", "status": "APPENDED", "at": 4.245371103286743, "detail": "4.245371103286743"}
+{"ev": "outcome", "cmd": "e2-53", "status": "APPENDED", "at": 4.314937114715576, "detail": "4.314937114715576"}
+{"ev": "outcome", "cmd": "e2-54", "status": "APPENDED", "at": 4.393722295761108, "detail": "4.393722295761108"}
+{"ev": "outcome", "cmd": "e2-55", "status": "APPENDED", "at": 4.474332809448242, "detail": "4.474332809448242"}
+{"ev": "outcome", "cmd": "e2-56", "status": "APPENDED", "at": 4.552124261856079, "detail": "4.552124261856079"}
+{"ev": "outcome", "cmd": "e2-57", "status": "APPENDED", "at": 4.642060279846191, "detail": "4.642060279846191"}
+{"ev": "outcome", "cmd": "e2-58", "status": "APPENDED", "at": 4.731795072555542, "detail": "4.731795072555542"}
+{"ev": "outcome", "cmd": "e2-59", "status": "APPENDED", "at": 4.810504198074341, "detail": "4.810504198074341"}
+{"ev": "outcome", "cmd": "e2-60", "status": "APPENDED", "at": 4.900270700454712, "detail": "4.900270700454712"}
+{"ev": "outcome", "cmd": "e2-61", "status": "APPENDED", "at": 4.9908530712127686, "detail": "4.9908530712127686"}
+{"ev": "outcome", "cmd": "e2-62", "status": "APPENDED", "at": 5.091796159744263, "detail": "5.091796159744263"}
+{"ev": "outcome", "cmd": "e2-63", "status": "APPENDED", "at": 5.192543268203735, "detail": "5.192543268203735"}
+{"ev": "outcome", "cmd": "e2-64", "status": "APPENDED", "at": 5.304112195968628, "detail": "5.304112195968628"}
+{"ev": "outcome", "cmd": "e2-65", "status": "APPENDED", "at": 5.405323028564453, "detail": "5.405323028564453"}
+{"ev": "outcome", "cmd": "e2-66", "status": "APPENDED", "at": 5.506522178649902, "detail": "5.506522178649902"}
+{"ev": "outcome", "cmd": "e2-67", "status": "APPENDED", "at": 5.673564910888672, "detail": "5.673564910888672"}
+{"ev": "outcome", "cmd": "e2-68", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "5.799195289611816"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-69"}
+{"ev": "outcome", "cmd": "e2-69", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-70"}
+{"ev": "outcome", "cmd": "e2-70", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-71"}
+{"ev": "outcome", "cmd": "e2-71", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-72"}
+{"ev": "outcome", "cmd": "e2-72", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-73"}
+{"ev": "outcome", "cmd": "e2-73", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-74"}
+{"ev": "outcome", "cmd": "e2-74", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-75"}
+{"ev": "outcome", "cmd": "e2-75", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-76"}
+{"ev": "outcome", "cmd": "e2-76", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-77"}
+{"ev": "outcome", "cmd": "e2-77", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-78"}
+{"ev": "outcome", "cmd": "e2-78", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-79"}
+{"ev": "outcome", "cmd": "e2-79", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-80"}
+{"ev": "outcome", "cmd": "e2-80", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-81"}
+{"ev": "outcome", "cmd": "e2-81", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-82"}
+{"ev": "outcome", "cmd": "e2-82", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-83"}
+{"ev": "outcome", "cmd": "e2-83", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-84"}
+{"ev": "outcome", "cmd": "e2-84", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-85"}
+{"ev": "outcome", "cmd": "e2-85", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-86"}
+{"ev": "outcome", "cmd": "e2-86", "status": "ERROR", "at": null, "detail": "AppendRejected"}

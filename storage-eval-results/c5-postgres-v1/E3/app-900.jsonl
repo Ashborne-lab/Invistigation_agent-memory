@@ -1,0 +1,102 @@
+{"ev": "ack", "idem": "w900-0", "subj": "d1", "at": 21.774621725082397, "stamp": null, "n": 3, "tries": 1, "ms": 79.28110007196665}
+{"ev": "ack", "idem": "w900-1", "subj": "d2", "at": 21.99190855026245, "stamp": null, "n": 3, "tries": 1, "ms": 55.95609999727458}
+{"ev": "ack", "idem": "w900-2", "subj": "d1", "at": 22.205060720443726, "stamp": null, "n": 3, "tries": 1, "ms": 47.63459996320307}
+{"ev": "ack", "idem": "w900-3", "subj": "d1", "at": 22.396069049835205, "stamp": null, "n": 3, "tries": 1, "ms": 68.67249996867031}
+{"ev": "ack", "idem": "w900-4", "subj": "d1", "at": 22.563337564468384, "stamp": null, "n": 3, "tries": 1, "ms": 54.251300054602325}
+{"ev": "ack", "idem": "w900-5", "subj": "d2", "at": 22.78651762008667, "stamp": null, "n": 3, "tries": 1, "ms": 41.84049996547401}
+{"ev": "ack", "idem": "w900-6", "subj": "d1", "at": 22.833902835845947, "stamp": null, "n": 3, "tries": 1, "ms": 103.45559997949749}
+{"ev": "ack", "idem": "w900-7", "subj": "d1", "at": 23.054501056671143, "stamp": null, "n": 3, "tries": 1, "ms": 47.76980006136}
+{"ev": "ack", "idem": "w900-8", "subj": "d2", "at": 23.166647911071777, "stamp": null, "n": 3, "tries": 1, "ms": 65.49890001770109}
+{"ev": "ack", "idem": "w900-9", "subj": "d1", "at": 23.278464555740356, "stamp": null, "n": 3, "tries": 1, "ms": 37.89659996982664}
+{"ev": "ack", "idem": "w900-10", "subj": "d2", "at": 23.3885715007782, "stamp": null, "n": 3, "tries": 1, "ms": 49.7121000662446}
+{"ev": "ack", "idem": "w900-11", "subj": "d2", "at": 23.504605531692505, "stamp": null, "n": 3, "tries": 1, "ms": 91.86509996652603}
+{"ev": "ack", "idem": "w900-12", "subj": "d2", "at": 23.687543630599976, "stamp": null, "n": 3, "tries": 1, "ms": 84.55170004162937}
+{"ev": "ack", "idem": "w900-13", "subj": "d1", "at": 23.872223377227783, "stamp": null, "n": 3, "tries": 1, "ms": 74.28189995698631}
+{"ev": "ack", "idem": "w900-14", "subj": "d1", "at": 24.02965998649597, "stamp": null, "n": 3, "tries": 1, "ms": 50.28770002536476}
+{"ev": "ack", "idem": "w900-15", "subj": "d2", "at": 24.151978254318237, "stamp": null, "n": 3, "tries": 1, "ms": 57.22239997703582}
+{"ev": "ack", "idem": "w900-16", "subj": "d2", "at": 24.296998977661133, "stamp": null, "n": 3, "tries": 1, "ms": 55.7815000647679}
+{"ev": "ack", "idem": "w900-17", "subj": "d2", "at": 24.45384931564331, "stamp": null, "n": 3, "tries": 1, "ms": 130.79970004037023}
+{"ev": "ack", "idem": "w900-18", "subj": "d1", "at": 24.65521478652954, "stamp": null, "n": 3, "tries": 1, "ms": 50.329399993643165}
+{"ev": "ack", "idem": "w900-19", "subj": "d1", "at": 24.76688575744629, "stamp": null, "n": 3, "tries": 1, "ms": 61.48799997754395}
+{"ev": "ack", "idem": "w900-20", "subj": "d1", "at": 24.87894868850708, "stamp": null, "n": 3, "tries": 1, "ms": 88.0582999670878}
+{"ev": "ack", "idem": "w900-21", "subj": "d2", "at": 25.046955585479736, "stamp": null, "n": 3, "tries": 1, "ms": 116.31650000344962}
+{"ev": "ack", "idem": "w900-22", "subj": "d1", "at": 25.23616623878479, "stamp": null, "n": 3, "tries": 1, "ms": 85.01919999253005}
+{"ev": "ack", "idem": "w900-23", "subj": "d1", "at": 25.36039161682129, "stamp": null, "n": 3, "tries": 1, "ms": 65.07310003507882}
+{"ev": "error", "err": "OperationalError", "msg": "consuming input failed: server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w900-24"}
+{"ev": "refused", "idem": "w900-24", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}

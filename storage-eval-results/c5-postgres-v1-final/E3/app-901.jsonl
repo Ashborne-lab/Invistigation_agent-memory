@@ -1,0 +1,123 @@
+{"ev": "ack", "idem": "w901-0", "subj": "d2", "at": 21.81794834136963, "stamp": null, "n": 3, "tries": 1, "ms": 85.88849997613579}
+{"ev": "ack", "idem": "w901-1", "subj": "d2", "at": 22.071496725082397, "stamp": null, "n": 3, "tries": 1, "ms": 111.82760004885495}
+{"ev": "ack", "idem": "w901-2", "subj": "d1", "at": 22.20521306991577, "stamp": null, "n": 3, "tries": 1, "ms": 56.94669997319579}
+{"ev": "ack", "idem": "w901-3", "subj": "d1", "at": 22.283940315246582, "stamp": null, "n": 3, "tries": 1, "ms": 49.57320005632937}
+{"ev": "ack", "idem": "w901-4", "subj": "d2", "at": 22.351766347885132, "stamp": null, "n": 3, "tries": 1, "ms": 48.49700001068413}
+{"ev": "ack", "idem": "w901-5", "subj": "d2", "at": 22.41837430000305, "stamp": null, "n": 3, "tries": 1, "ms": 59.85730001702905}
+{"ev": "ack", "idem": "w901-6", "subj": "d2", "at": 22.501314640045166, "stamp": null, "n": 3, "tries": 1, "ms": 56.08579993713647}
+{"ev": "ack", "idem": "w901-7", "subj": "d2", "at": 22.59022355079651, "stamp": null, "n": 3, "tries": 1, "ms": 53.68870007805526}
+{"ev": "ack", "idem": "w901-8", "subj": "d2", "at": 22.65840196609497, "stamp": null, "n": 3, "tries": 1, "ms": 83.17300002090633}
+{"ev": "ack", "idem": "w901-9", "subj": "d2", "at": 22.748058557510376, "stamp": null, "n": 3, "tries": 1, "ms": 116.2213000934571}
+{"ev": "ack", "idem": "w901-10", "subj": "d2", "at": 22.866597890853882, "stamp": null, "n": 3, "tries": 1, "ms": 71.09690003562719}
+{"ev": "ack", "idem": "w901-11", "subj": "d2", "at": 22.949042081832886, "stamp": null, "n": 3, "tries": 1, "ms": 120.58310001157224}
+{"ev": "ack", "idem": "w901-12", "subj": "d1", "at": 23.083094835281372, "stamp": null, "n": 3, "tries": 1, "ms": 45.75199994724244}
+{"ev": "ack", "idem": "w901-13", "subj": "d1", "at": 23.13995337486267, "stamp": null, "n": 3, "tries": 1, "ms": 63.52029996924102}
+{"ev": "ack", "idem": "w901-14", "subj": "d2", "at": 23.204578638076782, "stamp": null, "n": 3, "tries": 1, "ms": 97.26120007690042}
+{"ev": "ack", "idem": "w901-15", "subj": "d2", "at": 23.316318035125732, "stamp": null, "n": 3, "tries": 1, "ms": 75.04279993008822}
+{"ev": "ack", "idem": "w901-16", "subj": "d1", "at": 23.40944790840149, "stamp": null, "n": 3, "tries": 1, "ms": 88.65309995599091}
+{"ev": "ack", "idem": "w901-17", "subj": "d2", "at": 23.508669137954712, "stamp": null, "n": 3, "tries": 1, "ms": 132.9297999618575}
+{"ev": "ack", "idem": "w901-18", "subj": "d1", "at": 23.63312292098999, "stamp": null, "n": 3, "tries": 1, "ms": 66.36660010553896}
+{"ev": "ack", "idem": "w901-19", "subj": "d1", "at": 23.714355945587158, "stamp": null, "n": 3, "tries": 1, "ms": 58.616099995560944}
+{"ev": "ack", "idem": "w901-20", "subj": "d2", "at": 23.792783498764038, "stamp": null, "n": 3, "tries": 1, "ms": 109.77190011180937}
+{"ev": "ack", "idem": "w901-21", "subj": "d2", "at": 23.915255308151245, "stamp": null, "n": 3, "tries": 1, "ms": 93.57690007891506}
+{"ev": "ack", "idem": "w901-22", "subj": "d2", "at": 24.01701045036316, "stamp": null, "n": 3, "tries": 1, "ms": 110.58400000911206}
+{"ev": "ack", "idem": "w901-23", "subj": "d2", "at": 24.13973593711853, "stamp": null, "n": 3, "tries": 1, "ms": 68.77690006513149}
+{"ev": "ack", "idem": "w901-24", "subj": "d2", "at": 24.218796014785767, "stamp": null, "n": 3, "tries": 1, "ms": 54.07579999882728}
+{"ev": "ack", "idem": "w901-25", "subj": "d2", "at": 24.283183574676514, "stamp": null, "n": 3, "tries": 1, "ms": 75.45679993927479}
+{"ev": "ack", "idem": "w901-26", "subj": "d1", "at": 24.376086473464966, "stamp": null, "n": 3, "tries": 1, "ms": 125.16169995069504}
+{"ev": "ack", "idem": "w901-27", "subj": "d1", "at": 24.532124042510986, "stamp": null, "n": 3, "tries": 1, "ms": 78.81520001683384}
+{"ev": "ack", "idem": "w901-28", "subj": "d2", "at": 24.63380789756775, "stamp": null, "n": 3, "tries": 1, "ms": 106.10119998455048}
+{"ev": "ack", "idem": "w901-29", "subj": "d1", "at": 24.799810647964478, "stamp": null, "n": 3, "tries": 1, "ms": 65.33749995287508}
+{"ev": "ack", "idem": "w901-30", "subj": "d2", "at": 24.89980149269104, "stamp": null, "n": 3, "tries": 1, "ms": 73.38630000595003}
+{"ev": "ack", "idem": "w901-31", "subj": "d1", "at": 25.12515115737915, "stamp": null, "n": 3, "tries": 1, "ms": 148.8552000373602}
+{"ev": "ack", "idem": "w901-32", "subj": "d1", "at": 25.291748523712158, "stamp": null, "n": 3, "tries": 1, "ms": 101.35240003000945}
+{"ev": "error", "err": "OperationalError", "msg": "consuming input failed: server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w901-33"}
+{"ev": "refused", "idem": "w901-33", "subj": "d2", "status": "ERROR", "detail": "OperationalError"}

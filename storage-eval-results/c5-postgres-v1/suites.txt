@@ -1,0 +1,48 @@
+== test_durable_storage_boundary
+............................................                             [100%]
+============================= postgresql coverage =============================
+tests run: 44; reached PostgreSQL: 42; deselected (implied kind): 42; PgFrontierStore instances: 42; PgJournal instances: 0; transactions: 2045; rolled back: 3
+  not on PostgreSQL: tests/test_durable_storage_boundary.py::test_k9_holds_on_the_implied_form_with_either_protection_alone[in_write_occ_only]
+  not on PostgreSQL: tests/test_durable_storage_boundary.py::test_k9_holds_on_the_implied_form_with_either_protection_alone[overtaken_refusal_with_occ_outside_the_write]
+44 passed, 42 deselected in 5.81s
+== test_x1_commit_time
+................................................................         [100%]
+============================= postgresql coverage =============================
+tests run: 64; reached PostgreSQL: 64; deselected (implied kind): 0; PgFrontierStore instances: 65; PgJournal instances: 0; transactions: 5291; rolled back: 0
+64 passed in 12.26s
+== test_durable_journal_conformance
+........................................................................ [ 50%]
+........................................................................ [100%]
+============================= postgresql coverage =============================
+tests run: 144; reached PostgreSQL: 114; deselected (implied kind): 0; PgFrontierStore instances: 0; PgJournal instances: 129; transactions: 4677; rolled back: 8
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[0-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[1-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[2-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[3-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[4-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[5-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[6-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[7-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[8-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[9-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[10-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[11-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[12-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[13-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[14-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[15-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[16-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[17-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[18-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[19-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[20-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[21-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[22-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[23-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_property_equivalence_and_history_stability[24-A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_duplicate_delivery_is_idempotent[A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_group_append_is_all_or_nothing_and_retry_commits_once[A_global]
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_future_validity_boundary_is_its_own_evaluation_point
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_break_historical_policy_selection_rewinds_versions
+  not on PostgreSQL: tests/test_durable_journal_conformance.py::test_break_non_atomic_group_leaks_a_partial_write[A_global]
+144 passed in 22.94s

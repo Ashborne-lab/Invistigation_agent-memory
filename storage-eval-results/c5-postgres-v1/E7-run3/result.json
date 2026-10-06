@@ -1,0 +1,61 @@
+{
+ "hot_subject": {
+  "outcomes": {
+   "STATE_CONFLICT": 150,
+   "APPENDED": 52,
+   "STALE_POLICY_STAMP": 35
+  },
+  "transient_retries": {
+   "READ_CLOSED": 129,
+   "COMMIT_TIME_REGRESSED": 9
+  },
+  "errors": 4,
+  "stale_accepted (K9 violations)": 0,
+  "examples": [],
+  "state_conflicts_retried": 0,
+  "command_latency": {
+   "n": 237,
+   "p50_ms": 52.8,
+   "p95_ms": 241.1,
+   "p99_ms": 302.98,
+   "max_ms": 307.76
+  },
+  "racing_publications": 15,
+  "max_tries": 6,
+  "committed_at_is_commit_time": "holds"
+ },
+ "hot_predicate": {
+  "outcomes": {
+   "APPENDED": 348
+  },
+  "transient_retries": {},
+  "errors": 0,
+  "stale_accepted (K9 violations)": 0,
+  "examples": [],
+  "state_conflicts_retried": 0,
+  "command_latency": {
+   "n": 348,
+   "p50_ms": 55.2,
+   "p95_ms": 224.57,
+   "p99_ms": 261.59,
+   "max_ms": 279.8
+  },
+  "racing_publications": 0,
+  "max_tries": 1,
+  "committed_at_is_commit_time": "holds"
+ },
+ "identical_concurrent_submissions": {
+  "commands": 40,
+  "clients": 3,
+  "durable_copies_per_command": [
+   1
+  ],
+  "client_outcomes": {
+   "APPENDED": 103,
+   "REJECTED": 9,
+   "DUPLICATE": 8
+  }
+ },
+ "result": "PASS",
+ "wall_s": 39.8
+}

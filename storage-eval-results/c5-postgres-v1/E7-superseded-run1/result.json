@@ -1,0 +1,58 @@
+{
+ "hot_subject": {
+  "outcomes": {
+   "STATE_CONFLICT": 154,
+   "APPENDED": 58
+  },
+  "transient_retries": {
+   "READ_CLOSED": 113,
+   "COMMIT_TIME_REGRESSED": 12
+  },
+  "errors": 0,
+  "stale_accepted (K9 violations)": 0,
+  "examples": [],
+  "state_conflicts_retried": 0,
+  "command_latency": {
+   "n": 212,
+   "p50_ms": 61.43,
+   "p95_ms": 253.04,
+   "p99_ms": 357.33,
+   "max_ms": 478.75
+  },
+  "max_tries": 5,
+  "committed_at_is_commit_time": "holds"
+ },
+ "hot_predicate": {
+  "outcomes": {
+   "APPENDED": 337
+  },
+  "transient_retries": {},
+  "errors": 0,
+  "stale_accepted (K9 violations)": 0,
+  "examples": [],
+  "state_conflicts_retried": 0,
+  "command_latency": {
+   "n": 337,
+   "p50_ms": 60.97,
+   "p95_ms": 216.07,
+   "p99_ms": 249.48,
+   "max_ms": 265.18
+  },
+  "max_tries": 1,
+  "committed_at_is_commit_time": "holds"
+ },
+ "identical_concurrent_submissions": {
+  "commands": 40,
+  "clients": 3,
+  "durable_copies_per_command": [
+   1
+  ],
+  "client_outcomes": {
+   "APPENDED": 51,
+   "DUPLICATE": 65,
+   "REJECTED": 4
+  }
+ },
+ "result": "PASS",
+ "wall_s": 40.3
+}

@@ -1,0 +1,20 @@
+{
+ "role_c5app": {
+  "rolsuper": false,
+  "rolbypassrls": false
+ },
+ "table_owners": [
+  "c5admin"
+ ],
+ "rls_enabled_all_tables": true,
+ "tenant_a_append": "APPENDED",
+ "tenant_b_sees_a_entries": 0,
+ "tenant_b_sees_a_vault": 0,
+ "tenant_a_sees_own": 1,
+ "setting_after_tx_on_pooled_conn": "",
+ "unscoped_query_rows": 0,
+ "write_into_other_tenant": "refused: new row violates row-level security policy for table \"entries\"",
+ "session_set_hazard_rows_visible_after_tx": 1,
+ "superuser_sees_rows_without_setting": true,
+ "result": "PASS"
+}

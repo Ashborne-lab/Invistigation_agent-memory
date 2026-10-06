@@ -1,0 +1,39 @@
+{
+ "current_read_stored_writes": {
+  "min": 0,
+  "max": 2,
+  "mean": 1.9
+ },
+ "evaluated_sources_per_read": "partition + each evaluated predicate log",
+ "repeat_at_closed_r_writes": 0,
+ "stale_tolerant_read_writes": 0,
+ "current_read_latency": {
+  "n": 300,
+  "p50_ms": 5.44,
+  "p95_ms": 9.3,
+  "p99_ms": 15.07,
+  "max_ms": 20.44
+ },
+ "stale_read_latency": {
+  "n": 300,
+  "p50_ms": 2.9,
+  "p95_ms": 5.4,
+  "p99_ms": 7.28,
+  "max_ms": 8.04
+ },
+ "stored_frontier_writes_by_driver": 570,
+ "head_row_updates_pg_stat (table, updates, hot updates)": [
+  [
+   "heads",
+   285,
+   285
+  ],
+  [
+   "polheads",
+   286,
+   286
+  ]
+ ],
+ "result": "MEASURED",
+ "wall_s": 5.6
+}

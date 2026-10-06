@@ -45,6 +45,11 @@ class Event:
     evidence_id: str             # every event is backed by evidence (C-8: commands are evidence)
     due_until: Optional[float] = None
     external_ref: Optional[str] = None
+    # C-E (target architecture): explicit identity. Whether a commitment is CUSTOMER- or relationship-scoped is
+    # an open Product/Security decision; these fields make either enforceable without a second model.
+    subject_id: str = ""
+    agent_id: str = ""
+    tenant_id: str = ""
 
 
 @dataclass
@@ -56,6 +61,9 @@ class Head:
     last_external_at: Optional[float]
     events: Tuple[str, ...]
     rejected: Tuple[Tuple[str, str], ...] = ()
+    subject_id: str = ""
+    agent_id: str = ""
+    tenant_id: str = ""
 
 
 def project(events: Iterable[Event], now: float, dead_evidence: frozenset = frozenset()) -> Dict[str, Head]:
@@ -82,10 +90,14 @@ def project(events: Iterable[Event], now: float, dead_evidence: frozenset = froz
                 continue
             if e.kind == "create":
                 if h is None:                         # idempotent: a second create is a no-op
-                    h = Head(k, PROPOSED, e.due_until, e.external_ref, None, (e.event_id,))
+                    h = Head(k, PROPOSED, e.due_until, e.external_ref, None, (e.event_id,),
+                             subject_id=e.subject_id, agent_id=e.agent_id, tenant_id=e.tenant_id)
                 continue
             if h is None:
                 rej.append((e.event_id, "no_commitment"))
+                continue
+            if (e.subject_id, e.agent_id, e.tenant_id) != (h.subject_id, h.agent_id, h.tenant_id):
+                rej.append((e.event_id, "identity_mismatch"))   # C-E: one commitment, one identity
                 continue
             cur = h.state
             if cur in TERMINAL and e.kind != "reopen_operator":

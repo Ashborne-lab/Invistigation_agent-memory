@@ -1,0 +1,23 @@
+{
+ "served_reads": 101,
+ "contradicted": 0,
+ "contradictions": [],
+ "served_prefixes_are_immutable": "holds",
+ "acked": 130,
+ "acked_missing": 0,
+ "refusals": {
+  "READ_CLOSED": 4,
+  "COMMIT_TIME_REGRESSED": 4
+ },
+ "errors": 0,
+ "durable_entries": 130,
+ "append_latency": {
+  "n": 130,
+  "p50_ms": 21.21,
+  "p95_ms": 48.62,
+  "p99_ms": 68.22,
+  "max_ms": 74.72
+ },
+ "result": "PASS",
+ "wall_s": 13.6
+}

@@ -1,0 +1,33 @@
+{
+ "client_kill_rounds": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "backend_crash": {
+  "crash": "waiting for server to shut down.... done\nserver stopped",
+  "downtime_s": 37.23,
+  "acked_total": 1075,
+  "acked_by_crash_round_writers": 125,
+  "acked_missing": 0,
+  "partial_groups": [],
+  "errors_seen_by_clients": 181,
+  "server_log_recovery_lines": [
+   "=30, longest=0.008 s, average=0.003 s; distance=26203 kB, estimate=26203 kB; lsn=0/A996FE8, redo lsn=0/A996FE8",
+   "0-05 10:22:24.943 GMT [10108] LOG:  database system was not properly shut down; automatic recovery in progress",
+   "2026-10-05 10:22:24.954 GMT [10108] LOG:  redo starts at 0/A997060",
+   ".966 GMT [10108] LOG:  redo done at 0/AC37CB8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.01 s",
+   "2026-10-05 10:22:24.978 GMT [11200] LOG:  checkpoint starting: end-of-recovery immediate wait",
+   "es=16, longest=0.005 s, average=0.003 s; distance=2691 kB, estimate=2691 kB; lsn=0/AC37CE0, redo lsn=0/AC37CE0"
+  ]
+ },
+ "client_kill": {
+  "acked": 950,
+  "acked_missing": 0,
+  "partial_groups": []
+ },
+ "acked_visible_to_closed_read": true,
+ "result": "PASS",
+ "wall_s": 61.6
+}

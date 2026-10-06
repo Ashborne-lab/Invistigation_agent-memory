@@ -1640,3 +1640,707 @@ read path, since the only undo-preserving mechanisms move identity cost onto rea
   - **B0-28/28b:** API keys were authorised through their creator's uid. Fixed.
   - **Open:** **B0-30 (VERIFIED CURRENT: any signed-in user can update any org)**, **B0-31 (VERIFIED CURRENT: claim another person's pending invite)**, B0-26 (Meta signature; keeps INV-S8 open), B0-27 (email thread join), B0-28c (more creator-uid routes).
 - **G-SEC: NOT PASSED.**
+
+## Lane B / B0: implementation pass 2 (2026-10-03, local branches only)
+
+- Status: [memory-lane-b-b0-implementation-status-v2.md](memory-lane-b-b0-implementation-status-v2.md).
+- **Owner acceptance: 73/73 GREEN on real `b0/security` code** (B0-14 and B0-20 now done). B0-26, 27, 28c, 30 and 31 are fixed.
+- New findings:
+  - **Open:** B0-32 (bridge session sharing), B0-34 (self-marked verification), B0-35 (C10 over-breadth in agent-design), B0-36 (MCP OAuth, template and gateway agent ids).
+  - **Fixed:** B0-33 (token invite accept for a body `user_id`).
+  - **Closed in code:** B0-37 (BYOK cross-tenant credential).
+- **G-SEC: NOT PASSED.**
+
+## Current-system baselines after the CTO fixes (2026-10-03, context only)
+
+- Source: [cto-latest-code-reconciliation-v1.md](cto-latest-code-reconciliation-v1.md) §6.
+- Baselines (`origin/main`): studio `9509fc1c` (default-deny rules), studio-backend `3e8dff4`, agent-design `e8d03a2`, agent-runtime `abf052d`, agent-engine `76e9d6a`, mcp-deployer `069208c`, research-runtime `7a327b1`, workflow-runtime `7a6b07b`.
+- B0 is now a prerequisite and context only. The focus is back on the target architecture.
+
+## Target architecture: Predicate Policy Registry v1 (2026-10-03, prototype only)
+
+- [predicate-policy-registry-v1.md](predicate-policy-registry-v1.md). Code: `memory-prototype/memory_core/registry/`.
+- 37 new tests; prototype suite 425/425.
+- Blocking decisions: B1 policy authorship (R2), B2 staleness budgets (G3), B3 retention classes (G5, parked), B4 operator vs user authority (D1(b)).
+
+## Target architecture: Evidence → Claim gate v1 (2026-10-03, prototype only)
+
+- [memory-claim-gate-v1.md](memory-claim-gate-v1.md). Code: `memory-prototype/memory_core/claimgate/`.
+- 27 gate tests plus 1 registry TEST_ONLY guard; prototype suite 453/453.
+- Open questions: G-1 (evidence arriving during CONFLICT), G-2 (conflict-flag granularity), G-3 (temporal admission limits), G-4 (idempotency ledger durability). Governance gates B1–B4 still stand.
+
+## Target architecture: Claim Commit Protocol v1 (2026-10-03, prototype only)
+
+- [memory-claim-commit-v1.md](memory-claim-commit-v1.md). Code: `memory-prototype/memory_core/commit/`.
+- 65 tests (25 focused + 40 property seeds); prototype suite 518/518.
+- Open: C-1 claim-id inputs and key custody, C-2 lifecycle transition graph, C-3 STATE_CONFLICT resubmission, C-4 transaction groups, C-5 ledger durability and retention, C-6 conflict task on a gate CONFLICT.
+
+## Target architecture: Current State projection v1 (2026-10-03, prototype only)
+
+- [memory-current-state-v1.md](memory-current-state-v1.md). Code: `memory-prototype/memory_core/state/`.
+- 79 tests (19 focused + 60 property seeds); prototype suite 597/597.
+- New open issues:
+  - S-1: the `state_version` signature excludes winner ids. Rule 6 conflicts with spec §13.
+  - S-2: scheduled (time-boundary) changes advance `state_version`, which affects OCC.
+  - S-3: only the CUSTOMER scope is projected.
+
+## Target architecture: Typed retrieval v1 (2026-10-03, prototype only)
+
+- [memory-typed-retrieval-v1.md](memory-typed-retrieval-v1.md). Code: `memory-prototype/memory_core/retrieval/`.
+- 27 tests; prototype suite 624/624.
+- Supported: `get_current_state`, `search_history`, `search_memory` (narrative, no vectors), `get_commitments`.
+- Explicitly unsupported: relationships (no model) and org knowledge (S-3).
+- New open issues:
+  - T-1: commitment scope;
+  - T-2: narrative security class;
+  - T-3: history label vocabulary;
+  - T-4: `never_true` in audit history;
+  - T-5: Agent Knowledge read scope.
+
+## Target architecture: Context Compiler v1 (2026-10-03, prototype only)
+
+- [memory-context-compiler-v1.md](memory-context-compiler-v1.md). Code: `memory-prototype/memory_core/context/`.
+- 24 tests; prototype suite 648/648.
+- New open issues:
+  - X-1: budget unit;
+  - X-2: mandatory-state policy per task;
+  - X-3: where the §8 ambiguity default lives;
+  - X-4: non-English injection detection.
+
+## Target architecture: decision closure v1 (2026-10-03)
+
+- [target-architecture-decision-closure-v1.md](target-architecture-decision-closure-v1.md): 25 open questions closed or routed.
+- Resolved by engineering:
+  - fully: S-1, S-2, S-3 semantics, C-3, C-4, G-1, G-2, X-1, X-3;
+  - engineering parts of C-1, C-2, C-5, T-1, T-2, T-3, T-4, X-2, X-4.
+- Five cross-component contradictions found (C-A…C-E):
+  - scope vocabulary;
+  - missing REVALIDATION_REQUIRED and SUPERSEDED_BY_POLICY;
+  - un-journaled `last_sync`;
+  - gate vs commit treatment of assertions;
+  - two commitment models.
+- Blocking the next step (durable storage plus Gateway skeleton):
+  - C-5 storage (Infra);
+  - C-1 key custody (Security);
+  - B-3 catalogue interface (Legal);
+  - C-2 erasure reversal (Legal);
+  - non-CUSTOMER read grants, only if that scope is in the step (Security / Product).
+
+## Target architecture: integration hardening (2026-10-03, prototype only)
+
+- [target-architecture-engineering-closure-v1.md](target-architecture-engineering-closure-v1.md): C-A…C-E resolved.
+  - C-A: contract scope vocabulary, plus INVALID_SCOPE for non-contract names.
+  - C-B: breaking policies, REVALIDATION_REQUIRED, SUPERSEDED_BY_POLICY.
+  - C-C: journaled sync events.
+  - C-D: observation vs command, plus gate attestation.
+  - C-E: commitment identity.
+- [memory-integration-harness-v1.md](memory-integration-harness-v1.md): an in-memory end-to-end `Pipeline`; 12 scenarios plus properties; live == rebuild through context.
+- **New defect, fixed:** `state_version` rewound on a breaking policy publication (an ABA hazard). Publications are now journaled evaluation points.
+- Prototype suite: **761/761**.
+
+## Target architecture: next decision (2026-10-03)
+
+- [target-architecture-next-decision-v1.md](target-architecture-next-decision-v1.md).
+- **Chosen next move:** a technology-neutral Durable Journal and Rebuild Contract, with a conformance suite run against the in-memory reference and a simulated partitioned journal.
+- **Why:** the requirement handed to Infrastructure (a total order per subject partition) is incomplete.
+  - [PROVEN] Correctness depends on a global order of policy publications relative to subject entries (N-1).
+  - Merge-landed claims and global proposal idempotency cross partitions.
+  - Crypto-shred vs rebuild is unmodelled.
+- This must precede the owner decisions C-5, C-1 and B-3, which it feeds. No owner decision is needed to start.
+
+## Target architecture: Durable Journal and Rebuild Contract v1 (2026-10-03, prototype only)
+
+- [durable-journal-rebuild-contract-v1.md](durable-journal-rebuild-contract-v1.md). Code: `memory-prototype/memory_core/durable_journal/`.
+- **Result: a global total order is NOT required.**
+  - The minimum is per-subject order (O1), an ordered policy log (O2), causal stamps with an equal-time tie rule (O3), publication visibility (O4) and closed reads (R-READ).
+  - History stability (no ABA, no rewind) is proven on a partitioned simulator. A weaker publication placement fails.
+- Cross-subject operations need no multi-subject atomicity:
+  - merge-landed claims: an intent / claim / outcome protocol;
+  - person erasure: per-cluster erasure entries plus a completion barrier.
+- Fixed this phase:
+  - N-5: retrieval projection ignored the policy history;
+  - S-2: boundary instants are now their own evaluation points.
+- Tests: 144 conformance tests, 115 property seeds, 11 break tests plus mutation runs (all caught).
+- Suite: **905/905**.
+- **Ready for Infrastructure** to evaluate stores against the contract.
+
+## Target architecture: next decision v2 (2026-10-03)
+
+- [target-architecture-next-decision-v2.md](target-architecture-next-decision-v2.md).
+- **Chosen:** a storage technology evaluation phase. Run the unchanged conformance suite against candidate-store adapters and produce a per-guarantee evidence matrix for Infrastructure (C-5). No selection.
+- The candidates are evidenced:
+  - Firestore: the production store (F2), with a local emulator available;
+  - PostgreSQL: the prior design target (A7, untested; no local runtime, so paper evaluation plus NEEDS ENVIRONMENT).
+- The architecture-proving stage for persistence is complete; the transition to technology evaluation has been reached.
+- The Gateway is deferred until real R-READ and commit-protocol behaviour is known.
+- The evaluation must test guarantees, not the prototype's mechanisms.
+
+## Target architecture: Storage Technology Evaluation v1 (2026-10-03, test-only)
+
+- [storage-technology-evaluation-v1.md](storage-technology-evaluation-v1.md). Code: `memory-prototype/memory_core/storage_adapters/` (Firestore EMULATOR adapter, connector plugin, probes). Evidence: `storage-eval-results/`.
+- **Firestore (emulator):** the unchanged suite gives 144/144 through the neutral interface; 114 tests reached the emulator.
+  - Probes: concurrent duplicates exactly-once (P1, via the create precondition).
+  - P5-conc: the emulator admitted a non-serializable interleaving. This is a documented emulator limitation, so the row is NEEDS_ENVIRONMENT.
+  - Durability, limits and scale are not shown by the emulator.
+- **PostgreSQL (paper):** the A7 design is a projection behind Firestore, not a journal.
+  - It has no policy log, and erasure is row deletion within the backup/WAL window.
+  - Most rows are NOT_SHOWN or NEEDS_ENVIRONMENT; no PG runtime exists.
+- **X-1 (technology-independent):** O4 and R-READ are not enforced by the interface. A back-dated publication and a late write are accepted by both the Firestore adapter and the in-memory simulator.
+  - The contract never says who assigns commit time.
+  - The store-assigned and writer-assigned readings put the requirement in different places.
+- Shared gaps:
+  - policy definitions have no durable path in the interface;
+  - per-subject crypto-shred is native to neither candidate (C-1).
+- Baseline: 905/905 before and after.
+- **OUTCOME: ARCHITECTURE ESCALATION.** The contract owner resolves X-1, then the Infrastructure request (§6) runs and C-5 is decided.
+
+## Target architecture: Durable Journal X-1 decision v1 (2026-10-04, contract owner; test-only proof)
+
+- [durable-journal-x1-decision-v1.md](durable-journal-x1-decision-v1.md). Model: `memory-prototype/memory_core/commit_time/`. Tests: `tests/test_x1_commit_time.py` (64).
+- **Decision:**
+  - The **journal layer owns commit time**. Callers never supply `at` or `T`.
+  - Commit time is OLBrain's **knowledge time**, equal to the record's `committed_at` (architecture contract §2, §8).
+  - **O4 and R-READ are one invariant, served-prefix immutability.** The journal enforces it with durable, monotone **closed frontiers per source** (each partition, each predicate's policy log).
+  - Reads return the r they were served at. Idempotency is decided before any time is assigned. OCC and the stamp check run at the journal-assigned time.
+- **Storage needs only per-source primitives** (S1–S5). No global order, no multi-subject transaction.
+  - Stale-tolerant reads need no write.
+  - Current reads close the partition through max(clock, the caller's causal token) before reading. That is a write where frontiers are stored explicitly, and free where commit order implies them.
+- A store-wide serialization-consistent clock (M-SG) is conformant but not mandated.
+- **Rejected [PROVEN by break tests and a random property]:** writer-assigned times, writer time plus a read watermark, per-source store clocks. Pure logical positions are rejected [PROVEN for adoption placement; INFERENCE generally].
+- Mutation run: all 12 chosen rules are necessary.
+- The amendment text for the v1 contract is in §8. The v1 contract file is unedited.
+- **The X-1 CONTRACT_GAP is removed; the storage evaluation can resume.** The Firestore S1 concurrency check remains NEEDS_ENVIRONMENT (P5-conc). PostgreSQL needs journal and frontier tables (NOT_SHOWN, NEEDS_ENVIRONMENT).
+- Suite: **969/969** (905 baseline + 64).
+
+## Target architecture: next decision v3 (2026-10-04)
+
+- [target-architecture-next-decision-v3.md](target-architecture-next-decision-v3.md).
+- **Chosen next action:** durable-journal contract **v1.1 with its executable storage boundary**. That means:
+  - a technology-neutral S1–S5 interface and conformance suite;
+  - two reference implementations, one with explicitly stored frontiers and one with frontiers implied by commit order;
+  - the X-1 model moved onto the interface, so frontiers live only in storage;
+  - the corrected §8 amendment applied as v1.1 on success.
+- **Why:** X-1 made the contract ready but not the acceptance suite.
+  - The v1 storage interface has no frontier or conditional-append hooks.
+  - X-1 frontiers live in process memory.
+  - The prepared §8 text contradicts K4 in two places (S1 and requirement 2 presuppose stored frontiers).
+- **Deferred:** real storage evaluation (the Infrastructure request is to be rewritten against the new suite), Pipeline OCC to K9, the Gateway, and owner parameters.
+- **Escalation watch:** K2 (`committed_at` built before commit) against K4 (frontiers implied by commit order) may be a CONTRACT_GAP.
+- The v1 contract file stays stale for this one bounded phase; X-1 is the governing decision.
+
+## Target architecture: Durable Journal Contract v1.1 + executable storage boundary (2026-10-04)
+
+- [durable-journal-contract-v1.1-implementation-report.md](durable-journal-contract-v1.1-implementation-report.md). The contract [durable-journal-rebuild-contract-v1.md](durable-journal-rebuild-contract-v1.md) is now **v1.1**: Part 0 time, §B SPI and K4–K7, Part 3 S1–S5.
+- **K2 ↔ K4 compatible [PROVEN].** An implied closed position needs no store-revealed commit timestamp, provided that:
+  - the time is drawn inside the step, from a serialization-consistent time source that survives crashes;
+  - the record is built with that time;
+  - the entry is durable only if the time source has not passed it.
+
+  An implied position requires such a time source; with skewed per-node clocks only explicit positions are conformant (break tests).
+- **Boundary:** `memory_core/storage_boundary/`. Two reference stores pass **one** suite, `tests/test_durable_storage_boundary.py` (78 = 39 scenarios × 2):
+  - `ExplicitFrontierStore`: durable per-source frontiers;
+  - `ImpliedFrontierStore`: no per-source frontier; timestamp-oracle form. Closure state lives in a global, crash-surviving time sequence rather than in the data store.
+- **Closure is never free:** a stored write (explicit) or a time-service draw (implied), measurable in both.
+  - Break tests show semantic failures for each rule.
+  - Mutation run: 17/17 caught; one survivor was closed with a targeted test.
+- **X-1 runs through the boundary:** 64/64 unchanged on the explicit store. On the implied store, 53/64; the 11 others are explicit-form evidence, with no guarantee violation (report §9).
+  - **This is a deviation awaiting the brief owner's acceptance.**
+- The Infrastructure request [storage-technology-evaluation-v2-request.md](storage-technology-evaluation-v2-request.md) is drafted and **not issued**.
+- Suite: **1047/1047** (969 + 78). No storage selected. Pipeline OCC and the Gateway are untouched.
+- **Next boundary:** the decision whether to issue the v2 request.
+
+## Target architecture: next decision v4 (2026-10-04)
+
+- [target-architecture-next-decision-v4.md](target-architecture-next-decision-v4.md).
+- **Decision: REJECT DEVIATION / STOP.** The 11 X-1 tests that fail on the implied store were audited (definitions, replay, mutation listing).
+  - 9 are covered for both forms by the boundary suite, or are mechanism-only.
+  - **`occ_must_run_inside_the_serialized_write[True/False]`** represents K9 under an in-flight write. No committed test proves it on the implied store: the mutation listing shows no implied OCC test. The scratch replay behaves correctly (READ_CLOSED, then STATE_CONFLICT), but that is not committed proof.
+- **Next:** add a common in-flight OCC test plus a break test, for both stores; record the X-1 citation-scope corrections; then re-decide.
+- The v2 Infrastructure request is **not** evaluated for issue. No tests or code were changed by this decision.
+- Noted: the implied form closes globally, refusing unrelated in-flight appends. This is a liveness cost, not a contract violation; E7 measures it.
+
+## Target architecture: next decision v5 (2026-10-04)
+
+- [target-architecture-next-decision-v5.md](target-architecture-next-decision-v5.md).
+- **K9 with a write landing in flight is [PROVEN] on both forms.**
+  - A common test (both stores, both orders): a stale typed command is never acknowledged and ends as STATE_CONFLICT.
+  - Independence checks on the implied store; break tests on both stores.
+  - Removing the in-write OCC check fails the common test on **both** stores.
+- **Deviation: ACCEPT.** The X-1 citation scope is corrected by an addendum to the X-1 decision. Decisions are unchanged; the contract is untouched.
+- **v2 request: READY TO ISSUE for Firestore and PostgreSQL, not issued.** Factual updates only: 86 tests, the connector mechanism, break-test applicability, one shared concurrency driver for E1–E9.
+- Suites: boundary 86/86; X-1 64/64 (explicit) and 53/64 (implied, the same 11); full **1055/1055**.
+- **Next boundary:** the owner act of sending the request. C-5 stays Infrastructure's.
+
+## C-5 evaluation issuance v1 (2026-10-04)
+
+- [target-architecture-c5-issuance-v1.md](target-architecture-c5-issuance-v1.md).
+- **Issued:** `storage-technology-evaluation-v2-request.md` **v2.0** (SHA-256 recorded) for **Firestore and PostgreSQL**, against contract v1.1. Boundary 86; baseline 1055/1055; E1–E9 unchanged.
+- **Pre-issue check:** 12/12 confirmed, with minimal wording and scope fixes:
+  - the X-1 counts;
+  - the "Other" row removed;
+  - the time-service wording;
+  - C-5 restated as a separate decision;
+  - shadow writes and deployment listed as out of scope;
+  - the PostgreSQL journal-adapter requirement and RLS/pooling where applicable;
+  - the five result dimensions and the return package.
+- **Transmission limitation:** no Infrastructure channel is available in this session. Delivery is the owner's step.
+- **C-5 remains UNDECIDED.** The next step begins when real-environment evidence returns.
+
+## Infrastructure delivery v1 (2026-10-04)
+
+- [target-architecture-infrastructure-delivery-v1.md](target-architecture-infrastructure-delivery-v1.md).
+- **The destination is NOT ESTABLISHED.**
+  - No Infrastructure channel, channel ID, owner or route is documented.
+  - The roadmap lists "an infrastructure owner" as an unmet dependency.
+  - Slack mentions in the artifacts are OLBrain product surfaces.
+  - Slack/Atlassian were never used: the connectors were unauthorised.
+- "Normal Infrastructure channel" in the issuance record was an assumption; a correction note has been appended there.
+- The v2.0 request remains authorised and unchanged. Nothing has been sent.
+- **Next:** the organisation supplies the Infrastructure owner and route. C-5 does not begin until then.
+
+## C-5 STATUS: READY / DELIVERY-BLOCKED (2026-10-04, authoritative)
+
+| Item | State |
+|---|---|
+| Request readiness | **READY**: `storage-technology-evaluation-v2-request.md` v2.0, complete and approved |
+| Request integrity | **VERIFIED**: unchanged, SHA-256 `920623994cb8c2716d6c80142c1ec62e54464cab4fbba88fbdbc06c0c1dc38bd` |
+| Delivery destination | **NOT ESTABLISHED** by project evidence (`target-architecture-infrastructure-delivery-v1.md`) |
+| Infrastructure evaluation | **NOT STARTED**: no Firestore or PostgreSQL provisioned; E1–E9 not begun |
+
+**Blocking item:** **[OWNER] The organisation must supply the Infrastructure recipient and the approved delivery route.**
+
+**Standing rules at this gate:**
+- "Normal Infrastructure channel" was an unsupported assumption; it is corrected in the issuance record.
+- Slack and Atlassian have not been used for this project.
+- Do not guess a recipient, channel, queue or owner.
+- Do not send, post, DM, create a channel or contact anyone externally.
+- Do not provision, start E1–E9, or run any C-5 evaluation.
+- Do not repeat the destination investigation, or do further C-5 architecture research, until new organisational evidence supplies the owner and route.
+
+## Next architecture work decision v1 (2026-10-04)
+
+- [next-architecture-work-decision-v1.md](next-architecture-work-decision-v1.md).
+- **PROCEED: Memory Gateway Contract v0 (CUSTOMER scope)**, an in-memory reference over the proven core and `StorageBoundary`.
+  - Its v2 §11 deferral condition is met for API semantics, since X-1 and v1.1 fixed reads and commits (K5–K9).
+  - The Gateway service stays blocked behind C-5 (roadmap C2 depends on C1).
+- **Step 1, the write-path bridge, passed** on both stores (scratch spike):
+  - the real gate plus the real `commit()`, run on a throwaway store rebuilt from durable facts, build the record at the journal-assigned time;
+  - K2 holds; the rebuild equals a reference Pipeline at the same times; a stale typed command gives STATE_CONFLICT;
+  - no commit-layer, Pipeline or test change.
+- **Not selected:**
+  - C-2 lifecycle enforcement (needs authorisation to revise named tests, and two owner edges);
+  - C-6, T-2, N-3 (low leverage);
+  - everything owner-bound or C-5-bound.
+- **Named dependency:** the evidence store has no S1–S5-style guarantees; it is to be named, not invented.
+- C-5 stays parked.
+
+## G0: Memory Gateway Contract v0, CUSTOMER scope (2026-10-04)
+
+- [memory-gateway-contract-v0.md](memory-gateway-contract-v0.md). Code: `memory_core/gateway/`. Tests: `tests/test_memory_gateway_v0.py`, 38 = 19 scenarios × 2 stores.
+- A reference composition of existing components only: Lane A handles plus `may_read`; the real gate; the real `commit()` as a record factory at the journal-assigned time; `TimedJournal` over `StorageBoundary`; typed retrieval; the real Context Compiler.
+- **Not modified:** gate, commit layer, Pipeline, StorageBoundary, any existing test.
+- **Proven on both stores:**
+  - C-4 refusals for reads and mutations;
+  - r on every read; read-your-writes via a causal token;
+  - STATE_CONFLICT typed and never retried (also when the conflict lands in flight);
+  - transient READ_CLOSED retry; STALE_POLICY_STAMP never reinterpreted;
+  - duplicates decided before time, returning the original outcome;
+  - rebuild equals what was served;
+  - context as a separate data channel, keeping the size measure;
+  - scopes; caller independence; determinism.
+- Mutation run: 10/10 Gateway rules caught.
+- **[CONTRACT_GAP]:** the evidence store has no specified storage guarantees. It is declared, not assumed.
+- Suite: **1093/1093** (1055 + 38).
+
+## Memory Gateway v0 adversarial audit (2026-10-04)
+
+- [memory-gateway-adversarial-audit-v0.md](memory-gateway-adversarial-audit-v0.md). Suite: `tests/test_memory_gateway_adversarial_v0.py`, 63 tests (27 pass + 4 defect reproducers per store, + 1).
+- **VERDICT: DEFECTIVE.** These survive on both stores: caller binding, cross-org and cross-subject isolation, stale-command and conflict handling, policy stamps, the data channel, evidence-boundary honesty.
+- **Defects** (strict xfail reproducers; not patched):
+  - **GW-1:** an unvalidated causal token. `after=1e9` pushes `committed_at` to 1e9; `inf` closes the subject for good (explicit) or breaks global time (implied).
+  - **GW-2:** a reused command id with different content returns DUPLICATE as if applied.
+  - **GW-3:** a cross-subject command-id collision gives a different outcome after process-state loss.
+- **Contract gaps:**
+  - GW-G1: command-id namespace;
+  - GW-G2: the authority for a subject's org in caller binding (v0 derives it from evidence ingestion; it fails closed);
+  - GW-G3: causal-token validity.
+- Mutation run: 11/13 caught, 2 explained.
+- Full suite: **1148 passed, 8 xfailed** (the previous 1093 unchanged).
+- All fixes are Gateway-level. GW-1 and GW-3 await the GW-G3 and GW-G1 owner decisions.
+
+## Memory Gateway defect decisions v1 (2026-10-04)
+
+- [memory-gateway-defect-decisions-v1.md](memory-gateway-defect-decisions-v1.md).
+- **GW-G1 [DECISION]: command-id namespace = per CUSTOMER subject `(org, subject, id)`.**
+  - Derived from v1.1 §C (proposal idempotency lives in the proposal subject's partition) and S1–S5 (no cross-partition uniqueness).
+  - The durable outcome carries a content fingerprint.
+  - The gate is called with a fresh per-call ledger, so process state never decides.
+  - Same id + different content gives COMMAND_ID_REUSED; same id + another subject is an independent command.
+- **GW-G3 [DECISION]: hybrid causal tokens.** A finite number ≤ max(clock, the subject's latest durable commit), OR a Gateway-signed token for the same (org, subject); else INVALID_CAUSAL_TOKEN. This keeps K7 and the v0 API. The signing key is in the existing C-1 custody class: no new owner dependency.
+- **GW-G2 clarified:** org authority is the identity layer's subject head (org, root, member-set version), not evidence. The identity-interface guarantees are [OWNER]; the Gateway contract text needs amending with the patch.
+- **READY TO PATCH.** No code changed.
+
+## Memory Gateway v0.1 patch (2026-10-04)
+
+- [memory-gateway-v0-patch-v1.md](memory-gateway-v0-patch-v1.md). The contract [memory-gateway-contract-v0.md](memory-gateway-contract-v0.md) is now **v0.1**.
+- **GW-1:** `after` is validated after binding and before any closure. It must be a finite number ≤ max(clock, the subject's latest durable commit), or a Gateway-signed token for the same (org, subject); otherwise INVALID_CAUSAL_TOKEN. Signed tokens are returned on reads and writes; they give monotonic reads across skewed nodes; their key is in the handle's custody class.
+- **GW-2:** outcomes record the gate's canonical fingerprint; the same id with different content gives COMMAND_ID_REUSED (not recorded).
+- **GW-3:** the namespace is (org, subject, id), durable only; the gate gets a fresh ledger per call.
+- **GW-G2 text:** the identity-layer subject head is the binding authority; evidence is not; v0's mapping is a stub; reads and writes depend on it; [OWNER].
+- **Tests:**
+  - Gateway suites 147 (72 per store + 3); adversarial 109 (63 + 46 new);
+  - the 8 former xfails pass and their markers are removed; one flagged expectation change (NaN is now INVALID_CAUSAL_TOKEN per GW-G3);
+  - mutation run 19/19.
+- Full suite **1202/1202, 0 xfail**; the pre-audit 1093 unchanged.
+- **VERDICT: GATEWAY V0.1 CONFORMANT.**
+
+## Next architecture work decision v2 (2026-10-04)
+
+- [next-architecture-work-decision-v2.md](next-architecture-work-decision-v2.md). Owner-dependency audit of every open item, classified A (engineering-resolvable), B (owner, blocking its path) or C (owner, non-blocking).
+- **Newly resolved:**
+  - D1: the evidence-store guarantees are an engineering contract, fixed by Lane A and red-team semantics; only technology and values belong to C-5;
+  - D2: identity binding authority = the subject head (already decided);
+  - D3: S2S authentication mechanism = OIDC with per-operation allow-lists (already stated);
+  - D4: retention-catalogue interface, T-2 derivation, C-6 event, X-4 channel and S-2 are decided backlog, not blockers.
+- **Consistency findings:**
+  - the Gateway reads evidence from process memory although evidence is a durable fact;
+  - **[CONTRACT_GAP]:** episodes and commitment events have no durable home in journal v1.1 (engineering closure §5 requires one); recorded, not addressed now;
+  - the reference assurance default ("anonymous") is permissive: an owner value before production.
+- **PROCEED: Evidence Store Boundary Contract v1** (single workstream). Stop condition to examine first: LA-1's coupling of commit records with evidence, which must not require cross-store atomicity.
+- Evidence Store Boundary workstream started. **Step 0 passed:** LA-1's "commit records with evidence" is met by journal facts (sealed `CommitRecord` in claim entries, plus `commit_outcome` entries), so there is no evidence/journal atomicity. Still to confirm: whether any Lane A recovery path reads commit records from evidence.
+
+## Evidence Store Boundary v1: BLOCKED at Phase 1 (2026-10-04)
+
+- [evidence-store-boundary-v1-implementation-report.md](evidence-store-boundary-v1-implementation-report.md).
+- **Phase 1 result:** an existing recovery path DOES read commit records from evidence.
+  - The Lane A restore protocol rolls PG forward from FS commit records kept with the evidence (`restore.py:137`; `runtime:490` appends them onto evidence; LA-1 and LA-10; 2,000-seed restore tests).
+  - No target-architecture record retires it.
+- Two ledger homes therefore coexist: Lane A (evidence-co-located FS records) and journal v1.1 (claim and outcome entries).
+- **[OWNER] (contract owner + Infrastructure, interacts with C-5):** which is the authoritative commit ledger? (a) the journal, (b) evidence-co-located, or (c) both with a write rule.
+- E-7 is blocked; E-1…E-6 and E-8 were not started (stopped by rule).
+- The Step 0 note in decision v2 is corrected (it overreached). No code or tests changed; suite still 1202/1202.
+- **VERDICT: EVIDENCE BOUNDARY V1 BLOCKED.**
+
+## Commit ledger authority decision v1 (2026-10-04)
+
+- [commit-ledger-authority-decision-v1.md](commit-ledger-authority-decision-v1.md).
+- **[DECISION]:** the Durable Journal is the **sole authoritative commit ledger** for the target architecture. Claim entries seal the full `CommitRecord`; non-claim terminal outcomes are `commit_outcome` entries; evidence holds evidence and references only.
+- **Source trace:**
+  - Lane A `ev.commit_records` are written only by `runtime.Memory` (one per extraction job) and read only by `runtime/restore.py`;
+  - their authority derives from the FS + PG-projection topology;
+  - the journal `CommitRecord` carries every commit-decision field;
+  - the two models share no write path;
+  - **no production repo contains** `commit_records`, `replay_record` or `replay_watermark`.
+- **[LEGACY]:** the Lane A evidence-held ledger, the restore protocol and the LA-10 watermark are retained unchanged and are not an authority for the target. LA-1's semantic (replay recorded outcomes, never re-decide) is carried by the journal. No production migration is needed. Prototype retirement is optional and needs authorisation.
+- **[CONTRACT_GAP]:** extraction-job bookkeeping (Q17 recovery, re-extraction lineage, superseded lists) has no target home yet; it is pipeline state, not commit authority, and non-blocking. `Evidence.extraction_state` is in evidence-boundary scope.
+- No cross-store atomicity is required.
+- **GATE: JOURNAL AUTHORITY — EVIDENCE BOUNDARY MAY RESUME** (from Phase 2, with E-7 = the journal holds authoritative commit records; evidence holds evidence and anchors).
+
+## Evidence Store Boundary v1: BLOCKED at Phase 2, E-5 (2026-10-04)
+
+- [evidence-store-boundary-v1-implementation-report.md](evidence-store-boundary-v1-implementation-report.md) (rewritten; supersedes the Phase 1 report).
+- Resumed from Phase 2 after the journal-authority decision. E-7 is recorded as that [DECISION].
+- **E-5 [CONTRACT_GAP]: the stop.**
+  - Source does not prove that evidence is durable before ingest is acknowledged. Durable contract Part 1 item 8 only classifies evidence as a durable fact.
+  - `memory-restore-protocol-v1.md:48, 56, 97` documents the opposite: acknowledged evidence may be lost within the evidence store's RPO window. It is "unrecoverable by design", and supported claims become `invalidated(lost_in_restore)`. RPO is `[BLOCKED:Product/Ops]`.
+  - Contracting durable-before-ack would invent a durability property and change a Lane A semantic, which are both hard stops.
+- **Derivation findings recorded, not contracted:**
+  - E-1: ids are store-assigned; dedup is an org-keyed provider-id key, and a duplicate consumes no `receipt_seq`.
+  - E-2: seal states and hash; tamper → quarantine; withdrawal is a lifecycle change.
+  - E-3: a store-assigned monotone `receipt_seq`; its restore durability and scope are [CONTRACT_GAP].
+  - E-4: partial edges; fence DEAD set.
+- E-6 and E-8 were not derived.
+- **Correction:** next-work v2 D1 overreached on E-5. Acknowledgement durability is a semantic owner choice, not only a C-5 value.
+- No contract, code, tests or Gateway wiring. Suite untouched (1202).
+- **GATE: [OWNER] Product/Ops + Infrastructure.** Durable-before-ack, or the Lane A RPO-window semantics?
+
+## Evidence Store E-5 owner decision packet v1 (2026-10-04)
+
+- [evidence-store-e5-owner-decision-v1.md](evidence-store-e5-owner-decision-v1.md).
+- **Question for Product/Ops + Infrastructure:**
+  - (A) Must an evidence ingest acknowledgement imply durable recoverability?
+  - (B) Or is Lane A's RPO-window semantic intended, under which supported claims become `invalidated(lost_in_restore)`?
+- **Evidence, cited by location:**
+  - journal v1.1 item 8 gives no acknowledgement timing, and S3 covers journal facts only;
+  - the A8 restore protocol accepts the loss of acknowledged evidence (`:48, :56, :97`; `restore.py:198-206`; `test_restore.py:46`);
+  - RPO/RTO is Product/Ops-owned in three sources.
+- **Recorded, not reinterpreted:** the earlier red-team text says claims "stay"; A8 invalidates claims left unsupported.
+- **No organisational record authorises either option: [OWNER DECISION REQUIRED].**
+- The D1 overclaim (next-work v2) is corrected in the packet §8. D1 itself is preserved as history; it is not the current state for E-5.
+- No code, test, contract or Gateway change.
+- **EVIDENCE BOUNDARY V1 — BLOCKED ON E-5 OWNER DECISION.** On a decision, resume at E-5, then E-6, E-8, the contract, the implementation and conformance.
+
+## Durable home for episodes and commitment events v1 (2026-10-04)
+
+- [durable-home-episodes-commitments-decision-v1.md](durable-home-episodes-commitments-decision-v1.md). Closes the [CONTRACT_GAP] from next-work v2 (closure §5 item 6).
+- **[DECISION] Option A:** both are Durable Journal facts in the owning CUSTOMER subject's partition, as two additive kinds, `commitment_event` and `episode_summary`, neither claim-projected.
+- **Derived from existing decisions:**
+  - M-2 ("typed transitions; no separate store technology");
+  - C-E (one identity per commitment, so one partition);
+  - the ledger authority (recorded interpretations are journal facts);
+  - A7 co-location with claims;
+  - journal §E/§F, which give rebuild at r and erasure without new machinery.
+- **Rejected:** B (separate store), B′ (evidence store) and C (split). Each needs cross-store erasure coordination or a re-implementation of K4–K7.
+- **Model:**
+  - Events: `idem = cevent:<id>`; same id + different content → EVENT_ID_REUSED; the head is the unchanged `commitments.project` at the served r.
+  - Episode generations: recorded, never regenerated; identity is keyed on the inputs (members, usable members, generator version); the latest generation wins.
+  - `summary_status` is derived (quarantine from undone merges; regenerate-pending from inputs active at generation that are now suppressed). It matches Lane A on the real runtime flows.
+- **Contract:** journal v1.1 **Amendment A1** (Part 1 rows 10–11, §A rows). K1–K10, S1–S5 and SPI are unchanged.
+- **Code:**
+  - `KINDS` / `SEALED_KINDS` extended;
+  - new `memory_core/episode_commitment/`;
+  - Gateway, retrieval, compiler, gate, commit and Pipeline unchanged.
+- **Tests:** `tests/test_episode_commitment_durable.py`, **82** on both reference stores. Mutation run **19/19**. Gateway 38 + 109 unchanged. Full suite **1284** (1202 + 82); no existing test edited.
+- **Found:** Lane A's global commitment log lets a `commitment_key` that collides across subjects shadow another subject's commitment. Recorded, not fixed; partitioning removes it.
+- **Owner items (non-blocking, pre-existing):** T-1, T-2 floor, B-3, C-1, §F per-item erasure.
+- **[CONTRACT_GAP]s:** no compaction primitive (shown decomposable per key); the regeneration-cadence bound.
+- **EPISODE/COMMITMENT DURABLE HOME — PROCEED** (implemented).
+
+## Durable Journal Compaction & Checkpoint Contract v1 (2026-10-04)
+
+- [durable-journal-compaction-contract-v1.md](durable-journal-compaction-contract-v1.md); report [durable-journal-compaction-v1-implementation-report.md](durable-journal-compaction-v1-implementation-report.md).
+- **Phase 0: feasible** with no change to K1–K10, no new truth source and no cross-partition step. The rebuild is a left fold whose state is explicit:
+  - claims, carried retractions (LA-9), pending boundaries;
+  - versions and last signatures, the version in force, the trace;
+  - max sync, `claims_version`;
+  - commitment events, latest generations, the erased flag.
+- **[DECISION] B: a per-subject checkpoint plus the immutable retained suffix.**
+  - A checkpoint is an acceleration structure and never a fact. It has no commit time and no `idem`, and `reconstruct` never reads it. It is sealed under the subject key.
+  - It is used only after validation: contract version, payload digest, prefix length and tail anchor, next entry after c, policy-log position, state signature. On any failure: full replay, and the checkpoint is marked unusable.
+  - v1 deletes **no fact**. "Compaction" retires superseded checkpoints.
+- **Rejected:** C (per-key compaction) and D (hybrid), and truncation in general. Each makes derived state the only record of a prefix and changes served history.
+- **Hazards handled fail-safe:**
+  - a late publication at T ≤ c on the explicit store (policy-log position check). The already-served history was unchanged in the probed case only [INFERENCE]; whether an unrelated late publication can ever change a served version is an open v1.1 question;
+  - folds that would use read-time policy content are not checkpointed.
+- **Code:** new `memory_core/journal_compaction/`. Nothing existing modified.
+- **Tests:** `tests/test_journal_compaction.py`, **93**, on both stores.
+  - Property: 8 histories × every entry, publication and boundary instant. A 30-seed scratch run: 110,972 comparisons, 0 mismatches.
+  - Mutation: **29/29 caught**. The publication-boundary mutant at first looked equivalent; a same-instant two-version probe showed it is not, and a test now catches it.
+- **Regression:** Gateway 38 + 109 unchanged; full suite **1377** (1284 + 93); no existing test edited.
+- **Scope limits:**
+  - storage growth is not bounded (truncation needs [OWNER] Legal/Product for a retention boundary and [OWNER] contract owner for a base snapshot as a fact);
+  - the Gateway and retrieval still rebuild from the journal view ([CONTRACT_GAP]: a consumer interface for projection state);
+  - checkpoint size grows with the trace ([CONTRACT_GAP]).
+- **JOURNAL COMPACTION V1 CONFORMANT.**
+
+## Checkpoint Consumer Interface v1 (2026-10-05)
+
+- [checkpoint-consumer-interface-v1.md](checkpoint-consumer-interface-v1.md). Closes the compaction contract's consumer-interface [CONTRACT_GAP].
+- **ProjectionView** (new `memory_core/projection_view/`):
+  - a per-read, never-stored view of one partition at one served r, built only from a VALIDATED checkpoint plus the suffix;
+  - it carries the state, trace, policies, claim map, max sync, commitment events and generations;
+  - it carries no outcomes and no journal entries;
+  - an erased fold gives no view;
+  - any rejection → the unchanged v0.1 journal path.
+- **Use the view:** `get_current_state`, `search_history` at the served r (the fold carries the full claim map), `compile_context`, the gate's current slot, and the `commit()` scratch.
+- **Still the journal:**
+  - the K9 version/OCC check;
+  - read closure and the served trace (`TimedJournal` replays fully, which is a [CONTRACT_GAP] for a future journal amendment);
+  - idempotency lookup;
+  - as-of history before r;
+  - erased partitions.
+- **Code changes:**
+  - retrieval: an optional `MemorySource.view`;
+  - Gateway: an optional `checkpoints`;
+  - compaction: `checkpoint_fold` plus a new wrong-partition check.
+  All are inert by default.
+- **Tests:** `tests/test_checkpoint_consumers.py` **65** (both stores). Mutation **18/18**. Full suite **1442** (1377 + 65). Gateway 38 + 109 unchanged.
+- **Remaining gaps:** journal-side full replay per read and per typed command; checkpoint size (a bounded form needs an engineering proof of which claims can never re-enter resolution, with no second truth source); an `idem` index.
+- No owner boundary was reached; no CTO packet was created.
+- **CHECKPOINT CONSUMER V1 CONFORMANT.**
+
+## Durable Journal Read/Version Fast Path v1.2 (2026-10-05)
+
+- [durable-journal-read-version-fastpath-v1.md](durable-journal-read-version-fastpath-v1.md). An engineering optimisation of journal internals; no change to K1–K10, S1–S5, O1–O4, SPI or R-READ.
+- **Phase 0: FEASIBLE WITH FALLBACK.**
+  - r comes from closure, with no replay.
+  - The served trace and `_version` need only the fold's trace.
+  - Hidden dependency: `_read_preds` scanned every entry's predicate metadata. The fold now carries `predicates` (entry metadata, inside the state signature).
+- **`TimedJournal`** gets an optional `checkpoints`:
+  - `served_trace`, `_version` (the OCC base, the Gateway's `actual_version` and the **in-write K9 check**) and `_read_preds` use a validated checkpoint plus the suffix;
+  - closure order and the K9 check location are unchanged;
+  - anything unusable → the v1.1 replay.
+  - The Gateway's `checkpoints` is now a property delegating to the journal (one store).
+- **Tests:** `tests/test_journal_read_version_fastpath.py` **51** (both stores, with `reconstruct` patched to raise on every fast path). Mutation **15/15**. Full suite **1493** (1442 + 51). Gateway 38 + 109 unchanged.
+- **Cost (reference):**
+  - full replay = 2N entries and 2N signature evaluations;
+  - fast path = 2 + 2k entries and 2k evaluations (k = suffix), **constant in N** for N = 25, 100, 400.
+- **Remaining gaps:** checkpoint size (and its per-use digest/unpickle cost); an `idem` index for duplicate checks; per-predicate policy-log positions; checkpoint cadence (operational).
+- No owner boundary; no CTO packet.
+- **JOURNAL READ/VERSION FAST PATH V1 CONFORMANT.**
+
+## Checkpoint Maintenance v1 (2026-10-05)
+
+- [checkpoint-maintenance-v1.md](checkpoint-maintenance-v1.md). Derived-state maintenance only: no journal fact modified, no K/S/O/SPI/R-READ change.
+- **Incremental creation:** the newest VALID checkpoint (every reader validation), decoded fresh and never mutated, advanced through the suffix only. On any failure, a full build.
+  - Proven equal to a fresh full build: decoded fold, canonical signature and identifying metadata, on random histories × both stores × suffixes of 0, 1, medium and long.
+  - Payload bytes and digest may differ (serializer object-sharing layout). Identity is the canonical signature, integrity is the digest, as already defined.
+- **Publication:** BUILD → STAGE (invisible) → VERIFY (re-read the staged payload; every reader check plus decode and signature) → PUBLISH (one index append) → RETIRE older.
+  - Refs now carry a per-store sequence number (a collision fix).
+  - Crash at any point → an older valid checkpoint or the journal.
+- **Trigger:** `maintain(threshold)` on uncovered suffix length. **Checkpoint cadence = an operational parameter**, unset.
+- **Proven:** maintenance needs no full build after the first checkpoint (`build_fold` and `reconstruct` patched to raise); Gateway reads, commands and context also run without one.
+- **Cost (reference):** incremental fold work = 2 + 2k entries, k steps, 2k signatures, flat in N (25/100/400). Payload work grows with checkpoint size and is about 1.5× the full build's (base validation and decode, plus verify).
+- **Tests:** `tests/test_checkpoint_maintenance.py` **82** (both stores). Mutation **17/17** (publication signature verification caught after an added builder-defect test). Full suite **1575** (1493 + 82). Gateway 38 + 109 unchanged.
+- **Remaining:** checkpoint-size pruning (now the dominant per-maintenance cost); `idem` index; policy-log indexing; GC of crash-orphaned staged payloads (operational).
+- No owner boundary; no CTO packet.
+- **CHECKPOINT MAINTENANCE V1 CONFORMANT.**
+
+## Checkpoint Representation Pruning v1 (2026-10-05)
+
+- [checkpoint-representation-pruning-v1.md](checkpoint-representation-pruning-v1.md).
+- **No semantic pruning proven.** A test-only naive pruner (keep only claims that win or conflict at c; drop terminal commitments' events) **diverges** in dead-claim scenarios 1/4, 2/7, 3, 5, 6/8 and 10. Erasure (9) is not a counterexample.
+  - The claim set is class A because lifecycle can revive any claim (C-2 undecided), retractions (LA-9) and NEVER_TRUE revival, policy migration, and history at r needing every claim.
+- **Lossless, opt-in "ref" encoding** (`CheckpointStore(encoding="ref")`; `Checkpoint.encoding`; default stays "full" so existing white-box tests are untouched):
+  - claim content, retraction records, commitment events and episode generations are stored as vault references to their sealed facts;
+  - claim states as field tuples;
+  - versions/last derived from the trace (invariant checked at encode, else refused);
+  - a missing reference rejects the checkpoint (never skipped).
+- **Proven:**
+  - same canonical state signature and equal decoded fold as the full encoding;
+  - identical answers for every fast-path operation;
+  - maintenance from a full base into compact checkpoints;
+  - no full build, replay or full decode needed (Gateway, K9 in flight, context);
+  - decode reads only the partition suffix.
+- **Fixed:** checkpoint ref collision across stores sharing one storage (a second seal overwrote the first payload). Refs now carry a random nonce.
+- **Cost (reference):** compact payload = 26–29% of full at N = 25/100/400. Signature recomputation input and per-fact vault reads still grow with history ([CONTRACT_GAP]: an incremental/Merkle signature).
+- **Tests:** `tests/test_checkpoint_representation_pruning.py` **58** (both stores). Mutation **15/15** (semantic-pruning mutations N/A: nothing pruned). Full suite **1633** (1575 + 58). Gateway 38 + 109 unchanged.
+- No owner boundary; no CTO packet (semantic pruning's precondition C-2 is already routed).
+- **CHECKPOINT REPRESENTATION PRUNING V1 CONFORMANT.**
+
+## Incremental Checkpoint Signature v1: BLOCKED (2026-10-05)
+
+- [incremental-checkpoint-signature-v1.md](incremental-checkpoint-signature-v1.md); owner packet [cto-owner-decision-request-v1.md](cto-owner-decision-request-v1.md).
+- **Phase 0: NOT FEASIBLE (exact).** `state_signature` = SHA-256 over repr of one flat canonical tuple whose 2nd element is the covered position `at`.
+  - Every advance changes the input's first 64-byte block (measured offset 7–12 in 556/556 advances), and SHA-256 resumes only over an unchanged prefix.
+  - Claims are sorted by id and lifecycle/retraction changes land mid-stream, so even reordering gives no append-only input, and reordering would itself be a redefinition.
+- **Preserved unchanged; nothing optimised; no production code changed.** Replacing the identity definition is a compaction-contract decision.
+- **Premise correction:** a Merkle/compositional redefinition saves only the build-time pass. Staged verification and every reader validation must still hash every leaf, and probabilistic checks are ruled out. The real decision is the verification trust model.
+- **Measured full signature computations per operation:** read 3, context 3, typed command 4, maintenance 5. Engineering follow-up without a decision: validate once per operation and reuse (reads 3→1, commands 4→2, maintenance 5→3). Not built.
+- **Tests:** `tests/test_incremental_checkpoint_signature.py` **49** (impossibility evidence; definition pinned; current detection of 18 covered fields; uncovered fields caught by their own checks; one canonical identity across encodings and chains). Mutation N/A (no new code). Full suite **1682** (1633 + 49).
+- **[OWNER] decision (packet):** A status quo (recommended, plus per-operation reuse) / B hierarchical signature v2 (contract bump) / C trust earlier verification (weaker reader guarantee) / D lazy per-claim verification.
+- **INCREMENTAL CHECKPOINT SIGNATURE V1 BLOCKED.**
+
+## Per-Operation Checkpoint Validation Reuse v1: CONFORMANT (2026-10-05)
+
+- [per-operation-checkpoint-validation-v1.md](per-operation-checkpoint-validation-v1.md). Engineering-only; the owner packet `cto-owner-decision-request-v1.md` is not reopened.
+- **Model:** `journal_compaction.OperationValidation`, a local opened and closed by each operation (Gateway `_read`, Gateway `_admit`, `JC.maintain`), threaded down as an optional `op=None` parameter. The first use is a full validation. Later uses re-run `validate` against their own facts and skip only load + signature, while the checkpoint record, the payload object and every referenced sealed fact are the same objects. Reuse is exact, not probabilistic. A closed operation, or a different subject, raises.
+- **Measured signatures (instrumented):** read 3→1, history 3→1, context 3→1, typed command 4→2, maintenance 5→3. Payload decodes and compact vault reads drop with them.
+- **K9 and staged verification stay independent:** one of a command's two validations runs inside the serialized write; `cps.verify` never consults the operation. This overrides incremental-signature report §4 on K9.
+- **Equivalence:** every result and every side effect is identical OLD (reuse disabled) vs NEW. Covered: random Gateway drivers, journal OCC, retraction, schedule, policy and erasure scenarios, random v1.1 histories at decreasing positions, six command cases, eight in-operation changes.
+- **Canonical signature unchanged.**
+- **Tests:** `tests/test_per_operation_checkpoint_validation.py` **120**. Mutation **16/16**. Three of them (K9 reuse, cross-operation memo, verify reuse) are outcome-equivalent and are caught by instrumentation. Full suite **1802** (1682 + 120); Gateway 38 + 109 unchanged.
+- **PER-OPERATION CHECKPOINT VALIDATION V1 CONFORMANT.**
+
+## C-5 Real Storage Evaluation v1: PARTIALLY CONFORMANT (2026-10-05)
+
+- [c5-real-storage-evaluation-v1.md](c5-real-storage-evaluation-v1.md). Authoritative evidence: `storage-eval-results/c5-postgres-v1-final/`, one driver revision (`c5_driver.py` sha256 `5c2b454e…`). `c5-postgres-v1/` holds the development runs.
+- **Supersedes "C-5 STATUS: READY / DELIVERY-BLOCKED" for the PostgreSQL half.** The user directed this run. The v2.0 request is unchanged (SHA-pinned). **C-5 remains UNDECIDED; nothing selected.**
+- **Firestore: [BLOCKED:Infrastructure].** No non-production project or identity; the emulator is excluded as evidence.
+- **PostgreSQL 16.2:** a disposable local cluster (pip-bundled, Windows, loopback only) plus a local streaming standby. **Version 16 was the user's choice; no Cloud SQL target version is documented.** The adapter role has NOBYPASSRLS and owns nothing; `SET LOCAL` and RLS on all tables. Explicit closed-position form with head rows `FOR UPDATE`.
+- **Suites unchanged on PostgreSQL:** boundary 44/44 (explicit kind; 42 implied-form tests not applicable, not counted), X-1 64/64, conformance 144/144 (114 reach PostgreSQL). Full prototype suite still 1802.
+- **E1–E9 all PASS or MEASURED:**
+  - E1, E2 and E6: 0 contradicted served sets;
+  - E3: 0 acknowledged facts lost under client kill and backend crash. The **negative control** (`synchronous_commit=off`) lost 16, so the test detects acknowledgements issued before the WAL left PostgreSQL. The WAL fsync itself, OS crash and power loss are [UNMEASURED];
+  - E3f: async and sync failover (`sync_state` verified), 0 lost in 1 trial each (async not proven safe, [DOC]);
+  - E4: closure survives crash;
+  - E5: ≤ 2 stored writes per current read, 0 for stale-tolerant reads;
+  - E7: 0 stale commands accepted and 0 STATE_CONFLICT retried under hot-subject contention with a racing publication;
+  - E8: atomic up to 50 000 entries;
+  - E9: 0 appends after the fence.
+  - **Not measured:** OS or power loss; managed HA.
+- **Incompatibility E-1 [PROVEN]:** row deletion is not "unrecoverable everywhere". The plaintext stays in heap pages after DELETE and plain VACUUM (only VACUUM FULL clears it), in WAL and in the standby's WAL, and is visible to snapshots opened before the destruction. Solvable only by crypto-shredding (C-1 [OWNER]); no contract change.
+- **E-2:** async failover needs synchronous replication. **E-3:** session-level SET leaks across pooled use, so the adapter must keep LOCAL. **[CODE]:** `CheckpointStore` deletes payloads through an in-memory `vault`, so a retired payload row persists on PostgreSQL.
+- Driver bugs found during the run and fixed (superseded runs kept): the E7 shared log directory; the E7 policy-history KeyError.
+- No decision packet: the open items are existing owner decisions (Infrastructure for Firestore, C-1, C-5).
+- **C-5 REAL STORAGE EVALUATION V1 PARTIALLY CONFORMANT.**
+
+## Memori / agentic memory gap analysis v1: CAPABILITY GAPS IDENTIFIED (2026-10-05, analysis only)
+
+- [memori-agent-memory-gap-analysis-v1.md](memori-agent-memory-gap-analysis-v1.md). Sources: the Memori Cloud architecture page and six concept pages (raw HTML), and arXiv 2603.19935 (read in full). An automated paper summary that invented content was discarded.
+- **No fundamental hole.** Memori validates structured, budgeted memory (triples + summaries; 81.95% LoCoMo at ~5% of the context). It establishes none of OLBrain's truth properties publicly. Its recency-wins answer prompt, mention-count dedup, automatic injection and extraction from AI responses are deliberate non-copies.
+- **Gaps:**
+  - **G-A agent execution memory** (MEDIUM): tool calls and decisions are already Evidence, but nothing derives or retrieves them; Episodes are USER-evidence only; AGENT scope is unsupported;
+  - **G-B governed procedural memory** (MEDIUM): already Decision 1b / D7;
+  - **G-C relationships** (LOW).
+  - Graph and vector deferral stands (no MAD §G.3 trigger met).
+- **Decision 1b: B, clarifies.** Episodic execution records are not procedures and fit existing classes. Procedures remain the freeze exclusion, with D7 open. No sixth class.
+- At most 3 future workstreams (W1 execution-memory scope, W2 a D7 packet refresh, W3 a relationship demand check). None started. No contract, code or schema changed.
+- **MEMORI GAP ANALYSIS V1 — CAPABILITY GAPS IDENTIFIED.**
+
+## Agent Execution Memory Scope & Object Mapping v1: OWNER DECISION REQUIRED (2026-10-05, analysis only)
+
+- [agent-execution-memory-scope-v1.md](agent-execution-memory-scope-v1.md); packet [agent-execution-memory-scope-owner-decision-v1.md](agent-execution-memory-scope-owner-decision-v1.md).
+- **No new object class.**
+  - Raw execution (tool observations, agent decisions) is Evidence (contract §1).
+  - Execution episodes are Narrative Memory via the A1 `episode_summary` kind, with a separate, non-assertive generator.
+  - World state seen by trusted tools stays as Claims.
+  - Promised actions stay as commitment events.
+- **Recommended Model E** (existing objects + attribution metadata) **in the CUSTOMER partition**:
+  - journal v1.1 + A1 unchanged;
+  - customer erasure complete;
+  - no new retrieval API (narrative path, optional, budgeted).
+- **Owner question:** cross-agent visibility within a tenant.
+  - Recommended: Option 1, customer-shared via the existing `(CUSTOMER, subject)` grants.
+  - Option 3 (layered, agent-private) applies if private agents are required.
+  - To be answered with T-1(i).
+  - Recorded owner: Security, with Product.
+- **Gaps:**
+  - GAP-1: raw Evidence durability depends on E-5;
+  - GAP-2: no-subject executions need non-subject partitions plus AGENT / RESOURCE / WORKSPACE erasure generations (out of scope);
+  - GAP-3: execution-episode generator definition (engineering);
+  - GAP-4: third-party content inside a served customer's records.
+- **Boundary kept:** single past occurrences are execution memory; anything generalised is procedural (D7 / 1b, untouched).
+- No code, contract or schema changed.
+- **AGENT EXECUTION MEMORY SCOPE V1 — OWNER DECISION REQUIRED.**
+
+## Agent Execution Memory Foundation v1: specified, visibility UNRESOLVED (2026-10-06, analysis only)
+
+- [agent-execution-memory-foundation-v1.md](agent-execution-memory-foundation-v1.md). Policy-neutral foundation; `VISIBILITY_POLICY = UNRESOLVED`.
+- **Object model, no sixth class:**
+  - raw execution = Evidence;
+  - execution episode = an A1 `episode_summary` generation, distinguished by a registered generator family in the existing `generator_version` (A1 unchanged);
+  - world facts reach Claims only via trusted-tool Evidence and the deterministic gate;
+  - promises stay as `commitment_event`.
+- **Mechanics:**
+  - attribution (`agent_id`, `tenant_id`) is set from the bound handle and already exists on `EpisodeGeneration`;
+  - retrieval is the existing NARRATIVE path, `usage = HISTORICAL`, in the "not authoritative" section; the compiler's `narrative_claims_authority` guard applies;
+  - journal v1.1 + A1 unchanged.
+- **Policy refinement:** AGENT_PRIVATE's default ("originating agent only") is enforceable with the existing authenticated `Caller.principal`. Only its explicit exception grants need a new capability.
+- **Test matrix:** 34 cases specified (30 fixed, 4 PENDING on owner Decisions 1 and 2); none implemented.
+- **Gaps:** [CONTRACT_GAP] third-party data in customer execution episodes; GAP-1 → E-5.
+- **OWNER DECISION REQUIRED** (Security, with Product): Decision 1 (cross-agent visibility), Decision 2 (same rule for commitments). Nothing assumes the answer.
+
+## Execution-memory visibility v1: owner decision incorporated, CLOSED (2026-10-06)
+
+- **Owner decision** (recorded verbatim in [agent-execution-memory-foundation-v1.md](agent-execution-memory-foundation-v1.md) §K):
+  - **Decision 1: CUSTOMER_SHARED.** Any agent holding (CUSTOMER, X) reads execution memory for X, whatever agent created it.
+  - **Decision 2: YES.** Commitments follow the same rule, which also closes T-1(i).
+  - AGENT_PRIVATE is rejected and not implemented. No agent-level grant mechanism.
+- **Code: none changed.** The existing `search_memory` / `get_commitments` already gate only on `may_read(caller, ("CUSTOMER", X))`, and the Gateway builds `Caller` from the signed handle. No request field carries an agent id. The decision is pinned by tests.
+- **Tests:** `tests/test_execution_memory_visibility.py` **57/57** (26 scenarios × 2 stores + 5). Mutation **5/5** (agent-private filters on narrative and commitments, grant-check removal, projection consuming `episode_summary`, dead-evidence exclusion). Full suite **1859** (1802 + 57). Gateway 38 + 109 unchanged.
+- **Contracts unchanged.**
+- **Still open:** [CONTRACT_GAP] third-party data in customer execution episodes (unresolved by owner ruling); GAP-1 → E-5; T-2 / B-3 values. D7 / 1b untouched.
+
+## Execution-Episode Generator Contract v1: ENGINEERING CLOSURE (2026-10-06)
+
+- [execution-episode-generator-contract-v1.md](execution-episode-generator-contract-v1.md).
+- **Contract** for a future server-side generator (none exists; none built):
+  - a closed input set (execution Evidence only);
+  - the deterministic boundary is agent × customer × correlation id, with refusals for mixed agents or customers and no time heuristic;
+  - output = the existing `EpisodeGeneration`, with no new field;
+  - `agent_id` from the trusted bound context only;
+  - the non-procedural guardrail is a deterministic canonical rendering, plus a lexical validator with fallback (ceiling stated);
+  - no Claim-Gate path; commitments separate.
+- **Journal:** v1.1 + A1 fits unchanged; no [CONTRACT_GAP].
+- **Tests:** `tests/test_execution_episode_generator_contract.py` **9/9** (4 scenarios × 2 stores + 1). The surface pins: generation identity depends only on inputs (never on text or `agent_id`), a forged-agent retry keeps the recorded attribution, separate episodes, regeneration on a changed usable set, recorded output across process loss and a fresh journal. Key mutations (adding text or agent) are caught. Full suite **1868** (1859 + 9).
+- 14 of 20 GEN rows are tested (existing + new); 6 are requirements on the future generator only.
+
+## Third-party erasure in customer execution memory: OWNER DECISION REQUIRED (2026-10-06)
+
+- [third-party-erasure-in-customer-execution-memory-owner-decision-v1.md](third-party-erasure-in-customer-execution-memory-owner-decision-v1.md). Converts the foundation's [CONTRACT_GAP] into a packet.
+- **Question:** must Y's erasure make Y's data embedded in X's execution episodes / member Evidence unavailable?
+- **Options:** A strict propagation / B customer-partition ownership / C governed data-class rule. **No recommendation** (no project evidence decides it).
+- Option A (and C's propagating classes) needs cross-partition discovery plus per-datum crypto or suppression machinery.
+- Today the architecture behaves as B **by construction, not by decision**.
+- Owner: **[OWNER NOT IDENTIFIED IN CURRENT ARTIFACTS]** (adjacent: Legal for C-2, Jay for R6b).

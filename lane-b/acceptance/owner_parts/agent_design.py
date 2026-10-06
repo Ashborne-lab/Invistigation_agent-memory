@@ -229,7 +229,7 @@ def agent_user_read(w, p, aid, rid):
     # The (aid, row) pairing is checked here because no agent-design route carries an agent id with a row id.
     with _bind(w) as db:
         row = asyncio.run(_svc(db).authorize_row(_user(p), rid, edit=False))
-    if row.get("agent_id") != aid:
+    if row.get("agent_id") != aid:  # [WIRING-ONLY: proven by olbrain-agent-design tests/test_b0_org_access.py::test_agent_user_row_gate_view_vs_edit] no route takes both ids; the real gate (row's own agent) denies first
         raise Denied("row_not_under_agent")
     return {**{k: v for k, v in row.items() if k != "agent_id"}, "agent": row["agent_id"],
             "org": w.agents[row["agent_id"]]["org"]}
@@ -239,7 +239,7 @@ def agent_user_write(w, p, aid, rid, patch_):
     with _bind(w) as db:
         svc, user = _svc(db), _user(p)
         if rid in w.agent_users:           # REAL update_user (agent derived from the row, edit check inside)
-            if w.agent_users[rid]["agent"] != aid:
+            if w.agent_users[rid]["agent"] != aid:  # [WIRING-ONLY: proven by olbrain-agent-design tests/test_b0_org_access.py::test_agent_user_row_gate_view_vs_edit] no route takes both ids; the real gate (row's own agent) denies first
                 raise Denied("row_not_under_agent")
             asyncio.run(svc.update_user(rid, _MODELS.AgentUserUpdateRequest(**patch_), user))
         else:                              # REAL create_user (agent from the body, edit check inside)
@@ -249,7 +249,7 @@ def agent_user_write(w, p, aid, rid, patch_):
 
 def agent_user_delete(w, p, aid, rid):
     with _bind(w) as db:
-        if w.agent_users.get(rid, {}).get("agent") not in (None, aid):
+        if w.agent_users.get(rid, {}).get("agent") not in (None, aid):  # [WIRING-ONLY: proven by olbrain-agent-design tests/test_b0_org_access.py::test_agent_user_row_gate_view_vs_edit] no route takes both ids; the real gate (row's own agent) denies first
             raise Denied("row_not_under_agent")
         asyncio.run(_svc(db).delete_user(rid, _user(p)))
 

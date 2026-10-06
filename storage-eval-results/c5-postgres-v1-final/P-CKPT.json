@@ -1,0 +1,18 @@
+{
+ "full": {
+  "create": "CREATED",
+  "valid_before_erasure": null,
+  "after_key_destruction": "unreadable"
+ },
+ "ref": {
+  "create": "CREATED",
+  "valid_before_erasure": null,
+  "after_key_destruction": "unreadable"
+ },
+ "payload_rows_before_discard": 2,
+ "payload_rows_after_discard": 2,
+ "payload_rows_after_key_destruction": 0,
+ "reconstruct_erased": true,
+ "result": "PASS",
+ "code_gap": "CheckpointStore.discard/drop_staged delete payloads through storage.vault (an in-memory attribute), not a StorageBoundary operation: on PostgreSQL a retired payload row stays until key destruction"
+}

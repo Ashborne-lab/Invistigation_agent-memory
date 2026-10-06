@@ -1,0 +1,15 @@
+{
+ "promoted": true,
+ "acked": 255,
+ "acked_missing_on_promoted": 0,
+ "served_reads_logged": 80,
+ "served_sets_contradicted_on_promoted": 0,
+ "max_served_r": 5.574026584625244,
+ "late_append_at_max_served_r": "READ_CLOSED",
+ "promoted_frontier_vs_max_served": [
+  5.574026584625244,
+  5.574026584625244
+ ],
+ "result": "PASS",
+ "wall_s": 215.7
+}

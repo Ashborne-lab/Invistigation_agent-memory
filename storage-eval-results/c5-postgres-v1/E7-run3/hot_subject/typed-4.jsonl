@@ -1,0 +1,61 @@
+{"ev": "error", "err": "KeyError", "msg": "2", "cmd": "t4-0"}
+{"ev": "outcome", "cmd": "t4-0", "status": "APPENDED", "expected": 5, "at": 2.977386236190796, "actual": null, "tries": 1, "ms": 13.32260004710406}
+{"ev": "outcome", "cmd": "t4-1", "status": "APPENDED", "expected": 8, "at": 3.2039132118225098, "actual": null, "tries": 1, "ms": 22.813200019299984}
+{"ev": "outcome", "cmd": "t4-2", "status": "STATE_CONFLICT", "expected": 10, "at": null, "actual": 11, "tries": 1, "ms": 22.265099920332432}
+{"ev": "transient", "cmd": "t4-3", "status": "READ_CLOSED"}
+{"ev": "transient", "cmd": "t4-3", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-3", "status": "STATE_CONFLICT", "expected": 12, "at": null, "actual": 14, "tries": 3, "ms": 22.192000062204897}
+{"ev": "outcome", "cmd": "t4-4", "status": "APPENDED", "expected": 15, "at": 3.545655250549317, "actual": null, "tries": 1, "ms": 27.920400025323033}
+{"ev": "outcome", "cmd": "t4-5", "status": "APPENDED", "expected": 16, "at": 3.627549886703491, "actual": null, "tries": 1, "ms": 21.96189993992448}
+{"ev": "outcome", "cmd": "t4-6", "status": "STALE_POLICY_STAMP", "expected": 17, "at": null, "actual": null, "tries": 1, "ms": 3.2935000490397215}
+{"ev": "transient", "cmd": "t4-7", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-7", "status": "STATE_CONFLICT", "expected": 17, "at": null, "actual": 19, "tries": 2, "ms": 43.493199977092445}
+{"ev": "outcome", "cmd": "t4-8", "status": "STATE_CONFLICT", "expected": 19, "at": null, "actual": 20, "tries": 1, "ms": 54.39850001130253}
+{"ev": "transient", "cmd": "t4-9", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-9", "status": "STATE_CONFLICT", "expected": 20, "at": null, "actual": 21, "tries": 2, "ms": 42.121500009670854}
+{"ev": "transient", "cmd": "t4-10", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-10", "status": "STATE_CONFLICT", "expected": 21, "at": null, "actual": 22, "tries": 2, "ms": 38.24200003873557}
+{"ev": "outcome", "cmd": "t4-11", "status": "APPENDED", "expected": 23, "at": 4.237325668334961, "actual": null, "tries": 1, "ms": 47.37259994726628}
+{"ev": "transient", "cmd": "t4-12", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-12", "status": "STATE_CONFLICT", "expected": 24, "at": null, "actual": 25, "tries": 2, "ms": 40.786500088870525}
+{"ev": "outcome", "cmd": "t4-13", "status": "STALE_POLICY_STAMP", "expected": 25, "at": null, "actual": null, "tries": 1, "ms": 22.328499937430024}
+{"ev": "transient", "cmd": "t4-14", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-14", "status": "STATE_CONFLICT", "expected": 26, "at": null, "actual": 27, "tries": 2, "ms": 60.26289996225387}
+{"ev": "outcome", "cmd": "t4-15", "status": "STATE_CONFLICT", "expected": 27, "at": null, "actual": 28, "tries": 1, "ms": 56.47630000021309}
+{"ev": "transient", "cmd": "t4-16", "status": "READ_CLOSED"}
+{"ev": "transient", "cmd": "t4-16", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-16", "status": "STATE_CONFLICT", "expected": 28, "at": null, "actual": 29, "tries": 3, "ms": 78.63799994811416}
+{"ev": "outcome", "cmd": "t4-17", "status": "STATE_CONFLICT", "expected": 30, "at": null, "actual": 31, "tries": 1, "ms": 65.95149997156113}
+{"ev": "transient", "cmd": "t4-18", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-18", "status": "APPENDED", "expected": 31, "at": 5.4835734367370605, "actual": null, "tries": 2, "ms": 41.97989997919649}
+{"ev": "transient", "cmd": "t4-19", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-19", "status": "APPENDED", "expected": 32, "at": 5.656318426132202, "actual": null, "tries": 2, "ms": 49.756000051274896}
+{"ev": "transient", "cmd": "t4-20", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-20", "status": "APPENDED", "expected": 33, "at": 5.881558656692505, "actual": null, "tries": 2, "ms": 59.44620002992451}
+{"ev": "outcome", "cmd": "t4-21", "status": "APPENDED", "expected": 34, "at": 6.027383327484131, "actual": null, "tries": 1, "ms": 122.59669997729361}
+{"ev": "outcome", "cmd": "t4-22", "status": "APPENDED", "expected": 35, "at": 6.253734588623047, "actual": null, "tries": 1, "ms": 68.16569995135069}
+{"ev": "transient", "cmd": "t4-23", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-23", "status": "APPENDED", "expected": 36, "at": 6.550667762756348, "actual": null, "tries": 2, "ms": 81.95569994859397}
+{"ev": "transient", "cmd": "t4-24", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-24", "status": "STATE_CONFLICT", "expected": 37, "at": null, "actual": 38, "tries": 2, "ms": 72.64910009689629}
+{"ev": "transient", "cmd": "t4-25", "status": "READ_CLOSED"}
+{"ev": "transient", "cmd": "t4-25", "status": "COMMIT_TIME_REGRESSED"}
+{"ev": "outcome", "cmd": "t4-25", "status": "STATE_CONFLICT", "expected": 38, "at": null, "actual": 40, "tries": 3, "ms": 108.6228999774903}
+{"ev": "transient", "cmd": "t4-26", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-26", "status": "STATE_CONFLICT", "expected": 40, "at": null, "actual": 41, "tries": 2, "ms": 113.51680010557175}
+{"ev": "outcome", "cmd": "t4-27", "status": "STATE_CONFLICT", "expected": 41, "at": null, "actual": 42, "tries": 1, "ms": 158.58389995992184}
+{"ev": "outcome", "cmd": "t4-28", "status": "STATE_CONFLICT", "expected": 42, "at": null, "actual": 43, "tries": 1, "ms": 212.13919995352626}
+{"ev": "outcome", "cmd": "t4-29", "status": "STALE_POLICY_STAMP", "expected": 43, "at": null, "actual": null, "tries": 1, "ms": 4.149099928326905}
+{"ev": "outcome", "cmd": "t4-30", "status": "STATE_CONFLICT", "expected": 43, "at": null, "actual": 44, "tries": 1, "ms": 193.43590002972633}
+{"ev": "outcome", "cmd": "t4-31", "status": "APPENDED", "expected": 44, "at": 9.532602071762085, "actual": null, "tries": 1, "ms": 98.96750003099442}
+{"ev": "outcome", "cmd": "t4-32", "status": "APPENDED", "expected": 45, "at": 9.88516902923584, "actual": null, "tries": 1, "ms": 165.61619995627552}
+{"ev": "transient", "cmd": "t4-33", "status": "READ_CLOSED"}
+{"ev": "transient", "cmd": "t4-33", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-33", "status": "STATE_CONFLICT", "expected": 46, "at": null, "actual": 47, "tries": 3, "ms": 166.1296000238508}
+{"ev": "outcome", "cmd": "t4-34", "status": "STATE_CONFLICT", "expected": 47, "at": null, "actual": 48, "tries": 1, "ms": 199.80119995307177}
+{"ev": "outcome", "cmd": "t4-35", "status": "STATE_CONFLICT", "expected": 48, "at": null, "actual": 49, "tries": 1, "ms": 249.95369999669492}
+{"ev": "transient", "cmd": "t4-36", "status": "COMMIT_TIME_REGRESSED"}
+{"ev": "transient", "cmd": "t4-36", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-36", "status": "STALE_POLICY_STAMP", "expected": 49, "at": null, "actual": null, "tries": 3, "ms": 107.28460003156215}
+{"ev": "transient", "cmd": "t4-37", "status": "READ_CLOSED"}
+{"ev": "outcome", "cmd": "t4-37", "status": "STATE_CONFLICT", "expected": 51, "at": null, "actual": 52, "tries": 2, "ms": 258.03539995104074}

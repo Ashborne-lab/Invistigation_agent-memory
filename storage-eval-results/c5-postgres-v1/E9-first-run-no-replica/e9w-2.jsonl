@@ -1,0 +1,62 @@
+{"ev": "outcome", "cmd": "e2-0", "status": "APPENDED", "at": 1.8780484199523926, "detail": "1.8780484199523926"}
+{"ev": "outcome", "cmd": "e2-1", "status": "APPENDED", "at": 1.9805614948272705, "detail": "1.9805614948272705"}
+{"ev": "outcome", "cmd": "e2-2", "status": "APPENDED", "at": 2.1075727939605713, "detail": "2.1075727939605713"}
+{"ev": "outcome", "cmd": "e2-3", "status": "APPENDED", "at": 2.4524402618408203, "detail": "2.4524402618408203"}
+{"ev": "outcome", "cmd": "e2-4", "status": "APPENDED", "at": 2.8486621379852295, "detail": "2.8486621379852295"}
+{"ev": "outcome", "cmd": "e2-5", "status": "APPENDED", "at": 3.076178789138794, "detail": "3.076178789138794"}
+{"ev": "outcome", "cmd": "e2-6", "status": "APPENDED", "at": 3.310239791870117, "detail": "3.310239791870117"}
+{"ev": "outcome", "cmd": "e2-7", "status": "APPENDED", "at": 3.479738712310791, "detail": "3.479738712310791"}
+{"ev": "outcome", "cmd": "e2-8", "status": "APPENDED", "at": 3.5627009868621826, "detail": "3.5627009868621826"}
+{"ev": "outcome", "cmd": "e2-9", "status": "APPENDED", "at": 3.626093626022339, "detail": "3.626093626022339"}
+{"ev": "outcome", "cmd": "e2-10", "status": "APPENDED", "at": 3.6794593334198, "detail": "3.6794593334198"}
+{"ev": "outcome", "cmd": "e2-11", "status": "APPENDED", "at": 3.7834129333496094, "detail": "3.7834129333496094"}
+{"ev": "outcome", "cmd": "e2-12", "status": "APPENDED", "at": 3.882279872894287, "detail": "3.882279872894287"}
+{"ev": "outcome", "cmd": "e2-13", "status": "APPENDED", "at": 3.961413621902466, "detail": "3.961413621902466"}
+{"ev": "outcome", "cmd": "e2-14", "status": "APPENDED", "at": 4.048556327819824, "detail": "4.048556327819824"}
+{"ev": "outcome", "cmd": "e2-15", "status": "APPENDED", "at": 4.10867977142334, "detail": "4.10867977142334"}
+{"ev": "outcome", "cmd": "e2-16", "status": "APPENDED", "at": 4.220319986343384, "detail": "4.220319986343384"}
+{"ev": "outcome", "cmd": "e2-17", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "4.2762770652771"}
+{"ev": "outcome", "cmd": "e2-18", "status": "APPENDED", "at": 4.388503313064575, "detail": "4.388503313064575"}
+{"ev": "outcome", "cmd": "e2-19", "status": "APPENDED", "at": 4.489785194396973, "detail": "4.489785194396973"}
+{"ev": "outcome", "cmd": "e2-20", "status": "APPENDED", "at": 4.573374032974243, "detail": "4.573374032974243"}
+{"ev": "outcome", "cmd": "e2-21", "status": "APPENDED", "at": 4.792830228805542, "detail": "4.792830228805542"}
+{"ev": "outcome", "cmd": "e2-22", "status": "APPENDED", "at": 4.88223671913147, "detail": "4.88223671913147"}
+{"ev": "outcome", "cmd": "e2-23", "status": "APPENDED", "at": 4.971873998641968, "detail": "4.971873998641968"}
+{"ev": "outcome", "cmd": "e2-24", "status": "APPENDED", "at": 5.061181306838989, "detail": "5.061181306838989"}
+{"ev": "outcome", "cmd": "e2-25", "status": "APPENDED", "at": 5.117600202560425, "detail": "5.117600202560425"}
+{"ev": "outcome", "cmd": "e2-26", "status": "APPENDED", "at": 5.218733310699463, "detail": "5.218733310699463"}
+{"ev": "outcome", "cmd": "e2-27", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "5.307832717895508"}
+{"ev": "outcome", "cmd": "e2-28", "status": "APPENDED", "at": 5.398350477218628, "detail": "5.398350477218628"}
+{"ev": "outcome", "cmd": "e2-29", "status": "APPENDED", "at": 5.52116584777832, "detail": "5.52116584777832"}
+{"ev": "outcome", "cmd": "e2-30", "status": "APPENDED", "at": 5.6330976486206055, "detail": "5.6330976486206055"}
+{"ev": "outcome", "cmd": "e2-31", "status": "APPENDED", "at": 5.733426332473755, "detail": "5.733426332473755"}
+{"ev": "outcome", "cmd": "e2-32", "status": "APPENDED", "at": 5.845634698867798, "detail": "5.845634698867798"}
+{"ev": "outcome", "cmd": "e2-33", "status": "APPENDED", "at": 5.9244914054870605, "detail": "5.9244914054870605"}
+{"ev": "outcome", "cmd": "e2-34", "status": "APPENDED", "at": 6.027234315872192, "detail": "6.027234315872192"}
+{"ev": "outcome", "cmd": "e2-35", "status": "APPENDED", "at": 6.083510637283325, "detail": "6.083510637283325"}
+{"ev": "outcome", "cmd": "e2-36", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "6.173322677612305"}
+{"ev": "outcome", "cmd": "e2-37", "status": "REJECTED", "at": null, "detail": "partition_erased"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-38"}
+{"ev": "outcome", "cmd": "e2-38", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-39"}
+{"ev": "outcome", "cmd": "e2-39", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-40"}
+{"ev": "outcome", "cmd": "e2-40", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-41"}
+{"ev": "outcome", "cmd": "e2-41", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-42"}
+{"ev": "outcome", "cmd": "e2-42", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-43"}
+{"ev": "outcome", "cmd": "e2-43", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-44"}
+{"ev": "outcome", "cmd": "e2-44", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-45"}
+{"ev": "outcome", "cmd": "e2-45", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-46"}
+{"ev": "outcome", "cmd": "e2-46", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-47"}
+{"ev": "outcome", "cmd": "e2-47", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-48"}
+{"ev": "outcome", "cmd": "e2-48", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e2-49"}
+{"ev": "outcome", "cmd": "e2-49", "status": "ERROR", "at": null, "detail": "AppendRejected"}

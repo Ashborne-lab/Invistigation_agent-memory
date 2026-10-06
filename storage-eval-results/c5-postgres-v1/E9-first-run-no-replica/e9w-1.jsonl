@@ -1,0 +1,60 @@
+{"ev": "outcome", "cmd": "e1-0", "status": "APPENDED", "at": 2.0722804069519043, "detail": "2.0722804069519043"}
+{"ev": "outcome", "cmd": "e1-1", "status": "APPENDED", "at": 2.3885223865509033, "detail": "2.3885223865509033"}
+{"ev": "outcome", "cmd": "e1-2", "status": "APPENDED", "at": 2.6361777782440186, "detail": "2.6361777782440186"}
+{"ev": "outcome", "cmd": "e1-3", "status": "APPENDED", "at": 2.919194459915161, "detail": "2.919194459915161"}
+{"ev": "outcome", "cmd": "e1-4", "status": "APPENDED", "at": 3.141930341720581, "detail": "3.141930341720581"}
+{"ev": "outcome", "cmd": "e1-5", "status": "APPENDED", "at": 3.358494520187378, "detail": "3.358494520187378"}
+{"ev": "outcome", "cmd": "e1-6", "status": "APPENDED", "at": 3.513594388961792, "detail": "3.513594388961792"}
+{"ev": "outcome", "cmd": "e1-7", "status": "APPENDED", "at": 3.614710807800293, "detail": "3.614710807800293"}
+{"ev": "outcome", "cmd": "e1-8", "status": "APPENDED", "at": 3.6794593334198, "detail": "3.6794593334198"}
+{"ev": "outcome", "cmd": "e1-9", "status": "APPENDED", "at": 3.7834129333496094, "detail": "3.7834129333496094"}
+{"ev": "outcome", "cmd": "e1-10", "status": "APPENDED", "at": 3.882279872894287, "detail": "3.882279872894287"}
+{"ev": "outcome", "cmd": "e1-11", "status": "APPENDED", "at": 3.961413621902466, "detail": "3.961413621902466"}
+{"ev": "outcome", "cmd": "e1-12", "status": "APPENDED", "at": 4.048556327819824, "detail": "4.048556327819824"}
+{"ev": "outcome", "cmd": "e1-13", "status": "APPENDED", "at": 4.10867977142334, "detail": "4.10867977142334"}
+{"ev": "outcome", "cmd": "e1-14", "status": "APPENDED", "at": 4.220319986343384, "detail": "4.220319986343384"}
+{"ev": "outcome", "cmd": "e1-15", "status": "COMMIT_TIME_REGRESSED", "at": null, "detail": "4.2762770652771"}
+{"ev": "outcome", "cmd": "e1-16", "status": "APPENDED", "at": 4.388503313064575, "detail": "4.388503313064575"}
+{"ev": "outcome", "cmd": "e1-17", "status": "APPENDED", "at": 4.489785194396973, "detail": "4.489785194396973"}
+{"ev": "outcome", "cmd": "e1-18", "status": "APPENDED", "at": 4.573374032974243, "detail": "4.573374032974243"}
+{"ev": "outcome", "cmd": "e1-19", "status": "APPENDED", "at": 4.792830228805542, "detail": "4.792830228805542"}
+{"ev": "outcome", "cmd": "e1-20", "status": "APPENDED", "at": 4.88223671913147, "detail": "4.88223671913147"}
+{"ev": "outcome", "cmd": "e1-21", "status": "APPENDED", "at": 4.971873998641968, "detail": "4.971873998641968"}
+{"ev": "outcome", "cmd": "e1-22", "status": "APPENDED", "at": 5.061181306838989, "detail": "5.061181306838989"}
+{"ev": "outcome", "cmd": "e1-23", "status": "APPENDED", "at": 5.117600202560425, "detail": "5.117600202560425"}
+{"ev": "outcome", "cmd": "e1-24", "status": "APPENDED", "at": 5.218733310699463, "detail": "5.218733310699463"}
+{"ev": "outcome", "cmd": "e1-25", "status": "APPENDED", "at": 5.263427257537842, "detail": "5.263427257537842"}
+{"ev": "outcome", "cmd": "e1-26", "status": "APPENDED", "at": 5.3198301792144775, "detail": "5.3198301792144775"}
+{"ev": "outcome", "cmd": "e1-27", "status": "APPENDED", "at": 5.398350477218628, "detail": "5.398350477218628"}
+{"ev": "outcome", "cmd": "e1-28", "status": "APPENDED", "at": 5.52116584777832, "detail": "5.52116584777832"}
+{"ev": "outcome", "cmd": "e1-29", "status": "APPENDED", "at": 5.6330976486206055, "detail": "5.6330976486206055"}
+{"ev": "outcome", "cmd": "e1-30", "status": "APPENDED", "at": 5.7221760749816895, "detail": "5.7221760749816895"}
+{"ev": "outcome", "cmd": "e1-31", "status": "APPENDED", "at": 5.845634698867798, "detail": "5.845634698867798"}
+{"ev": "outcome", "cmd": "e1-32", "status": "APPENDED", "at": 5.969537973403931, "detail": "5.969537973403931"}
+{"ev": "outcome", "cmd": "e1-33", "status": "APPENDED", "at": 6.038653373718262, "detail": "6.038653373718262"}
+{"ev": "outcome", "cmd": "e1-34", "status": "APPENDED", "at": 6.117194652557373, "detail": "6.117194652557373"}
+{"ev": "outcome", "cmd": "e1-35", "status": "REJECTED", "at": null, "detail": "partition_erased"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-36"}
+{"ev": "outcome", "cmd": "e1-36", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-37"}
+{"ev": "outcome", "cmd": "e1-37", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-38"}
+{"ev": "outcome", "cmd": "e1-38", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-39"}
+{"ev": "outcome", "cmd": "e1-39", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-40"}
+{"ev": "outcome", "cmd": "e1-40", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-41"}
+{"ev": "outcome", "cmd": "e1-41", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-42"}
+{"ev": "outcome", "cmd": "e1-42", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-43"}
+{"ev": "outcome", "cmd": "e1-43", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-44"}
+{"ev": "outcome", "cmd": "e1-44", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-45"}
+{"ev": "outcome", "cmd": "e1-45", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-46"}
+{"ev": "outcome", "cmd": "e1-46", "status": "ERROR", "at": null, "detail": "AppendRejected"}
+{"ev": "error", "err": "AppendRejected", "msg": "key_destroyed", "cmd": "e1-47"}
+{"ev": "outcome", "cmd": "e1-47", "status": "ERROR", "at": null, "detail": "AppendRejected"}

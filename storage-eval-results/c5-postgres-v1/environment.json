@@ -1,0 +1,52 @@
+{
+ "server_version": "16.2",
+ "fsync": "on",
+ "synchronous_commit": "on",
+ "full_page_writes": "on",
+ "wal_sync_method": "open_datasync",
+ "default_transaction_isolation": "read committed",
+ "max_connections": "200",
+ "c5app": [
+  false,
+  false
+ ],
+ "owner": [
+  [
+   "c5admin"
+  ]
+ ],
+ "rls": [
+  [
+   "entries",
+   true
+  ],
+  [
+   "heads",
+   true
+  ],
+  [
+   "keys",
+   true
+  ],
+  [
+   "polheads",
+   true
+  ],
+  [
+   "pubs",
+   true
+  ],
+  [
+   "vault",
+   true
+  ]
+ ],
+ "replica": {
+  "in_recovery": true,
+  "version": "16.2"
+ },
+ "version_full": "PostgreSQL 16.2 on x86_64-pc-mingw64, compiled by gcc.exe (x86_64-posix-seh-rev2, Built by MinGW-W64 project) 12.2.0, 64-bit",
+ "namespaces_used": 497,
+ "wal_writer_delay": "200ms",
+ "synchronous_standby_names": ""
+}

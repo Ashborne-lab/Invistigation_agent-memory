@@ -1,0 +1,38 @@
+{
+ "current_read_stored_writes": {
+  "min": 0,
+  "max": 2,
+  "mean": 1.8866666666666667
+ },
+ "evaluated_sources_per_read": "partition + each evaluated predicate log",
+ "repeat_at_closed_r_writes": 0,
+ "stale_tolerant_read_writes": 0,
+ "current_read_latency": {
+  "n": 300,
+  "p50_ms": 4.96,
+  "p95_ms": 9.11,
+  "p99_ms": 11.66,
+  "max_ms": 12.98
+ },
+ "stale_read_latency": {
+  "n": 300,
+  "p50_ms": 2.86,
+  "p95_ms": 5.41,
+  "p99_ms": 7.41,
+  "max_ms": 8.49
+ },
+ "head_row_updates_during_run": [
+  [
+   "heads",
+   232,
+   232
+  ],
+  [
+   "polheads",
+   233,
+   233
+  ]
+ ],
+ "result": "MEASURED",
+ "wall_s": 4.9
+}

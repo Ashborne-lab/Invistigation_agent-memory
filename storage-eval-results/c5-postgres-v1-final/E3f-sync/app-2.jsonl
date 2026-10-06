@@ -1,0 +1,102 @@
+{"ev": "refused", "idem": "w2-0", "subj": "fo", "status": "READ_CLOSED", "detail": "1.8976387977600098"}
+{"ev": "ack", "idem": "w2-0", "subj": "fo", "at": 2.011754274368286, "stamp": null, "n": 1, "tries": 2, "ms": 11.968400096520782}
+{"ev": "ack", "idem": "w2-1", "subj": "fo", "at": 2.084397554397583, "stamp": null, "n": 1, "tries": 1, "ms": 13.083400088362396}
+{"ev": "ack", "idem": "w2-2", "subj": "fo", "at": 2.1301651000976562, "stamp": null, "n": 1, "tries": 1, "ms": 8.393600000999868}
+{"ev": "ack", "idem": "w2-3", "subj": "fo", "at": 2.220752000808716, "stamp": null, "n": 1, "tries": 1, "ms": 10.775899980217218}
+{"ev": "ack", "idem": "w2-4", "subj": "fo", "at": 2.2837910652160645, "stamp": null, "n": 1, "tries": 1, "ms": 11.315600015223026}
+{"ev": "ack", "idem": "w2-5", "subj": "fo", "at": 2.3332977294921875, "stamp": null, "n": 1, "tries": 1, "ms": 6.241000024601817}
+{"ev": "ack", "idem": "w2-6", "subj": "fo", "at": 2.3583953380584717, "stamp": null, "n": 1, "tries": 1, "ms": 7.445299997925758}
+{"ev": "ack", "idem": "w2-7", "subj": "fo", "at": 2.3811562061309814, "stamp": null, "n": 1, "tries": 1, "ms": 9.25549992825836}
+{"ev": "ack", "idem": "w2-8", "subj": "fo", "at": 2.404700756072998, "stamp": null, "n": 1, "tries": 1, "ms": 7.891200017184019}
+{"ev": "ack", "idem": "w2-9", "subj": "fo", "at": 2.42792010307312, "stamp": null, "n": 1, "tries": 1, "ms": 8.300499990582466}
+{"ev": "ack", "idem": "w2-10", "subj": "fo", "at": 2.4505059719085693, "stamp": null, "n": 1, "tries": 1, "ms": 8.667699992656708}
+{"ev": "ack", "idem": "w2-11", "subj": "fo", "at": 2.482540130615235, "stamp": null, "n": 1, "tries": 1, "ms": 13.809100026264787}
+{"ev": "ack", "idem": "w2-12", "subj": "fo", "at": 2.522049903869629, "stamp": null, "n": 1, "tries": 1, "ms": 18.39890005066991}
+{"ev": "ack", "idem": "w2-13", "subj": "fo", "at": 2.555706024169922, "stamp": null, "n": 1, "tries": 1, "ms": 9.283000021241605}
+{"ev": "ack", "idem": "w2-14", "subj": "fo", "at": 2.5788111686706543, "stamp": null, "n": 1, "tries": 1, "ms": 5.6310000363737345}
+{"ev": "ack", "idem": "w2-15", "subj": "fo", "at": 2.6022045612335205, "stamp": null, "n": 1, "tries": 1, "ms": 8.936499943956733}
+{"ev": "ack", "idem": "w2-16", "subj": "fo", "at": 2.6249701976776123, "stamp": null, "n": 1, "tries": 1, "ms": 9.441800066269934}
+{"ev": "ack", "idem": "w2-17", "subj": "fo", "at": 2.648750066757202, "stamp": null, "n": 1, "tries": 1, "ms": 8.946599904447794}
+{"ev": "ack", "idem": "w2-18", "subj": "fo", "at": 2.6814677715301514, "stamp": null, "n": 1, "tries": 1, "ms": 7.656399975530803}
+{"ev": "ack", "idem": "w2-19", "subj": "fo", "at": 2.706094980239868, "stamp": null, "n": 1, "tries": 1, "ms": 9.707799996249378}
+{"ev": "ack", "idem": "w2-20", "subj": "fo", "at": 2.7303714752197266, "stamp": null, "n": 1, "tries": 1, "ms": 9.600600111298263}
+{"ev": "ack", "idem": "w2-21", "subj": "fo", "at": 2.754199504852295, "stamp": null, "n": 1, "tries": 1, "ms": 13.711599982343614}
+{"ev": "ack", "idem": "w2-22", "subj": "fo", "at": 2.7883393764495854, "stamp": null, "n": 1, "tries": 1, "ms": 12.591199949383736}
+{"ev": "ack", "idem": "w2-23", "subj": "fo", "at": 2.8230986595153813, "stamp": null, "n": 1, "tries": 1, "ms": 9.834200027398765}
+{"ev": "ack", "idem": "w2-24", "subj": "fo", "at": 2.845671653747559, "stamp": null, "n": 1, "tries": 1, "ms": 7.8360999468714}
+{"ev": "ack", "idem": "w2-25", "subj": "fo", "at": 2.869083642959595, "stamp": null, "n": 1, "tries": 1, "ms": 12.747399974614382}
+{"ev": "ack", "idem": "w2-26", "subj": "fo", "at": 2.9039022922515874, "stamp": null, "n": 1, "tries": 1, "ms": 11.300599901005626}
+{"ev": "ack", "idem": "w2-27", "subj": "fo", "at": 2.926843643188477, "stamp": null, "n": 1, "tries": 1, "ms": 10.051900055259466}
+{"ev": "ack", "idem": "w2-28", "subj": "fo", "at": 2.94604229927063, "stamp": null, "n": 1, "tries": 1, "ms": 6.9278000155463815}
+{"ev": "ack", "idem": "w2-29", "subj": "fo", "at": 2.972749948501587, "stamp": null, "n": 1, "tries": 1, "ms": 11.380000039935112}
+{"ev": "ack", "idem": "w2-30", "subj": "fo", "at": 2.9934604167938232, "stamp": null, "n": 1, "tries": 1, "ms": 12.351099983789027}
+{"ev": "ack", "idem": "w2-31", "subj": "fo", "at": 3.005940198898316, "stamp": null, "n": 1, "tries": 1, "ms": 7.542499923147261}
+{"ev": "ack", "idem": "w2-32", "subj": "fo", "at": 3.043094873428345, "stamp": null, "n": 1, "tries": 1, "ms": 12.956699938513339}
+{"ev": "ack", "idem": "w2-33", "subj": "fo", "at": 3.0785250663757324, "stamp": null, "n": 1, "tries": 1, "ms": 12.000399990938604}
+{"ev": "ack", "idem": "w2-34", "subj": "fo", "at": 3.101106882095337, "stamp": null, "n": 1, "tries": 1, "ms": 8.24799994006753}
+{"ev": "ack", "idem": "w2-35", "subj": "fo", "at": 3.1105906963348393, "stamp": null, "n": 1, "tries": 1, "ms": 12.942399946041405}
+{"ev": "ack", "idem": "w2-36", "subj": "fo", "at": 3.1589257717132573, "stamp": null, "n": 1, "tries": 1, "ms": 19.050000002607703}
+{"ev": "ack", "idem": "w2-37", "subj": "fo", "at": 3.1923201084136963, "stamp": null, "n": 1, "tries": 1, "ms": 10.498099960386753}
+{"ev": "ack", "idem": "w2-38", "subj": "fo", "at": 3.2114918231964116, "stamp": null, "n": 1, "tries": 1, "ms": 10.5996000347659}
+{"ev": "ack", "idem": "w2-39", "subj": "fo", "at": 3.227339267730713, "stamp": null, "n": 1, "tries": 1, "ms": 15.293800039216876}
+{"ev": "ack", "idem": "w2-40", "subj": "fo", "at": 3.2587740421295166, "stamp": null, "n": 1, "tries": 1, "ms": 11.456499923951924}
+{"ev": "ack", "idem": "w2-41", "subj": "fo", "at": 3.307599306106568, "stamp": null, "n": 1, "tries": 1, "ms": 14.073500060476363}
+{"ev": "ack", "idem": "w2-42", "subj": "fo", "at": 3.3281860351562504, "stamp": null, "n": 1, "tries": 1, "ms": 34.94130005128682}
+{"ev": "ack", "idem": "w2-43", "subj": "fo", "at": 3.4677903652191167, "stamp": null, "n": 1, "tries": 1, "ms": 29.185099992901087}
+{"ev": "ack", "idem": "w2-44", "subj": "fo", "at": 3.515531063079834, "stamp": null, "n": 1, "tries": 1, "ms": 19.33790009934455}
+{"ev": "ack", "idem": "w2-45", "subj": "fo", "at": 3.5561392307281494, "stamp": null, "n": 1, "tries": 1, "ms": 13.820699998177588}
+{"ev": "ack", "idem": "w2-46", "subj": "fo", "at": 3.5772774219512944, "stamp": null, "n": 1, "tries": 1, "ms": 14.624399947933853}
+{"ev": "ack", "idem": "w2-47", "subj": "fo", "at": 3.6256155967712402, "stamp": null, "n": 1, "tries": 1, "ms": 14.995799981988966}
+{"ev": "ack", "idem": "w2-48", "subj": "fo", "at": 3.659153938293457, "stamp": null, "n": 1, "tries": 1, "ms": 21.424400038085878}
+{"ev": "ack", "idem": "w2-49", "subj": "fo", "at": 3.692631483078003, "stamp": null, "n": 1, "tries": 1, "ms": 15.219300054013729}
+{"ev": "ack", "idem": "w2-50", "subj": "fo", "at": 3.7244222164154053, "stamp": null, "n": 1, "tries": 1, "ms": 10.374899953603745}
+{"ev": "ack", "idem": "w2-51", "subj": "fo", "at": 3.751084327697754, "stamp": null, "n": 1, "tries": 1, "ms": 33.08229998219758}
+{"ev": "ack", "idem": "w2-52", "subj": "fo", "at": 3.79668927192688, "stamp": null, "n": 1, "tries": 1, "ms": 13.681899989023805}
+{"ev": "ack", "idem": "w2-53", "subj": "fo", "at": 3.8302788734436035, "stamp": null, "n": 1, "tries": 1, "ms": 14.440500061027706}
+{"ev": "ack", "idem": "w2-54", "subj": "fo", "at": 3.858532667160034, "stamp": null, "n": 1, "tries": 1, "ms": 20.063100033439696}
+{"ev": "ack", "idem": "w2-55", "subj": "fo", "at": 3.8986644744873047, "stamp": null, "n": 1, "tries": 1, "ms": 16.185599961318076}
+{"ev": "ack", "idem": "w2-56", "subj": "fo", "at": 3.9272620677948, "stamp": null, "n": 1, "tries": 1, "ms": 19.1516000777483}
+{"ev": "ack", "idem": "w2-57", "subj": "fo", "at": 3.9585912227630615, "stamp": null, "n": 1, "tries": 1, "ms": 15.166299999691546}
+{"ev": "refused", "idem": "w2-58", "subj": "fo", "status": "READ_CLOSED", "detail": "4.002207279205322"}
+{"ev": "ack", "idem": "w2-58", "subj": "fo", "at": 4.039074420928955, "stamp": null, "n": 1, "tries": 2, "ms": 14.448900008574128}
+{"ev": "ack", "idem": "w2-59", "subj": "fo", "at": 4.064051389694214, "stamp": null, "n": 1, "tries": 1, "ms": 12.994499993510544}
+{"ev": "ack", "idem": "w2-60", "subj": "fo", "at": 4.108148574829102, "stamp": null, "n": 1, "tries": 1, "ms": 12.905099894851446}
+{"ev": "ack", "idem": "w2-61", "subj": "fo", "at": 4.135015249252319, "stamp": null, "n": 1, "tries": 1, "ms": 15.261600026860833}
+{"ev": "ack", "idem": "w2-62", "subj": "fo", "at": 4.1767871379852295, "stamp": null, "n": 1, "tries": 1, "ms": 14.508699998259544}
+{"ev": "ack", "idem": "w2-63", "subj": "fo", "at": 4.20970892906189, "stamp": null, "n": 1, "tries": 1, "ms": 15.114900073967874}
+{"ev": "refused", "idem": "w2-64", "subj": "fo", "status": "READ_CLOSED", "detail": "4.247938632965088"}
+{"ev": "refused", "idem": "w2-64", "subj": "fo", "status": "READ_CLOSED", "detail": "4.282242774963379"}
+{"ev": "refused", "idem": "w2-64", "subj": "fo", "status": "READ_CLOSED", "detail": "4.3101418018341064"}
+{"ev": "ack", "idem": "w2-64", "subj": "fo", "at": 4.341706991195679, "stamp": null, "n": 1, "tries": 4, "ms": 15.574899967759848}
+{"ev": "refused", "idem": "w2-65", "subj": "fo", "status": "READ_CLOSED", "detail": "4.383601903915405"}
+{"ev": "refused", "idem": "w2-65", "subj": "fo", "status": "READ_CLOSED", "detail": "4.420536041259766"}
+{"ev": "ack", "idem": "w2-65", "subj": "fo", "at": 4.454480886459351, "stamp": null, "n": 1, "tries": 3, "ms": 19.03850003145635}
+{"ev": "ack", "idem": "w2-66", "subj": "fo", "at": 4.489051818847656, "stamp": null, "n": 1, "tries": 1, "ms": 26.407600031234324}
+{"ev": "ack", "idem": "w2-67", "subj": "fo", "at": 4.526402473449707, "stamp": null, "n": 1, "tries": 1, "ms": 31.122400076128542}
+{"ev": "ack", "idem": "w2-68", "subj": "fo", "at": 4.5791401863098145, "stamp": null, "n": 1, "tries": 1, "ms": 17.31689996086061}
+{"ev": "refused", "idem": "w2-69", "subj": "fo", "status": "READ_CLOSED", "detail": "4.61566686630249"}
+{"ev": "refused", "idem": "w2-69", "subj": "fo", "status": "READ_CLOSED", "detail": "4.643959045410156"}
+{"ev": "refused", "idem": "w2-69", "subj": "fo", "status": "READ_CLOSED", "detail": "4.684737682342529"}
+{"ev": "ack", "idem": "w2-69", "subj": "fo", "at": 4.73038411140442, "stamp": null, "n": 1, "tries": 4, "ms": 20.927300094626844}
+{"ev": "ack", "idem": "w2-70", "subj": "fo", "at": 4.763498544692994, "stamp": null, "n": 1, "tries": 1, "ms": 29.17460002936423}
+{"ev": "ack", "idem": "w2-71", "subj": "fo", "at": 4.808864116668701, "stamp": null, "n": 1, "tries": 1, "ms": 20.38849995005876}
+{"ev": "ack", "idem": "w2-72", "subj": "fo", "at": 4.845382213592529, "stamp": null, "n": 1, "tries": 1, "ms": 36.075000069104135}
+{"ev": "ack", "idem": "w2-73", "subj": "fo", "at": 4.890903472900391, "stamp": null, "n": 1, "tries": 1, "ms": 25.794500019401312}
+{"ev": "ack", "idem": "w2-74", "subj": "fo", "at": 4.931686878204346, "stamp": null, "n": 1, "tries": 1, "ms": 20.328499958850443}
+{"ev": "ack", "idem": "w2-75", "subj": "fo", "at": 5.059108018875123, "stamp": null, "n": 1, "tries": 1, "ms": 42.50699991825968}
+{"ev": "ack", "idem": "w2-76", "subj": "fo", "at": 5.121918201446533, "stamp": null, "n": 1, "tries": 1, "ms": 23.239600006490946}
+{"ev": "ack", "idem": "w2-77", "subj": "fo", "at": 5.163203001022339, "stamp": null, "n": 1, "tries": 1, "ms": 29.08819995354861}
+{"ev": "ack", "idem": "w2-78", "subj": "fo", "at": 5.207673072814941, "stamp": null, "n": 1, "tries": 1, "ms": 30.87799996137619}
+{"ev": "ack", "idem": "w2-79", "subj": "fo", "at": 5.251459360122681, "stamp": null, "n": 1, "tries": 1, "ms": 19.274599966593087}
+{"ev": "ack", "idem": "w2-80", "subj": "fo", "at": 5.286338567733765, "stamp": null, "n": 1, "tries": 1, "ms": 30.17310006543994}
+{"ev": "ack", "idem": "w2-81", "subj": "fo", "at": 5.331373453140259, "stamp": null, "n": 1, "tries": 1, "ms": 21.602099994197488}
+{"ev": "ack", "idem": "w2-82", "subj": "fo", "at": 5.368849515914917, "stamp": null, "n": 1, "tries": 1, "ms": 18.664699979126453}
+{"ev": "ack", "idem": "w2-83", "subj": "fo", "at": 5.399182319641113, "stamp": null, "n": 1, "tries": 1, "ms": 20.132799982093275}
+{"ev": "ack", "idem": "w2-84", "subj": "fo", "at": 5.429158687591554, "stamp": null, "n": 1, "tries": 1, "ms": 35.0451999111101}
+{"ev": "refused", "idem": "w2-85", "subj": "fo", "status": "READ_CLOSED", "detail": "5.48228120803833"}
+{"ev": "refused", "idem": "w2-85", "subj": "fo", "status": "READ_CLOSED", "detail": "5.512655735015869"}
+{"ev": "ack", "idem": "w2-85", "subj": "fo", "at": 5.5630061626434335, "stamp": null, "n": 1, "tries": 3, "ms": 26.906999992206693}
+{"ev": "ack", "idem": "w2-86", "subj": "fo", "at": 5.609912157058717, "stamp": null, "n": 1, "tries": 1, "ms": 31.971699907444417}
+{"ev": "ack", "idem": "w2-87", "subj": "fo", "at": 5.6528894901275635, "stamp": null, "n": 1, "tries": 1, "ms": 30.895299976691604}
+{"ev": "error", "err": "OperationalError", "msg": "consuming input failed: server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.", "idem": "w2-88"}
+{"ev": "refused", "idem": "w2-88", "subj": "fo", "status": "ERROR", "detail": "OperationalError"}

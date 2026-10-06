@@ -1,0 +1,33 @@
+{
+ "stamp_violations": 0,
+ "acknowledged_stamps_hold": "holds",
+ "closing_reads_racing_publication": 250,
+ "reads_with_publications_served": 245,
+ "served_entry_or_policy_sets_contradicted": 0,
+ "served_prefixes_are_immutable": "holds",
+ "acked": 653,
+ "acked_missing": 0,
+ "append_refusals_while_publishing": {
+  "STALE_POLICY_STAMP": 8,
+  "READ_CLOSED": 4
+ },
+ "publications": 30,
+ "publication_latency": {
+  "n": 30,
+  "p50_ms": 4.25,
+  "p95_ms": 11.12,
+  "p99_ms": 12.37,
+  "max_ms": 12.37
+ },
+ "versions_in_force_seen_by_acked_appends": [
+  1,
+  2,
+  3,
+  "...",
+  22,
+  23,
+  24
+ ],
+ "result": "PASS",
+ "wall_s": 13.0
+}

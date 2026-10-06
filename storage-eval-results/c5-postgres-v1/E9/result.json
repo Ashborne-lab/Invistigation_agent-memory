@@ -1,0 +1,51 @@
+{
+ "erasure": [
+  {
+   "ev": "erasure",
+   "status": "APPENDED",
+   "at": 5.889972686767578
+  },
+  {
+   "ev": "destroyed",
+   "t": 5.97751784324646
+  }
+ ],
+ "writer_outcomes": {
+  "APPENDED": 259,
+  "COMMIT_TIME_REGRESSED": 13,
+  "ERROR": 69
+ },
+ "writer_errors": {
+  "AppendRejected": 69
+ },
+ "appends_after_fence": 0,
+ "sealed_rows_left_for_key": 0,
+ "reconstruct_erased": true,
+ "stale_snapshot": {
+  "rows_seen_by_snapshot_opened_before_destroy": 1,
+  "rows_at_snapshot_start": 1,
+  "visible_to_new_snapshot": 0,
+  "rows_seen_before_seal_committed": [
+   0,
+   0
+  ]
+ },
+ "marker_bytes_in_files": {
+  "after_delete": {
+   "heap": 545,
+   "pg_wal": 545
+  },
+  "after_vacuum": {
+   "heap": 2,
+   "pg_wal": 545
+  },
+  "after_vacuum_full": {
+   "pg_wal": 545
+  }
+ },
+ "marker_bytes_in_replica_files": {
+  "pg_wal": 545
+ },
+ "result": "PASS",
+ "wall_s": 11.7
+}

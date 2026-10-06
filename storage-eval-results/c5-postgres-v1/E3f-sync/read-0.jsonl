@@ -1,0 +1,180 @@
+{"ev": "served", "r": 1.880265474319458, "n": 5, "writes": 1, "ms": 19.8716000886634}
+{"ev": "served", "r": 1.9758071899414062, "n": 9, "writes": 1, "ms": 17.14220002759248}
+{"ev": "served", "r": 2.0076255798339844, "n": 13, "writes": 1, "ms": 17.560700071044266}
+{"ev": "served", "r": 2.063908100128174, "n": 17, "writes": 1, "ms": 6.544600008055568}
+{"ev": "served", "r": 2.112988233566284, "n": 21, "writes": 1, "ms": 13.723599957302213}
+{"ev": "served", "r": 2.1599478721618652, "n": 27, "writes": 1, "ms": 6.907899980433285}
+{"ev": "served", "r": 2.216831922531128, "n": 33, "writes": 1, "ms": 7.534499978646636}
+{"ev": "served", "r": 2.262583017349243, "n": 40, "writes": 1, "ms": 9.96669998858124}
+{"ev": "served", "r": 2.297348976135254, "n": 44, "writes": 1, "ms": 7.976399967446923}
+{"ev": "served", "r": 2.370366334915161, "n": 48, "writes": 1, "ms": 13.91639991197735}
+{"ev": "served", "r": 2.497070789337158, "n": 50, "writes": 1, "ms": 16.9212999753654}
+{"ev": "served", "r": 2.5129384994506836, "n": 53, "writes": 1, "ms": 17.81929994467646}
+{"ev": "served", "r": 2.557445526123047, "n": 56, "writes": 1, "ms": 13.355399947613478}
+{"ev": "served", "r": 2.586698055267334, "n": 59, "writes": 1, "ms": 8.047700044699013}
+{"ev": "served", "r": 2.6152567863464355, "n": 63, "writes": 1, "ms": 6.726299994625151}
+{"ev": "served", "r": 2.632347345352173, "n": 67, "writes": 1, "ms": 8.065100060775876}
+{"ev": "served", "r": 2.662100076675415, "n": 70, "writes": 1, "ms": 7.236599922180176}
+{"ev": "served", "r": 2.6779696941375732, "n": 74, "writes": 1, "ms": 7.432500016875565}
+{"ev": "served", "r": 2.6940600872039795, "n": 78, "writes": 1, "ms": 7.798400009050965}
+{"ev": "served", "r": 2.7257518768310547, "n": 82, "writes": 1, "ms": 7.477900013327599}
+{"ev": "served", "r": 2.7515883445739746, "n": 86, "writes": 1, "ms": 7.490699994377792}
+{"ev": "served", "r": 2.779679298400879, "n": 90, "writes": 1, "ms": 9.12509998306632}
+{"ev": "served", "r": 2.80263352394104, "n": 92, "writes": 1, "ms": 8.18450003862381}
+{"ev": "served", "r": 2.8246614933013916, "n": 96, "writes": 1, "ms": 7.43630004581064}
+{"ev": "served", "r": 2.846809148788452, "n": 100, "writes": 1, "ms": 15.505700022913516}
+{"ev": "served", "r": 2.8781635761260986, "n": 104, "writes": 1, "ms": 11.496999999508262}
+{"ev": "served", "r": 2.9164810180664062, "n": 109, "writes": 1, "ms": 14.847500016912818}
+{"ev": "served", "r": 2.951554775238037, "n": 113, "writes": 1, "ms": 8.887399919331074}
+{"ev": "served", "r": 2.963559865951538, "n": 117, "writes": 1, "ms": 8.265399956144392}
+{"ev": "served", "r": 2.9953131675720215, "n": 121, "writes": 1, "ms": 14.080599998123944}
+{"ev": "served", "r": 3.033111810684204, "n": 124, "writes": 1, "ms": 10.634000063873827}
+{"ev": "served", "r": 3.055248737335205, "n": 128, "writes": 1, "ms": 10.163999977521598}
+{"ev": "served", "r": 3.0798048973083496, "n": 131, "writes": 1, "ms": 15.190200065262616}
+{"ev": "served", "r": 3.114284038543701, "n": 135, "writes": 1, "ms": 9.40370000898838}
+{"ev": "served", "r": 3.137381076812744, "n": 138, "writes": 1, "ms": 24.928900063969195}
+{"ev": "served", "r": 3.1714744567871094, "n": 142, "writes": 1, "ms": 9.325799997895956}
+{"ev": "served", "r": 3.1946959495544434, "n": 145, "writes": 1, "ms": 15.460400027222931}
+{"ev": "served", "r": 3.229459524154663, "n": 149, "writes": 1, "ms": 10.431999922730029}
+{"ev": "served", "r": 3.2454187870025635, "n": 152, "writes": 1, "ms": 10.27179998345673}
+{"ev": "served", "r": 3.275344133377075, "n": 154, "writes": 1, "ms": 12.22630008123815}
+{"ev": "served", "r": 3.297335624694824, "n": 158, "writes": 1, "ms": 13.726399978622794}
+{"ev": "served", "r": 3.3305768966674805, "n": 162, "writes": 1, "ms": 11.311599984765053}
+{"ev": "served", "r": 3.3549158573150635, "n": 165, "writes": 1, "ms": 12.511400040239096}
+{"ev": "served", "r": 3.3865714073181152, "n": 169, "writes": 1, "ms": 16.28440001513809}
+{"ev": "served", "r": 3.53542160987854, "n": 172, "writes": 1, "ms": 18.387800082564354}
+{"ev": "served", "r": 3.5579285621643066, "n": 172, "writes": 1, "ms": 41.44639999140054}
+{"ev": "served", "r": 3.616105079650879, "n": 174, "writes": 1, "ms": 13.800499960780144}
+{"ev": "served", "r": 3.6498265266418457, "n": 178, "writes": 1, "ms": 10.689300019294024}
+{"ev": "served", "r": 3.673264503479004, "n": 181, "writes": 1, "ms": 16.21800009161234}
+{"ev": "served", "r": 3.707123279571533, "n": 185, "writes": 1, "ms": 10.860600043088198}
+{"ev": "served", "r": 3.7306809425354004, "n": 188, "writes": 1, "ms": 20.018399925902486}
+{"ev": "served", "r": 3.7641663551330566, "n": 191, "writes": 1, "ms": 12.652800069190562}
+{"ev": "served", "r": 3.799699544906616, "n": 195, "writes": 1, "ms": 14.39979998394847}
+{"ev": "served", "r": 3.832920789718628, "n": 199, "writes": 1, "ms": 13.74790002591908}
+{"ev": "served", "r": 3.8704991340637207, "n": 203, "writes": 1, "ms": 12.724400032311678}
+{"ev": "served", "r": 3.903339147567749, "n": 207, "writes": 1, "ms": 17.053599935024977}
+{"ev": "served", "r": 3.936429500579834, "n": 210, "writes": 1, "ms": 16.106799943372607}
+{"ev": "served", "r": 3.9741995334625244, "n": 214, "writes": 1, "ms": 20.24750004056841}
+{"ev": "served", "r": 4.008646488189697, "n": 217, "writes": 1, "ms": 16.09299995470792}
+{"ev": "served", "r": 4.036696672439575, "n": 220, "writes": 1, "ms": 20.05799999460578}
+{"ev": "served", "r": 4.099852561950684, "n": 223, "writes": 1, "ms": 12.240900075994432}
+{"ev": "served", "r": 4.134864568710327, "n": 227, "writes": 1, "ms": 23.130499990656972}
+{"ev": "served", "r": 4.179581642150879, "n": 231, "writes": 1, "ms": 20.470999996177852}
+{"ev": "served", "r": 4.214069843292236, "n": 234, "writes": 1, "ms": 17.137999995611608}
+{"ev": "served", "r": 4.248244762420654, "n": 237, "writes": 1, "ms": 20.197800011374056}
+{"ev": "served", "r": 4.283166170120239, "n": 240, "writes": 1, "ms": 21.393599919974804}
+{"ev": "served", "r": 4.318129777908325, "n": 243, "writes": 1, "ms": 16.036100103519857}
+{"ev": "served", "r": 4.352259159088135, "n": 247, "writes": 1, "ms": 24.06000008340925}
+{"ev": "served", "r": 4.39784049987793, "n": 251, "writes": 1, "ms": 19.315000041387975}
+{"ev": "served", "r": 4.432661771774292, "n": 255, "writes": 1, "ms": 21.6935999924317}
+{"ev": "served", "r": 4.467150926589966, "n": 259, "writes": 1, "ms": 22.675500018522143}
+{"ev": "served", "r": 4.501992702484131, "n": 260, "writes": 1, "ms": 18.92040006350726}
+{"ev": "served", "r": 4.535260200500488, "n": 262, "writes": 1, "ms": 21.02240000385791}
+{"ev": "served", "r": 4.615162372589111, "n": 266, "writes": 1, "ms": 14.881500042974949}
+{"ev": "served", "r": 4.716215133666992, "n": 270, "writes": 1, "ms": 19.039900042116642}
+{"ev": "served", "r": 4.739396095275879, "n": 272, "writes": 1, "ms": 28.92369998153299}
+{"ev": "served", "r": 4.780457496643066, "n": 274, "writes": 1, "ms": 19.268000032752752}
+{"ev": "served", "r": 4.816065549850464, "n": 277, "writes": 1, "ms": 20.885000005364418}
+{"ev": "served", "r": 4.8544018268585205, "n": 279, "writes": 1, "ms": 29.191100038588047}
+{"ev": "served", "r": 4.958064317703247, "n": 284, "writes": 1, "ms": 17.084100050851703}
+{"ev": "served", "r": 5.035271167755127, "n": 288, "writes": 1, "ms": 18.549199914559722}
+{"ev": "served", "r": 5.148889064788818, "n": 292, "writes": 1, "ms": 17.29170000180602}
+{"ev": "served", "r": 5.2591705322265625, "n": 296, "writes": 1, "ms": 18.48580001387745}
+{"ev": "served", "r": 5.36392068862915, "n": 300, "writes": 1, "ms": 21.2226000148803}
+{"ev": "served", "r": 5.5774877071380615, "n": 304, "writes": 1, "ms": 23.758499999530613}
+{"ev": "error", "err": "OperationalError", "msg": "consuming input failed: server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request."}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost"}

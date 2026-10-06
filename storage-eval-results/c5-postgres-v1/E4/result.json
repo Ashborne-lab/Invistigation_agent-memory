@@ -1,0 +1,14 @@
+{
+ "served_r": 1.697861671447754,
+ "attempts": {
+  "append_at_r-1": "READ_CLOSED",
+  "append_at_r-1e-06": "READ_CLOSED",
+  "append_at_r=0": "READ_CLOSED",
+  "assign_after_recovery_gt_r": true,
+  "backdated_publication_of_a_closed_log": "refused:log_closed",
+  "f_pol_city_after_recovery_ge_r": true
+ },
+ "late_appends_in_served_prefix": 0,
+ "result": "PASS",
+ "wall_s": 39.7
+}

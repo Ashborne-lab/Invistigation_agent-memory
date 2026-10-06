@@ -1,0 +1,163 @@
+{"ev": "ack", "idem": "w0-0", "subj": "d2", "at": 1.8665263652801514, "stamp": null, "n": 1, "tries": 1, "ms": 15.445099910721183}
+{"ev": "ack", "idem": "w0-1", "subj": "d2", "at": 1.9528381824493408, "stamp": null, "n": 1, "tries": 1, "ms": 9.636900038458407}
+{"ev": "ack", "idem": "w0-2", "subj": "d1", "at": 2.1053333282470703, "stamp": null, "n": 1, "tries": 1, "ms": 9.524599998258054}
+{"ev": "ack", "idem": "w0-3", "subj": "d2", "at": 2.2876243591308594, "stamp": null, "n": 1, "tries": 1, "ms": 9.478899999521673}
+{"ev": "ack", "idem": "w0-4", "subj": "d2", "at": 2.329981803894043, "stamp": null, "n": 1, "tries": 1, "ms": 3.9678000612184405}
+{"ev": "ack", "idem": "w0-5", "subj": "d2", "at": 2.374234199523926, "stamp": null, "n": 1, "tries": 1, "ms": 3.919699927791953}
+{"ev": "ack", "idem": "w0-6", "subj": "d2", "at": 2.42549991607666, "stamp": null, "n": 1, "tries": 1, "ms": 4.6178000047802925}
+{"ev": "ack", "idem": "w0-7", "subj": "d2", "at": 2.4433181285858154, "stamp": null, "n": 1, "tries": 1, "ms": 4.315000027418137}
+{"ev": "ack", "idem": "w0-8", "subj": "d2", "at": 2.4592556953430176, "stamp": null, "n": 1, "tries": 1, "ms": 5.086399964056909}
+{"ev": "ack", "idem": "w0-9", "subj": "d1", "at": 2.4914960861206055, "stamp": null, "n": 1, "tries": 1, "ms": 4.122400074265897}
+{"ev": "ack", "idem": "w0-10", "subj": "d1", "at": 2.5186755657196045, "stamp": null, "n": 1, "tries": 1, "ms": 5.154000013135374}
+{"ev": "ack", "idem": "w0-11", "subj": "d2", "at": 2.5414934158325195, "stamp": null, "n": 1, "tries": 1, "ms": 4.764899960719049}
+{"ev": "ack", "idem": "w0-12", "subj": "d1", "at": 2.5649354457855225, "stamp": null, "n": 1, "tries": 1, "ms": 4.814600106328726}
+{"ev": "ack", "idem": "w0-13", "subj": "d1", "at": 2.5785868167877197, "stamp": null, "n": 1, "tries": 1, "ms": 4.554999992251396}
+{"ev": "ack", "idem": "w0-14", "subj": "d2", "at": 2.6109580993652344, "stamp": null, "n": 1, "tries": 1, "ms": 7.959399954415858}
+{"ev": "ack", "idem": "w0-15", "subj": "d1", "at": 2.633730888366699, "stamp": null, "n": 1, "tries": 1, "ms": 6.871300050988793}
+{"ev": "ack", "idem": "w0-16", "subj": "d2", "at": 2.6569197177886963, "stamp": null, "n": 1, "tries": 1, "ms": 5.537900025956333}
+{"ev": "ack", "idem": "w0-17", "subj": "d1", "at": 2.6791672706604004, "stamp": null, "n": 1, "tries": 1, "ms": 8.625999907962978}
+{"ev": "ack", "idem": "w0-18", "subj": "d1", "at": 2.696460008621216, "stamp": null, "n": 1, "tries": 1, "ms": 5.07299997843802}
+{"ev": "ack", "idem": "w0-19", "subj": "d2", "at": 2.71232533454895, "stamp": null, "n": 1, "tries": 1, "ms": 5.684699979610741}
+{"ev": "ack", "idem": "w0-20", "subj": "d2", "at": 2.7501485347747803, "stamp": null, "n": 1, "tries": 1, "ms": 7.17679993249476}
+{"ev": "ack", "idem": "w0-21", "subj": "d1", "at": 2.7738425731658936, "stamp": null, "n": 1, "tries": 1, "ms": 7.522500003688037}
+{"ev": "ack", "idem": "w0-22", "subj": "d2", "at": 2.796625852584839, "stamp": null, "n": 1, "tries": 1, "ms": 5.387199926190078}
+{"ev": "ack", "idem": "w0-23", "subj": "d2", "at": 2.81915283203125, "stamp": null, "n": 1, "tries": 1, "ms": 6.606100010685623}
+{"ev": "ack", "idem": "w0-24", "subj": "d2", "at": 2.842045545578003, "stamp": null, "n": 1, "tries": 1, "ms": 5.849700071848929}
+{"ev": "ack", "idem": "w0-25", "subj": "d1", "at": 2.8652307987213135, "stamp": null, "n": 1, "tries": 1, "ms": 6.214400054886937}
+{"ev": "ack", "idem": "w0-26", "subj": "d2", "at": 2.887977361679077, "stamp": null, "n": 1, "tries": 1, "ms": 5.738799925893545}
+{"ev": "ack", "idem": "w0-27", "subj": "d2", "at": 2.911181926727295, "stamp": null, "n": 1, "tries": 1, "ms": 12.323500006459653}
+{"ev": "ack", "idem": "w0-28", "subj": "d2", "at": 2.939880132675171, "stamp": null, "n": 1, "tries": 1, "ms": 5.501899984665215}
+{"ev": "ack", "idem": "w0-29", "subj": "d1", "at": 2.953523874282837, "stamp": null, "n": 1, "tries": 1, "ms": 5.73690002784133}
+{"ev": "ack", "idem": "w0-30", "subj": "d1", "at": 2.9856796264648438, "stamp": null, "n": 1, "tries": 1, "ms": 8.90429993160069}
+{"ev": "ack", "idem": "w0-31", "subj": "d1", "at": 3.011399984359741, "stamp": null, "n": 1, "tries": 1, "ms": 8.585500065237284}
+{"ev": "ack", "idem": "w0-32", "subj": "d2", "at": 3.032972812652588, "stamp": null, "n": 1, "tries": 1, "ms": 6.031799945048988}
+{"ev": "ack", "idem": "w0-33", "subj": "d1", "at": 3.0487310886383057, "stamp": null, "n": 1, "tries": 1, "ms": 6.092200055718422}
+{"ev": "ack", "idem": "w0-34", "subj": "d2", "at": 3.080758571624756, "stamp": null, "n": 1, "tries": 1, "ms": 6.354899960570037}
+{"ev": "ack", "idem": "w0-35", "subj": "d2", "at": 3.098416566848755, "stamp": null, "n": 1, "tries": 1, "ms": 6.941800005733967}
+{"ev": "ack", "idem": "w0-36", "subj": "d1", "at": 3.1298410892486572, "stamp": null, "n": 1, "tries": 1, "ms": 7.742300047539175}
+{"ev": "ack", "idem": "w0-37", "subj": "d2", "at": 3.1537294387817383, "stamp": null, "n": 1, "tries": 1, "ms": 5.886700004339218}
+{"ev": "ack", "idem": "w0-38", "subj": "d1", "at": 3.1647775173187256, "stamp": null, "n": 1, "tries": 1, "ms": 9.97249991632998}
+{"ev": "ack", "idem": "w0-39", "subj": "d1", "at": 3.198979139328003, "stamp": null, "n": 1, "tries": 1, "ms": 5.820399965159595}
+{"ev": "ack", "idem": "w0-40", "subj": "d1", "at": 3.222466468811035, "stamp": null, "n": 1, "tries": 1, "ms": 11.521199950948358}
+{"ev": "ack", "idem": "w0-41", "subj": "d1", "at": 3.2450013160705566, "stamp": null, "n": 1, "tries": 1, "ms": 9.815500001423061}
+{"ev": "ack", "idem": "w0-42", "subj": "d1", "at": 3.2684197425842285, "stamp": null, "n": 1, "tries": 1, "ms": 5.973299965262413}
+{"ev": "ack", "idem": "w0-43", "subj": "d2", "at": 3.2915897369384766, "stamp": null, "n": 1, "tries": 1, "ms": 9.639999945648015}
+{"ev": "ack", "idem": "w0-44", "subj": "d1", "at": 3.3148446083068848, "stamp": null, "n": 1, "tries": 1, "ms": 7.724200026132166}
+{"ev": "ack", "idem": "w0-45", "subj": "d1", "at": 3.337543487548828, "stamp": null, "n": 1, "tries": 1, "ms": 6.7001000279560685}
+{"ev": "ack", "idem": "w0-46", "subj": "d2", "at": 3.3609225749969482, "stamp": null, "n": 1, "tries": 1, "ms": 10.945699992589653}
+{"ev": "ack", "idem": "w0-47", "subj": "d2", "at": 3.384242057800293, "stamp": null, "n": 1, "tries": 1, "ms": 8.764100028201938}
+{"ev": "ack", "idem": "w0-48", "subj": "d1", "at": 3.4085240364074707, "stamp": null, "n": 1, "tries": 1, "ms": 8.018799941055477}
+{"ev": "ack", "idem": "w0-49", "subj": "d2", "at": 3.431708812713623, "stamp": null, "n": 1, "tries": 1, "ms": 10.61130000744015}
+{"ev": "ack", "idem": "w0-50", "subj": "d2", "at": 3.4543275833129883, "stamp": null, "n": 1, "tries": 1, "ms": 7.65389995649457}
+{"ev": "ack", "idem": "w0-51", "subj": "d1", "at": 3.477494239807129, "stamp": null, "n": 1, "tries": 1, "ms": 7.0538000436499715}
+{"ev": "ack", "idem": "w0-52", "subj": "d2", "at": 3.50110125541687, "stamp": null, "n": 1, "tries": 1, "ms": 9.481200017035007}
+{"ev": "ack", "idem": "w0-53", "subj": "d1", "at": 3.524364948272705, "stamp": null, "n": 1, "tries": 1, "ms": 6.867000018246472}
+{"ev": "ack", "idem": "w0-54", "subj": "d2", "at": 3.5471677780151367, "stamp": null, "n": 1, "tries": 1, "ms": 10.44240000192076}
+{"ev": "ack", "idem": "w0-55", "subj": "d2", "at": 3.569366216659546, "stamp": null, "n": 1, "tries": 1, "ms": 6.758500006981194}
+{"ev": "ack", "idem": "w0-56", "subj": "d1", "at": 3.70402193069458, "stamp": null, "n": 1, "tries": 1, "ms": 9.04069992247969}
+{"ev": "ack", "idem": "w0-57", "subj": "d2", "at": 3.7270336151123047, "stamp": null, "n": 1, "tries": 1, "ms": 9.625199949368834}
+{"ev": "ack", "idem": "w0-58", "subj": "d2", "at": 3.8162741661071777, "stamp": null, "n": 1, "tries": 1, "ms": 10.899399989284575}
+{"ev": "ack", "idem": "w0-59", "subj": "d1", "at": 3.8947079181671143, "stamp": null, "n": 1, "tries": 1, "ms": 8.81860009394586}
+{"ev": "ack", "idem": "w0-60", "subj": "d2", "at": 3.9962410926818848, "stamp": null, "n": 1, "tries": 1, "ms": 9.32680000551045}
+{"ev": "ack", "idem": "w0-61", "subj": "d1", "at": 4.097284317016602, "stamp": null, "n": 1, "tries": 1, "ms": 13.470200006850064}
+{"ev": "ack", "idem": "w0-62", "subj": "d1", "at": 4.188436985015869, "stamp": null, "n": 1, "tries": 1, "ms": 17.458399990573525}
+{"ev": "ack", "idem": "w0-63", "subj": "d1", "at": 4.233904123306274, "stamp": null, "n": 1, "tries": 1, "ms": 12.474699993617833}
+{"ev": "ack", "idem": "w0-64", "subj": "d1", "at": 4.278644800186157, "stamp": null, "n": 1, "tries": 1, "ms": 13.89160007238388}
+{"ev": "ack", "idem": "w0-65", "subj": "d2", "at": 4.301405429840088, "stamp": null, "n": 1, "tries": 1, "ms": 15.031200018711388}
+{"ev": "ack", "idem": "w0-66", "subj": "d2", "at": 4.335600137710571, "stamp": null, "n": 1, "tries": 1, "ms": 9.68090002425015}
+{"ev": "ack", "idem": "w0-67", "subj": "d1", "at": 4.359044313430786, "stamp": null, "n": 1, "tries": 1, "ms": 13.985999976284802}
+{"ev": "ack", "idem": "w0-68", "subj": "d1", "at": 4.381240129470825, "stamp": null, "n": 1, "tries": 1, "ms": 9.16090002283454}
+{"ev": "ack", "idem": "w0-69", "subj": "d1", "at": 4.405482769012451, "stamp": null, "n": 1, "tries": 1, "ms": 13.471800019033253}
+{"ev": "ack", "idem": "w0-70", "subj": "d1", "at": 4.427814960479736, "stamp": null, "n": 1, "tries": 1, "ms": 9.073599940165877}
+{"ev": "ack", "idem": "w0-71", "subj": "d1", "at": 4.4508750438690186, "stamp": null, "n": 1, "tries": 1, "ms": 15.485099982470274}
+{"ev": "ack", "idem": "w0-72", "subj": "d1", "at": 4.4849114418029785, "stamp": null, "n": 1, "tries": 1, "ms": 24.070899933576584}
+{"ev": "ack", "idem": "w0-73", "subj": "d2", "at": 4.530115842819214, "stamp": null, "n": 1, "tries": 1, "ms": 14.790800050832331}
+{"ev": "ack", "idem": "w0-74", "subj": "d2", "at": 4.5533411502838135, "stamp": null, "n": 1, "tries": 1, "ms": 16.19679993018508}
+{"ev": "ack", "idem": "w0-75", "subj": "d1", "at": 4.5889246463775635, "stamp": null, "n": 1, "tries": 1, "ms": 16.229200060479343}
+{"ev": "ack", "idem": "w0-76", "subj": "d1", "at": 4.623756647109985, "stamp": null, "n": 1, "tries": 1, "ms": 10.172300040721893}
+{"ev": "ack", "idem": "w0-77", "subj": "d2", "at": 4.646498918533325, "stamp": null, "n": 1, "tries": 1, "ms": 12.093099998310208}
+{"ev": "ack", "idem": "w0-78", "subj": "d2", "at": 4.681126832962036, "stamp": null, "n": 1, "tries": 1, "ms": 10.95220004208386}
+{"ev": "ack", "idem": "w0-79", "subj": "d2", "at": 4.704356908798218, "stamp": null, "n": 1, "tries": 1, "ms": 15.069499961100519}
+{"ev": "ack", "idem": "w0-80", "subj": "d2", "at": 4.726723909378052, "stamp": null, "n": 1, "tries": 1, "ms": 28.75970001332462}
+{"ev": "ack", "idem": "w0-81", "subj": "d2", "at": 4.772676944732666, "stamp": null, "n": 1, "tries": 1, "ms": 10.67650003824383}
+{"ev": "ack", "idem": "w0-82", "subj": "d1", "at": 4.795441627502441, "stamp": null, "n": 1, "tries": 1, "ms": 19.245499977841973}
+{"ev": "ack", "idem": "w0-83", "subj": "d2", "at": 4.830310583114624, "stamp": null, "n": 1, "tries": 1, "ms": 14.095099992118776}
+{"ev": "ack", "idem": "w0-84", "subj": "d1", "at": 4.864000558853149, "stamp": null, "n": 1, "tries": 1, "ms": 9.752199985086918}
+{"ev": "ack", "idem": "w0-85", "subj": "d2", "at": 4.880102157592773, "stamp": null, "n": 1, "tries": 1, "ms": 21.81980002205819}
+{"ev": "ack", "idem": "w0-86", "subj": "d2", "at": 4.921816110610962, "stamp": null, "n": 1, "tries": 1, "ms": 19.554900005459785}
+{"ev": "ack", "idem": "w0-87", "subj": "d1", "at": 4.955511569976807, "stamp": null, "n": 1, "tries": 1, "ms": 9.654499939642847}
+{"ev": "ack", "idem": "w0-88", "subj": "d1", "at": 4.97966456413269, "stamp": null, "n": 1, "tries": 1, "ms": 13.17439996637404}
+{"ev": "ack", "idem": "w0-89", "subj": "d1", "at": 5.0138633251190186, "stamp": null, "n": 1, "tries": 1, "ms": 11.088000028394163}
+{"ev": "ack", "idem": "w0-90", "subj": "d2", "at": 5.036738872528076, "stamp": null, "n": 1, "tries": 1, "ms": 21.484100027009845}
+{"ev": "ack", "idem": "w0-91", "subj": "d1", "at": 5.0712571144104, "stamp": null, "n": 1, "tries": 1, "ms": 13.33440002053976}
+{"ev": "ack", "idem": "w0-92", "subj": "d1", "at": 5.105098485946655, "stamp": null, "n": 1, "tries": 1, "ms": 12.150300084613264}
+{"ev": "ack", "idem": "w0-93", "subj": "d2", "at": 5.12436318397522, "stamp": null, "n": 1, "tries": 1, "ms": 13.040899997577071}
+{"ev": "ack", "idem": "w0-94", "subj": "d1", "at": 5.154527902603149, "stamp": null, "n": 1, "tries": 1, "ms": 14.526500017382205}
+{"ev": "ack", "idem": "w0-95", "subj": "d2", "at": 5.2333457469940186, "stamp": null, "n": 1, "tries": 1, "ms": 33.489099936559796}
+{"ev": "ack", "idem": "w0-96", "subj": "d2", "at": 5.286760330200195, "stamp": null, "n": 1, "tries": 1, "ms": 21.369999973103404}
+{"ev": "ack", "idem": "w0-97", "subj": "d1", "at": 5.333667278289795, "stamp": null, "n": 1, "tries": 1, "ms": 17.501399968750775}
+{"ev": "ack", "idem": "w0-98", "subj": "d1", "at": 5.3597424030303955, "stamp": null, "n": 1, "tries": 1, "ms": 14.563800068572164}
+{"ev": "ack", "idem": "w0-99", "subj": "d1", "at": 5.399566650390625, "stamp": null, "n": 1, "tries": 1, "ms": 17.263899906538427}
+{"ev": "ack", "idem": "w0-100", "subj": "d1", "at": 5.433946132659912, "stamp": null, "n": 1, "tries": 1, "ms": 11.724999989382923}
+{"ev": "ack", "idem": "w0-101", "subj": "d1", "at": 5.479413270950317, "stamp": null, "n": 1, "tries": 1, "ms": 14.852099935524166}
+{"ev": "ack", "idem": "w0-102", "subj": "d1", "at": 5.503023624420166, "stamp": null, "n": 1, "tries": 1, "ms": 15.624099993146956}
+{"ev": "error", "err": "OperationalError", "msg": "consuming input failed: server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
+{"ev": "error", "err": "OperationalError", "msg": "the connection is lost", "idem": "w0-103"}
+{"ev": "refused", "idem": "w0-103", "subj": "d1", "status": "ERROR", "detail": "OperationalError"}
